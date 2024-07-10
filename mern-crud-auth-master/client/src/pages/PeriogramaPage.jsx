@@ -20,6 +20,7 @@ function PeriogramaPage() {
     newArray2[index] = 0;
     setMovilidad1(newArray2);
   }
+  //comentario prueba
   //MOVILIDAD 1-------------------------------------------------------------------------------------------
   const [movilidad1, setMovilidad1] = useState([0, 0, 0, 0, 0, 0, 0, 0])
   const cambioMovilidad1 = (e, index) => {
