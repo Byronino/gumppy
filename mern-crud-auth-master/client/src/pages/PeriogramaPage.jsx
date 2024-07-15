@@ -81,6 +81,23 @@ function PeriogramaPage() {
     setmar1i(newArray);
   };
 
+  //PrOFUNDIDAD AL SONDAJE PRIMERA TABLA IZQUIERDA
+  const [prof1i, setprof1i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioProf1i = (e, index, n) => {
+    const newArray = prof1i.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return e.target.value;
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setprof1i(newArray);
+  };
+
 
   //DATOS PRIMERA TABLA DERECHA>>>>>>>>>>>>>>>>>>>>>>--------------------------------------------------------------------------
   const [dientes1d, setDientes1d] = useState([[21, false], [22, false], [23, false], [24, false], [25, false], [26, false], [27, false], [28, false]])
@@ -115,8 +132,7 @@ function PeriogramaPage() {
     <>
 
       <div className="color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
-        {mar1i}
-        {movilidad1}
+      
         {/*PRIMERA TABLA IZQUIERDA-----------------------------------------------------------   */}
         <div className="rounded w-1/3 " style={{ boxSizing: 'border-box' }}>
 
@@ -259,6 +275,30 @@ function PeriogramaPage() {
                           style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
                           value={margen}
                           onChange={(e) => cambioMar1i(e, index, index2)}
+                          onFocus={(e) => e.target.value = ''}
+                        />
+                      ))
+                    )}
+                  </th>
+                ))}
+              </tr>
+
+              {/*profundidad al sondaje tabla 1 izquierda-------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[6]}</th>
+
+                {prof1i.map((innerprof1i, index) => (
+                  <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
+                    {dientes1i[index][1] ? (
+                      <div></div>
+                    ) : (
+                      innerprof1i.map((prof, index2) => (
+                        <input
+                          key={`${index}-${index2}`} 
+                          style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
+                          value={prof}
+                          onChange={(e) => cambioProf1i(e, index, index2)}
                           onFocus={(e) => e.target.value = ''}
                         />
                       ))
