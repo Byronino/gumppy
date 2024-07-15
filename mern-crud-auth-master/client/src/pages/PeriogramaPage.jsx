@@ -4,7 +4,7 @@ import { Red } from "../components/ui/Red";
 import { useState } from "react";
 import { DienteLock } from "../components/ui/DienteLock";
 import { FurcaButton } from "../components/ui/FurcaButton";
-
+import { MiniRed } from "../components/ui/MiniRed";
 
 function PeriogramaPage() {
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
@@ -16,11 +16,11 @@ function PeriogramaPage() {
     const newArray = [...dientes1i];
     newArray[index][1] = !newArray[index][1];
     setDientes1i(newArray);
-    const newArray2 = [...movilidad1];
-    newArray2[index] = 0;
-    setMovilidad1(newArray2);
+    //const newArray2 = [...movilidad1];
+    //newArray2[index] = 0;
+    //setMovilidad1(newArray2);
   }
-  //comentario prueba
+
   //MOVILIDAD 1-------------------------------------------------------------------------------------------
   const [movilidad1, setMovilidad1] = useState([0, 0, 0, 0, 0, 0, 0, 0])
   const cambioMovilidad1 = (e, index) => {
@@ -37,15 +37,25 @@ function PeriogramaPage() {
 
   }
   //FURCA 1 IZQUIERDA-------------------------------------------------------------------------------------------
-  const [furca1d, setFurca1d] = useState([0, 0, 0, 0, 0, 0, 0, 0])
-  const cambioFurca1d = (index) => {
-    const newFurca = [...furca1d]
+  const [furca1i, setfurca1i] = useState([0, 0, 0, 0, 0, 0, 0, 0])
+  const cambiofurca1i = (index) => {
+    const newFurca = [...furca1i]
     let valor = newFurca[index] + 1
     if (valor === 4) valor = 0
     newFurca[index] = valor
-    setFurca1d(newFurca);
+    setfurca1i(newFurca);
 
   }
+
+  //SANGRADO AL SONDAJE VESTIBULAR SUPERIOR IZQUIERDO----------------------------------------------------
+  const [san1i, setsan1i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSan1i = (index, n) => {
+    const newsan1i = [...san1i]
+    newsan1i[index][n] = !newsan1i[index][n]
+    setsan1i(newsan1i);
+
+  }
+
   //DATOS PRIMERA TABLA DERECHA>>>>>>>>>>>>>>>>>>>>>>--------------------------------------------------------------------------
   const [dientes1d, setDientes1d] = useState([[21, false], [22, false], [23, false], [24, false], [25, false], [26, false], [27, false], [28, false]])
   const cambioDientes1d = (index) => {
@@ -78,11 +88,11 @@ function PeriogramaPage() {
   return (
     <>
 
-      <div className="color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px' }}>
+      <div className="color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+
         {/*PRIMERA TABLA IZQUIERDA-----------------------------------------------------------   */}
         <div className="rounded w-1/3 " style={{ boxSizing: 'border-box' }}>
-
-      
+          <h1>{san1i}</h1>
           {/*cabecera dela primera tabla-----------------------------------------------------------   */}
 
           <table style={{ tableLayout: 'fixed', width: '100%' }}>
@@ -126,7 +136,7 @@ function PeriogramaPage() {
                 ))}
               </tr>
 
-              {/*Implante??-----------------------------------------------------------   */}
+              {/*Implante-----------------------------------------------------------   */}
 
               <tr>
                 <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[1]}</th>
@@ -141,22 +151,45 @@ function PeriogramaPage() {
                   </th>
                 ))}
               </tr>
-              {/*Furca 1 d-----------------------------------------------------------   */}
+              {/*Furca 1 izquierda-----------------------------------------------------------   */}
 
               <tr>
                 <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[2]}</th>
-                {furca1d.map((furca1d, index) => (
+                {furca1i.map((furca1i, index) => (
 
                   <th key={index} className="border-black border rounded ">
-                    {(dientes1i[index][1] || implante1[index]) ? (
+                    {((dientes1i[index][1] || implante1[index]) || dientes1i[index][0] <= 15) ? (
                       <div></div>
                     ) :
                       (
-                        <FurcaButton onClick={() => { cambioFurca1d(index) }}>{furca1d}</FurcaButton>
+                        <FurcaButton onClick={() => { cambiofurca1i(index) }}>{furca1i}</FurcaButton>
+
                       )
                     }
 
                   </th>
+                ))}
+              </tr>
+
+
+              {/*sangrado al sondaje 1 izquierda------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[3]}</th>
+                {san1i.map((innersan1i, index) => (
+                  dientes1i[index][1] ? (
+                    <th key={index} className="border-black border rounded">
+                      <div></div>
+                    </th>
+                  ) : (
+                    <th key={index} className="border-black border rounded">
+                    {innersan1i.map((san, index2) => (
+                      
+                        <MiniRed onClick={() => cambioSan1i(index,index2)}>{san}</MiniRed>
+                      
+                    ))}
+                    </th>
+                  )
                 ))}
               </tr>
 
