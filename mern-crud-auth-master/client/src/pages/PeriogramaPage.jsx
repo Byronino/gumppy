@@ -5,6 +5,7 @@ import { useState } from "react";
 import { DienteLock } from "../components/ui/DienteLock";
 import { FurcaButton } from "../components/ui/FurcaButton";
 import { MiniRed } from "../components/ui/MiniRed";
+import { MiniBlue } from "../components/ui/MiniBlue";
 
 function PeriogramaPage() {
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
@@ -56,6 +57,22 @@ function PeriogramaPage() {
 
   }
 
+  //PLACA PRIMERA TABLA IZQUIERDA
+  const [placa1i, setplaca1i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioPlaca1i = (index, n) => {
+    const newplaca1i = [...placa1i]
+    newplaca1i[index][n] = !newplaca1i[index][n]
+    setplaca1i(newplaca1i)
+  }
+  //MARGEN GINGIVAL PRIMERA TABLA IZQUIERDA
+  const [mar1i, setmar1i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioMar1i = (e, index, n) => {
+    const newArray = [...mar1i];
+    newArray[index][n] = e.target.value;
+    setmar1i(newArray);
+  }
+
+
   //DATOS PRIMERA TABLA DERECHA>>>>>>>>>>>>>>>>>>>>>>--------------------------------------------------------------------------
   const [dientes1d, setDientes1d] = useState([[21, false], [22, false], [23, false], [24, false], [25, false], [26, false], [27, false], [28, false]])
   const cambioDientes1d = (index) => {
@@ -92,14 +109,14 @@ function PeriogramaPage() {
 
         {/*PRIMERA TABLA IZQUIERDA-----------------------------------------------------------   */}
         <div className="rounded w-1/3 " style={{ boxSizing: 'border-box' }}>
-          <h1>{san1i}</h1>
+
           {/*cabecera dela primera tabla-----------------------------------------------------------   */}
 
           <table style={{ tableLayout: 'fixed', width: '100%' }}>
             <thead>
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' }}></th>
+                <th style={{ padding: '2px', width: '15.5%' }}></th>
 
                 {dientes1i.map((dientes1i, index) => (
 
@@ -183,16 +200,67 @@ function PeriogramaPage() {
                     </th>
                   ) : (
                     <th key={index} className="border-black border rounded">
-                    {innersan1i.map((san, index2) => (
-                      
-                        <MiniRed onClick={() => cambioSan1i(index,index2)}>{san}</MiniRed>
-                      
-                    ))}
+                      {innersan1i.map((san, index2) => (
+
+                        <MiniRed onClick={() => cambioSan1i(index, index2)}>{san}</MiniRed>
+
+                      ))}
                     </th>
                   )
                 ))}
               </tr>
 
+
+              {/*placa tabla 1 izquierda------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[4]}</th>
+                {placa1i.map((innerplaca1i, index) => (
+                  dientes1i[index][1] ? (
+                    <th key={index} className="border-black border rounded">
+                      <div></div>
+                    </th>
+                  ) : (
+                    <th key={index} className="border-black border rounded">
+                      {innerplaca1i.map((placa, index2) => (
+
+                        <MiniBlue onClick={() => cambioPlaca1i(index, index2)}>{placa}</MiniBlue>
+
+                      ))}
+                    </th>
+                  )
+                ))}
+              </tr>
+
+
+              {/*margen gingival tabla 1 izquierda------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[5]}</th>
+
+                {mar1i.map((innermar1i, index) => (
+                  <th key={index} className="border-black border " style={{ padding: '2px', width: '12.5%' }} >
+                    {dientes1i[index][1] ? (
+                      <div></div>
+                    ) :
+                      (
+                        <th key={index} >
+                          {innermar1i.map((margen, index2) => (
+                            <input
+                              style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
+                              value={margen}
+                              onChange={(e) => cambioMar1i(e, index,index2)}
+                              onFocus={(e) => e.target.value = ''}
+                            />
+
+                          ))}
+                        </th>
+
+
+                      )}
+                  </th>
+                ))}
+              </tr>
 
             </tbody>
           </table>
