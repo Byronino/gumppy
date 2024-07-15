@@ -67,10 +67,19 @@ function PeriogramaPage() {
   //MARGEN GINGIVAL PRIMERA TABLA IZQUIERDA
   const [mar1i, setmar1i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
   const cambioMar1i = (e, index, n) => {
-    const newArray = [...mar1i];
-    newArray[index][n] = e.target.value;
+    const newArray = mar1i.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return e.target.value;
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
     setmar1i(newArray);
-  }
+  };
 
 
   //DATOS PRIMERA TABLA DERECHA>>>>>>>>>>>>>>>>>>>>>>--------------------------------------------------------------------------
@@ -106,7 +115,8 @@ function PeriogramaPage() {
     <>
 
       <div className="color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
-
+        {mar1i}
+        {movilidad1}
         {/*PRIMERA TABLA IZQUIERDA-----------------------------------------------------------   */}
         <div className="rounded w-1/3 " style={{ boxSizing: 'border-box' }}>
 
@@ -201,9 +211,9 @@ function PeriogramaPage() {
                   ) : (
                     <th key={index} className="border-black border rounded">
                       {innersan1i.map((san, index2) => (
-
-                        <MiniRed onClick={() => cambioSan1i(index, index2)}>{san}</MiniRed>
-
+                        <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan1i(index, index2)}>
+                          {san}
+                        </MiniRed>
                       ))}
                     </th>
                   )
@@ -224,7 +234,7 @@ function PeriogramaPage() {
                     <th key={index} className="border-black border rounded">
                       {innerplaca1i.map((placa, index2) => (
 
-                        <MiniBlue onClick={() => cambioPlaca1i(index, index2)}>{placa}</MiniBlue>
+                        <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca1i(index, index2)}>{placa}</MiniBlue>
 
                       ))}
                     </th>
@@ -239,25 +249,20 @@ function PeriogramaPage() {
                 <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[5]}</th>
 
                 {mar1i.map((innermar1i, index) => (
-                  <th key={index} className="border-black border " style={{ padding: '2px', width: '12.5%' }} >
+                  <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
                     {dientes1i[index][1] ? (
                       <div></div>
-                    ) :
-                      (
-                        <th key={index} >
-                          {innermar1i.map((margen, index2) => (
-                            <input
-                              style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
-                              value={margen}
-                              onChange={(e) => cambioMar1i(e, index,index2)}
-                              onFocus={(e) => e.target.value = ''}
-                            />
-
-                          ))}
-                        </th>
-
-
-                      )}
+                    ) : (
+                      innermar1i.map((margen, index2) => (
+                        <input
+                          key={`${index}-${index2}`} 
+                          style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
+                          value={margen}
+                          onChange={(e) => cambioMar1i(e, index, index2)}
+                          onFocus={(e) => e.target.value = ''}
+                        />
+                      ))
+                    )}
                   </th>
                 ))}
               </tr>
