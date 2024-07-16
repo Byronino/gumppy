@@ -11,7 +11,7 @@ import logo from "../images/logo.png"
 
 function PeriogramaPage() {
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
-  const nombres1 = ["Movilidad", "Implante", "Defecto de furca", "Sangrado al sondaje", "Placa", "Margen Gingival", "Profundidad la sondaje", "NIC"]
+  const nombres1 = ["Movilidad", "Implante", "Furca", "BOP", "Placa", "Mg", "Ps", "NIC"]
 
   //DATOS PRIMERA TABLA IZQUIERDA<<<<<<<<<<<<<<<<<<<<<--------------------------------------------------------------------------------------------
   const [dientes1i, setDientes1i] = useState([[18, false], [17, false], [16, false], [15, false], [14, false], [13, false], [12, false], [11, false]])
@@ -172,7 +172,7 @@ function PeriogramaPage() {
             {/*movilidad-----------------------------------------------------------   */}
             <tbody>
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[0]}</th>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[0]}</th>
 
                 {movilidad1.map((movilidad, index) => (
                   <th key={index} className="border-black border " style={{ padding: '2px', width: '12.5%' }} >
@@ -196,7 +196,7 @@ function PeriogramaPage() {
               {/*Implante-----------------------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[1]}</th>
+                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[1]}</th>
                 {implante1.map((implante, index) => (
                   <th key={index} className="border-black border rounded ">
                     {dientes1i[index][1] ? (
@@ -210,11 +210,11 @@ function PeriogramaPage() {
               </tr>
               {/*Furca 1 izquierda-----------------------------------------------------------   */}
 
-              <tr>
-                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[2]}</th>
+              <tr style={{ height: '2px', margin: 0}}>
+                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[2]}</th>
                 {furca1i.map((furca1i, index) => (
 
-                  <th key={index} className="border-black border rounded ">
+                  <th key={index} className="border-black border rounded "style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight:'3px'}}>
                     {((dientes1i[index][1] || implante1[index]) || dientes1i[index][0] <= 15) ? (
                       <div></div>
                     ) :
@@ -232,7 +232,7 @@ function PeriogramaPage() {
               {/*sangrado al sondaje 1 izquierda------------------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[3]}</th>
+                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[3]}</th>
                 {san1i.map((innersan1i, index) => (
                   dientes1i[index][1] ? (
                     <th key={index} className="border-black border rounded">
@@ -254,7 +254,7 @@ function PeriogramaPage() {
               {/*placa tabla 1 izquierda------------------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[4]}</th>
+                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[4]}</th>
                 {placa1i.map((innerplaca1i, index) => (
                   dientes1i[index][1] ? (
                     <th key={index} className="border-black border rounded">
@@ -276,7 +276,7 @@ function PeriogramaPage() {
               {/*margen gingival tabla 1 izquierda------------------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[5]}</th>
+                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[5]}</th>
 
                 {mar1i.map((innermar1i, index) => (
                   <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
@@ -300,7 +300,7 @@ function PeriogramaPage() {
               {/*profundidad al sondaje tabla 1 izquierda-------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[6]}</th>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[6]}</th>
 
                 {prof1i.map((innerprof1i, index) => (
                   <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
@@ -334,10 +334,10 @@ function PeriogramaPage() {
 
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[7]}</th>
+                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[7]}</th>
 
                 {diff1i.map((innernicf1i, index) => (
-                  <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
+                  <th key={index} className="border-black border bg-slate-200" style={{ padding: '2px', width: '12.5%' }}>
                     {dientes1i[index][1] ? (
                       <div></div>
                     ) : (
@@ -360,7 +360,7 @@ function PeriogramaPage() {
 
         {/*cabecera dela segunda tabla-----------------------------------------------------------   */}
 
-        <div className="rounded w-1/3 " style={{ boxSizing: 'border-box' }}>
+        <div className="rounded w-1/3 my-10" style={{ boxSizing: 'border-box' }}>
           {/*cabecera dela segunda tabla-----------------------------------------------------------   */}
 
           <table style={{ tableLayout: 'fixed', width: '100%' }}>
