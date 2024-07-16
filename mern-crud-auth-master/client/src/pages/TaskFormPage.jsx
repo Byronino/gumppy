@@ -57,6 +57,7 @@ export function TaskFormPage() {
   }, []);
 
   return (
+    <div className="color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
     <Card>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Label htmlFor="title">Title</Label>
@@ -85,5 +86,6 @@ export function TaskFormPage() {
         <Button>Save</Button>
       </form>
     </Card>
+    </div>
   );
 }

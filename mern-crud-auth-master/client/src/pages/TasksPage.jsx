@@ -12,6 +12,7 @@ export function TasksPage() {
 
   return (
     <>
+    <div className="color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
       {tasks.length === 0 && (
         <div className="flex justify-center items-center p-10">
           <div>
@@ -27,6 +28,7 @@ export function TasksPage() {
         {tasks.map((task) => (
           <TaskCard task={task} key={task._id} />
         ))}
+      </div>
       </div>
     </>
   );

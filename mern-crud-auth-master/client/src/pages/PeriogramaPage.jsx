@@ -6,10 +6,12 @@ import { DienteLock } from "../components/ui/DienteLock";
 import { FurcaButton } from "../components/ui/FurcaButton";
 import { MiniRed } from "../components/ui/MiniRed";
 import { MiniBlue } from "../components/ui/MiniBlue";
+import { useEffect } from "react";
+import logo from "../images/logo.png"
 
 function PeriogramaPage() {
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
-  const nombres1 = ["movilidad", "implante", "defecto de furca", "sangrado al sondaje", "Placa", "Margen Gingival", "Profundidad la sondaje"]
+  const nombres1 = ["Movilidad", "Implante", "Defecto de furca", "Sangrado al sondaje", "Placa", "Margen Gingival", "Profundidad la sondaje", "NIC"]
 
   //DATOS PRIMERA TABLA IZQUIERDA<<<<<<<<<<<<<<<<<<<<<--------------------------------------------------------------------------------------------
   const [dientes1i, setDientes1i] = useState([[18, false], [17, false], [16, false], [15, false], [14, false], [13, false], [12, false], [11, false]])
@@ -99,6 +101,18 @@ function PeriogramaPage() {
   };
 
 
+  // DIFERENCIA ENTRE PROFUNDIDAD Y MARGEN
+  const [diff1i, setdiff1i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+
+  useEffect(() => {
+    const newDiffArray = prof1i.map((innerArray, i) => {
+      return innerArray.map((value, j) => {
+        return value - mar1i[i][j];
+      });
+    });
+    setdiff1i(newDiffArray);
+  }, [prof1i, mar1i]);
+
   //DATOS PRIMERA TABLA DERECHA>>>>>>>>>>>>>>>>>>>>>>--------------------------------------------------------------------------
   const [dientes1d, setDientes1d] = useState([[21, false], [22, false], [23, false], [24, false], [25, false], [26, false], [27, false], [28, false]])
   const cambioDientes1d = (index) => {
@@ -132,9 +146,9 @@ function PeriogramaPage() {
     <>
 
       <div className="color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
-      
+
         {/*PRIMERA TABLA IZQUIERDA-----------------------------------------------------------   */}
-        <div className="rounded w-1/3 " style={{ boxSizing: 'border-box' }}>
+        <div className="rounded w-1/3 my-10" style={{ boxSizing: 'border-box',marginBottom: '50px' }}>
 
           {/*cabecera dela primera tabla-----------------------------------------------------------   */}
 
@@ -271,7 +285,7 @@ function PeriogramaPage() {
                     ) : (
                       innermar1i.map((margen, index2) => (
                         <input
-                          key={`${index}-${index2}`} 
+                          key={`${index}-${index2}`}
                           style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
                           value={margen}
                           onChange={(e) => cambioMar1i(e, index, index2)}
@@ -294,13 +308,46 @@ function PeriogramaPage() {
                       <div></div>
                     ) : (
                       innerprof1i.map((prof, index2) => (
+
                         <input
-                          key={`${index}-${index2}`} 
-                          style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
+                          key={`${index}-${index2}`}
+                          style={{
+                            width: '30%',
+                            height: '20px',
+                            fontSize: '12px',
+                            textAlign: "center",
+                            color: prof >= 4 ? 'red' : 'black'
+                          }}
                           value={prof}
                           onChange={(e) => cambioProf1i(e, index, index2)}
                           onFocus={(e) => e.target.value = ''}
                         />
+                      ))
+                    )}
+                  </th>
+                ))}
+              </tr>
+
+              {/*NIC tabla 1 izquierda-------------------------------------------   */}
+
+
+
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%' }}>{nombres1[7]}</th>
+
+                {diff1i.map((innernicf1i, index) => (
+                  <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
+                    {dientes1i[index][1] ? (
+                      <div></div>
+                    ) : (
+                      innernicf1i.map((prof, index2) => (
+                        <span
+                          key={`${index}-${index2}`}
+                          style={{ width: '30%', display: 'inline-block', textAlign: "center", fontSize: '12px' }}
+                        >
+                          {prof}
+                        </span>
                       ))
                     )}
                   </th>
@@ -376,7 +423,11 @@ function PeriogramaPage() {
           </table>
         </div>
 
+        <div>
+        
+        </div>
       </div >
+      
     </>
   )
 }

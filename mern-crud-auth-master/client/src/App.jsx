@@ -41,11 +41,11 @@ function App() {
                   <Route path="/prueba" element={<PruebaPage />} />
                 </Route>
               </Routes>
-
-            </main>
-            <footer>
+              <footer>
               <Footer />
             </footer>
+            </main>
+            
           </BrowserRouter>
         </PruebaProvider>
       </TaskProvider>
