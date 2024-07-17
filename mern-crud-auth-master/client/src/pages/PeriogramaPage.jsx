@@ -113,22 +113,24 @@ function PeriogramaPage() {
     setdiff1i(newDiffArray);
   }, [prof1i, mar1i]);
 
-  //DATOS PRIMERA TABLA DERECHA>>>>>>>>>>>>>>>>>>>>>>--------------------------------------------------------------------------
+  //DATOS PRIMERA TABLA DERECHA>>>>>>>>>>>>>>>>>>>>>>-----------------------------------------------
   const [dientes1d, setDientes1d] = useState([[21, false], [22, false], [23, false], [24, false], [25, false], [26, false], [27, false], [28, false]])
   const cambioDientes1d = (index) => {
     const newArray = [...dientes1d];
     newArray[index][1] = !newArray[index][1];
     setDientes1d(newArray);
-    const newArray2 = [...movilidad2];
-    newArray2[index] = 0;
-    setMovilidad2(newArray2);
+    //const newArray2 = [...movilidad2];
+    //newArray2[index] = 0;
+    //setMovilidad2(newArray2);
   }
+  //MOVILIDAD 2 TABLA DERECHA
   const [movilidad2, setMovilidad2] = useState([0, 0, 0, 0, 0, 0, 0, 0])
   const cambioMovilidad2 = (e, index) => {
     const newArray = [...movilidad2];
     newArray[index] = e.target.value;
     setMovilidad2(newArray);
   }
+  //IMPLANTE 2 TABLA DERECHA
   const [implante2, setImplante2] = useState([false, false, false, false, false, false, false, false])
   const cambioImplante2 = (index) => {
     const newImplante2 = [...implante2]
@@ -136,7 +138,76 @@ function PeriogramaPage() {
     setImplante2(newImplante2);
 
   }
+  //FURCA 1 DERECHA-------------------------------------------------------------------------------------------
+  const [furca1d, setfurca1d] = useState([0, 0, 0, 0, 0, 0, 0, 0])
+  const cambiofurca1d = (index) => {
+    const newFurca = [...furca1d]
+    let valor = newFurca[index] + 1
+    if (valor === 4) valor = 0
+    newFurca[index] = valor
+    setfurca1d(newFurca);
 
+  }
+  //SANGRADO AL SONDAJE VESTIBULAR SUPERIOR DERECHO----------------------------------------------------
+  const [san1d, setsan1d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSan1d = (index, n) => {
+    const newsan1d = [...san1d]
+    newsan1d[index][n] = !newsan1d[index][n]
+    setsan1d(newsan1d);
+
+  }
+  //PLACA PRIMERA TABLA IZQUIERDA
+  const [placa1d, setplaca1d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioPlaca1d = (index, n) => {
+    const newplaca1d = [...placa1d]
+    newplaca1d[index][n] = !newplaca1d[index][n]
+    setplaca1d(newplaca1d)
+  }
+  //MARGEN GINGIVAL PRIMERA TABLA DERECHA 
+  const [mar1d, setmar1d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioMar1d = (e, index, n) => {
+    const newArray = mar1d.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return e.target.value;
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setmar1d(newArray);
+  };
+
+  //PrOFUNDIDAD AL SONDAJE PRIMERA TABLA DERECHA
+  const [prof1d, setprof1d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioProf1d = (e, index, n) => {
+    const newArray = prof1d.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return e.target.value;
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setprof1d(newArray);
+  };
+
+  // DIFERENCIA ENTRE PROFUNDIDAD Y MARGEN
+  const [diff1d, setdiff1d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+
+  useEffect(() => {
+    const newDiffArray = prof1d.map((innerArray, i) => {
+      return innerArray.map((value, j) => {
+        return value - mar1d[i][j];
+      });
+    });
+    setdiff1d(newDiffArray);
+  }, [prof1d, mar1d]);
 
   const dientes2i = [48, 47, 46, 45, 44, 43, 42, 41]
   const dientes2d = [31, 32, 33, 34, 35, 36, 37, 38]
@@ -148,7 +219,7 @@ function PeriogramaPage() {
       <div className="color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
 
         {/*PRIMERA TABLA IZQUIERDA-----------------------------------------------------------   */}
-        <div className="rounded w-1/3 my-10" style={{ boxSizing: 'border-box',marginBottom: '50px' }}>
+        <div className="rounded w-1/3 my-10" style={{ boxSizing: 'border-box', marginBottom: '50px' }}>
 
           {/*cabecera dela primera tabla-----------------------------------------------------------   */}
 
@@ -172,7 +243,7 @@ function PeriogramaPage() {
             {/*movilidad-----------------------------------------------------------   */}
             <tbody>
               <tr>
-                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[0]}</th>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[0]}</th>
 
                 {movilidad1.map((movilidad, index) => (
                   <th key={index} className="border-black border " style={{ padding: '2px', width: '12.5%' }} >
@@ -196,7 +267,7 @@ function PeriogramaPage() {
               {/*Implante-----------------------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[1]}</th>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[1]}</th>
                 {implante1.map((implante, index) => (
                   <th key={index} className="border-black border rounded ">
                     {dientes1i[index][1] ? (
@@ -210,11 +281,11 @@ function PeriogramaPage() {
               </tr>
               {/*Furca 1 izquierda-----------------------------------------------------------   */}
 
-              <tr style={{ height: '2px', margin: 0}}>
-                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[2]}</th>
+              <tr style={{ height: '2px', margin: 0 }}>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[2]}</th>
                 {furca1i.map((furca1i, index) => (
 
-                  <th key={index} className="border-black border rounded "style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight:'3px'}}>
+                  <th key={index} className="border-black border rounded " style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight: '3px' }}>
                     {((dientes1i[index][1] || implante1[index]) || dientes1i[index][0] <= 15) ? (
                       <div></div>
                     ) :
@@ -232,7 +303,7 @@ function PeriogramaPage() {
               {/*sangrado al sondaje 1 izquierda------------------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[3]}</th>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[3]}</th>
                 {san1i.map((innersan1i, index) => (
                   dientes1i[index][1] ? (
                     <th key={index} className="border-black border rounded">
@@ -254,7 +325,7 @@ function PeriogramaPage() {
               {/*placa tabla 1 izquierda------------------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[4]}</th>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[4]}</th>
                 {placa1i.map((innerplaca1i, index) => (
                   dientes1i[index][1] ? (
                     <th key={index} className="border-black border rounded">
@@ -276,7 +347,7 @@ function PeriogramaPage() {
               {/*margen gingival tabla 1 izquierda------------------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[5]}</th>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[5]}</th>
 
                 {mar1i.map((innermar1i, index) => (
                   <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
@@ -300,7 +371,7 @@ function PeriogramaPage() {
               {/*profundidad al sondaje tabla 1 izquierda-------------------------------------------   */}
 
               <tr>
-                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[6]}</th>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[6]}</th>
 
                 {prof1i.map((innerprof1i, index) => (
                   <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
@@ -330,11 +401,8 @@ function PeriogramaPage() {
 
               {/*NIC tabla 1 izquierda-------------------------------------------   */}
 
-
-
-
               <tr>
-                <th style={{ padding: '2px', width: '12.5%' , fontWeight: 'bold', fontSize: '1.2em'}}>{nombres1[7]}</th>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[7]}</th>
 
                 {diff1i.map((innernicf1i, index) => (
                   <th key={index} className="border-black border bg-slate-200" style={{ padding: '2px', width: '12.5%' }}>
@@ -353,6 +421,7 @@ function PeriogramaPage() {
                   </th>
                 ))}
               </tr>
+
 
             </tbody>
           </table>
@@ -417,6 +486,143 @@ function PeriogramaPage() {
                 ))}
               </tr>
 
+              {/*Furca 1 derecha-----------------------------------------------------------   */}
+
+              <tr style={{ height: '2px', margin: 0 }}>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                {furca1d.map((furca1d, index) => (
+
+                  <th key={index} className="border-black border rounded " style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight: '3px' }}>
+                    {((dientes1d[index][1] || implante2[index]) || dientes1d[index][0] < 26) ? (
+                      <div></div>
+                    ) :
+                      (
+                        <FurcaButton onClick={() => { cambiofurca1d(index) }}>{furca1d}</FurcaButton>
+
+                      )
+                    }
+
+                  </th>
+                ))}
+              </tr>
+
+              {/*sangrado al sondaje 1 derecha------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                {san1d.map((innersan1d, index) => (
+                  dientes1d[index][1] ? (
+                    <th key={index} className="border-black border rounded">
+                      <div></div>
+                    </th>
+                  ) : (
+                    <th key={index} className="border-black border rounded">
+                      {innersan1d.map((san, index2) => (
+                        <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan1d(index, index2)}>
+                          {san}
+                        </MiniRed>
+                      ))}
+                    </th>
+                  )
+                ))}
+              </tr>
+              {/*placa tabla 1 derecha------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                {placa1d.map((innerplaca1d, index) => (
+                  dientes1d[index][1] ? (
+                    <th key={index} className="border-black border rounded">
+                      <div></div>
+                    </th>
+                  ) : (
+                    <th key={index} className="border-black border rounded">
+                      {innerplaca1d.map((placa, index2) => (
+
+                        <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca1d(index, index2)}>{placa}</MiniBlue>
+
+                      ))}
+                    </th>
+                  )
+                ))}
+              </tr>
+              {/*margen gingival tabla 1 derecha------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+
+                {mar1d.map((innermar1d, index) => (
+                  <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
+                    {dientes1d[index][1] ? (
+                      <div></div>
+                    ) : (
+                      innermar1d.map((margen, index2) => (
+                        <input
+                          key={`${index}-${index2}`}
+                          style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
+                          value={margen}
+                          onChange={(e) => cambioMar1d(e, index, index2)}
+                          onFocus={(e) => e.target.value = ''}
+                        />
+                      ))
+                    )}
+                  </th>
+                ))}
+              </tr>
+              {/*profundidad al sondaje tabla 1 DERECHA------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+
+                {prof1d.map((innerprof1d, index) => (
+                  <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
+                    {dientes1d[index][1] ? (
+                      <div></div>
+                    ) : (
+                      innerprof1d.map((prof, index2) => (
+
+                        <input
+                          key={`${index}-${index2}`}
+                          style={{
+                            width: '30%',
+                            height: '20px',
+                            fontSize: '12px',
+                            textAlign: "center",
+                            color: prof >= 4 ? 'red' : 'black'
+                          }}
+                          value={prof}
+                          onChange={(e) => cambioProf1d(e, index, index2)}
+                          onFocus={(e) => e.target.value = ''}
+                        />
+                      ))
+                    )}
+                  </th>
+                ))}
+              </tr>
+
+              {/*NIC tabla 1 izquierda-------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+
+                {diff1d.map((innernicf1d, index) => (
+                  <th key={index} className="border-black border bg-slate-200" style={{ padding: '2px', width: '12.5%' }}>
+                    {dientes1d[index][1] ? (
+                      <div></div>
+                    ) : (
+                      innernicf1d.map((prof, index2) => (
+                        <span
+                          key={`${index}-${index2}`}
+                          style={{ width: '30%', display: 'inline-block', textAlign: "center", fontSize: '12px' }}
+                        >
+                          {prof}
+                        </span>
+                      ))
+                    )}
+                  </th>
+                ))}
+              </tr>
+
 
 
             </tbody>
@@ -424,10 +630,10 @@ function PeriogramaPage() {
         </div>
 
         <div>
-        
+
         </div>
       </div >
-      
+
     </>
   )
 }
