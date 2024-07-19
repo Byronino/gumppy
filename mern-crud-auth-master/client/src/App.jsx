@@ -11,6 +11,7 @@ import { TasksPage } from "./pages/TasksPage";
 import { TaskProvider } from "./context/tasksContext";
 import { PruebaPage } from "./pages/PruebaPage";
 import { PruebaProvider } from "./context/pruebaContext";
+import { PeriodontogramaProvider } from "./context/periodontogramaContext";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import PeriogramaPage from "./pages/PeriogramaPage";
@@ -19,7 +20,7 @@ function App() {
   return (
     <AuthProvider>
       <TaskProvider>
-        <PruebaProvider>
+        <PeriodontogramaProvider>
           <BrowserRouter>
             <header>
               <Header />
@@ -33,12 +34,14 @@ function App() {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/periograma" element={<PeriogramaPage />} />
+                <Route path="/crear_periodontograma" element={<PeriogramaPage/>}></Route>
                 <Route element={<ProtectedRoute />}>
                   <Route path="/tasks" element={<TasksPage />} />
                   <Route path="/add-task" element={<TaskFormPage />} />
                   <Route path="/tasks/:id" element={<TaskFormPage />} />
                   <Route path="/profile" element={<h1>Profile</h1>} />
                   <Route path="/prueba" element={<PruebaPage />} />
+                  
                 </Route>
               </Routes>
               <footer>
@@ -47,7 +50,7 @@ function App() {
             </main>
             
           </BrowserRouter>
-        </PruebaProvider>
+        </PeriodontogramaProvider>
       </TaskProvider>
     </AuthProvider>
   );

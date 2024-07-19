@@ -7,10 +7,17 @@ import { FurcaButton } from "../components/ui/FurcaButton";
 import { MiniRed } from "../components/ui/MiniRed";
 import { MiniBlue } from "../components/ui/MiniBlue";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import logo from "../images/logo.png"
 import placeholder from "../images/placeholder.png"
-
+import { Button } from "../components/ui/Button";
+import { useNavigate, useParams } from "react-router-dom";
+import { usePeriodontograma } from "../context/periodontogramaContext";
+import { createPeriodontograma } from "../../../src/controllers/periodontograma.controller";
+import axios from "axios";
 function PeriogramaPage() {
+
+
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
   const nombres1 = ["Movilidad", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C."]
 
@@ -325,8 +332,8 @@ function PeriogramaPage() {
 
   const cambiofurca2i = (index, n) => {
     const newfurca2i = [...furca2i]
-    let valor = newfurca2i[index][n]+ 1
-    if (valor===4) valor= 0
+    let valor = newfurca2i[index][n] + 1
+    if (valor === 4) valor = 0
     newfurca2i[index][n] = valor
     setfurca2i(newfurca2i);
 
@@ -346,6 +353,18 @@ function PeriogramaPage() {
   const dientes2i = [48, 47, 46, 45, 44, 43, 42, 41]
   const dientes2d = [31, 32, 33, 34, 35, 36, 37, 38]
 
+
+  //Logica para la bd
+  const { register, handleSubmit } = useForm();
+  const navigate= useNavigate()
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post('/api/crear_periodontograma', {movilidad1})
+    } catch (error) {
+      console.log(error);
+      // window.location.href = "/";
+    }
+  };
 
   return (
     <>
@@ -902,28 +921,28 @@ function PeriogramaPage() {
 
               <tr>
                 <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[2]}</th>
-                {furca2i.map((innerfurca2i, index) => 
-                (((dientes1i[index][1]|| implante1[index]) || dientes1i[index][0] <=13 || dientes1i[index][0] ===15) ? (
-                    <th key={index} className="border-black border rounded">
-                      <div></div>
-                    </th>
-                  ) : (
-                    <th key={index} className="border-black border rounded " style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight: '3px' }}>
-                      {innerfurca2i.map((san, index2) => (
-                        <FurcaButton onClick={() => { cambiofurca2i(index, index2) }}>{san}</FurcaButton>
-                       
-                      ))}
-                    </th>
-                  )
+                {furca2i.map((innerfurca2i, index) =>
+                (((dientes1i[index][1] || implante1[index]) || dientes1i[index][0] <= 13 || dientes1i[index][0] === 15) ? (
+                  <th key={index} className="border-black border rounded">
+                    <div></div>
+                  </th>
+                ) : (
+                  <th key={index} className="border-black border rounded " style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight: '3px' }}>
+                    {innerfurca2i.map((san, index2) => (
+                      <FurcaButton key={`${index}-${index2}`} onClick={() => { cambiofurca2i(index, index2) }}>{san}</FurcaButton>
+
+                    ))}
+                  </th>
+                )
                 ))}
               </tr>
 
 
-              
-                
-             
-                   
-                
+
+
+
+
+
 
 
 
@@ -991,6 +1010,12 @@ function PeriogramaPage() {
             </tbody>
           </table>
         </div >
+
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* your form fields here */}
+          <button type="submit">Save to Database</button>
+        </form>
+
       </div >
 
     </>

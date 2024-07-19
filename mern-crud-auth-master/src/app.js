@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes.js";
 import taksRoutes from "./routes/tasks.routes.js";
 import pruebaRoutes from "./routes/prueba.routes.js"
+import periodontogramaRoutes from "./routes/periodontograma.routes.js"
 import { FRONTEND_URL } from "./config.js";
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api", taksRoutes);
 app.use("/api",pruebaRoutes)
+app.use("/api",periodontogramaRoutes)
 
 if (process.env.NODE_ENV === "production") {
   const path = await import("path");
