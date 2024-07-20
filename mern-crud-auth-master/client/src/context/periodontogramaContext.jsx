@@ -26,7 +26,7 @@ export function PeriodontogramaProvider({ children }){
         <PeriodontogramaContext.Provider
           value={{
             periodontograma,
-            createPeriodontogramaRequest,
+            createPeriodontograma,
           }}
         >
           {children}

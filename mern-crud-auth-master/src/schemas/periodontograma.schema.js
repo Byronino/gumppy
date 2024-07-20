@@ -1,7 +1,8 @@
-import {z} from 'zod';
+import { z } from 'zod';
 
 export const createPeriodontogramaSchema = z.object({
-    movilidad1: z.object({
-      required_error: "Nombre is required",
-    }),
-  });
+  dientes1i: z.array(z.tuple([z.number(), z.boolean()])),
+  movilidad1: z.array(z.number()),
+  implante1: z.array(z.boolean()),
+  san1i: z.array(z.tuple([z.boolean(), z.boolean(), z.boolean()])),
+});

@@ -36,7 +36,7 @@ function PeriogramaPage() {
   const [movilidad1, setMovilidad1] = useState([0, 0, 0, 0, 0, 0, 0, 0])
   const cambioMovilidad1 = (e, index) => {
     const newArray = [...movilidad1];
-    newArray[index] = e.target.value;
+    newArray[index] = Number(e.target.value);
     setMovilidad1(newArray);
   }
   //IMPLANTE 1-------------------------------------------------------------------------------------------
@@ -355,16 +355,59 @@ function PeriogramaPage() {
 
 
   //Logica para la bd
-  const { register, handleSubmit } = useForm();
-  const navigate= useNavigate()
+  const { createPeriodontograma } = usePeriodontograma();
+  const navigate = useNavigate();
+  const params = useParams();
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('/api/crear_periodontograma', {movilidad1})
+      createPeriodontograma({
+        ...data,
+      });
+
+
+      navigate("/");
     } catch (error) {
       console.log(error);
       // window.location.href = "/";
     }
   };
+  const periodontogramaData = {
+    dientes1i: [[18, false], [17, false], [16, false], [15, false], [14, false], [13, false], [12, false], [11, false]],
+    movilidad1: [0, 0, 0, 0, 0, 0, 0, 0],
+    implante1: [false, false, false, false, false, false, false, false],
+    san1i: [
+      [false, false, false],
+      [false, false, false],
+      [false, false, false],
+      [false, false, false],
+      [false, false, false],
+      [false, false, false],
+      [false, false, false],
+      [false, false, false]
+    ]
+  };
+  const patientData = {
+    dientes1i: dientes1i,
+    movilidad1: movilidad1,
+    implante1: implante1,
+    san1i: san1i
+  };
+  useEffect(() => {
+    const patientData = {
+      dientes1i: dientes1i,
+      movilidad1: Number(movilidad1),
+      implante1: implante1,
+      san1i: san1i
+    };
+    // Send patientData to your Mongoose model
+  }, [dientes1i, movilidad1, implante1, san1i]);
 
   return (
     <>
@@ -1011,10 +1054,9 @@ function PeriogramaPage() {
           </table>
         </div >
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {/* your form fields here */}
-          <button type="submit">Save to Database</button>
-        </form>
+        <button onClick={() => onSubmit(patientData)}>Save Patient Data</button>
+
+
 
       </div >
 
