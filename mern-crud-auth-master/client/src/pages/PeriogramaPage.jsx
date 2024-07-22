@@ -268,7 +268,7 @@ function PeriogramaPage() {
 
 
 
-  //MARGEN GINGIVAL PRIMERA TABLA DERECHA 
+  //MARGEN GINGIVAL SEGUNDA TABLA IZQUIERDA
   const [mar2i, setmar2i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
   const cambioMar2i = (e, index, n) => {
     const newArray = mar2i.map((innerArray, i) => {
@@ -343,6 +343,82 @@ function PeriogramaPage() {
 
 
 
+
+
+
+
+
+  //DATOS SEGUNDA TABLA DERECHA
+  //MARGEN GINGIVAL SEGUNDA TABLA IZQUIERDA
+  const [mar2d, setmar2d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioMar2d = (e, index, n) => {
+    const newArray = mar2d.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return e.target.value;
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setmar2d(newArray);
+  };
+  //PrOFUNDIDAD AL SONDAJE SEGUNDA TABLA DERECHA
+  const [prof2d, setprof2d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioProf2d = (e, index, n) => {
+    const newArray = prof2d.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return e.target.value;
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setprof2d(newArray);
+  };
+
+  // DIFERENCIA ENTRE PROFUNDIDAD Y MARGEN segunda tabla derecha
+  const [diff2d, setdiff2d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+
+  useEffect(() => {
+    const newDiffArray = prof2d.map((innerArray, i) => {
+      return innerArray.map((value, j) => {
+        return value - mar2d[i][j];
+      });
+    });
+    setdiff2d(newDiffArray);
+  }, [prof2d, mar2d]);
+  //PLACA SEGUNDA TABLA DERECHA
+  const [placa2d, setplaca2d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioPlaca2d = (index, n) => {
+    const newplaca2d = [...placa2d]
+    newplaca2d[index][n] = !newplaca2d[index][n]
+    setplaca2d(newplaca2d)
+  }
+  //SANGRADO AL SONDAJE SEGUNDA TABLA derecha----------------------------------------------------
+  const [san2d, setsan2d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSan2d = (index, n) => {
+    const newsan2d = [...san2d]
+    newsan2d[index][n] = !newsan2d[index][n]
+    setsan2d(newsan2d);
+
+  }
+ //FURCA 2 DERECHA------------------------------------------------------------------------------
+ const [furca2d, setfurca2d] = useState([[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]])
+
+ const cambiofurca2d = (index, n) => {
+   const newfurca2d = [...furca2d]
+   let valor = newfurca2d[index][n] + 1
+   if (valor === 4) valor = 0
+   newfurca2d[index][n] = valor
+   setfurca2d(newfurca2d);
+
+ }
 
 
 
@@ -980,37 +1056,7 @@ function PeriogramaPage() {
                 ))}
               </tr>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              {/*
-            <tr>
-              <th style={{ padding: '2px', width: '15.5%' }}></th>
-
-              {dientes1i.map((dientes1i, index) => (
-
-                <th key={index} className="border-black border rounded " style={{ fontWeight: 'bold', fontSize: '1.2em' }}>
-                  <DienteLock onClick={() => { cambioDientes1i(index) }}>{dientes1i}</DienteLock>
-                </th>
-              ))}
-            </tr>
-            <Dientes1iFunction arreglo = {dientes1i} funcion={cambioDientes1i}></Dientes1iFunction>*/}
+            
 
             </tbody>
           </table>
@@ -1020,29 +1066,54 @@ function PeriogramaPage() {
         {/*SEGUNDA TABLA derecha-----------------------------------------------------------   */}
         <div className="rounded w-1/3 my-10" style={{ boxSizing: 'border-box' }}>
 
-          {/*cabecera dela primera tabla-----------------------------------------------------------   */}
+          {/*cabecera dela segunda tabla derecha------------------------------------------------   */}
 
           <table style={{ tableLayout: 'fixed', width: '100%' }}>
-            {/*margen gingival tabla 1 derecha------------------------------------------------------   */}
             <thead>
               <tr>
                 <th style={{ padding: '2px', width: '15.5%' }}></th></tr>
             </thead>
             <tbody>
+
+              {/*NIC tabla 1 derecha-------------------------------------------   */}
+
               <tr>
                 <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
 
-                {mar1d.map((innermar1d, index) => (
+                {diff2d.map((innernicf2d, index) => (
+                  <th key={index} className="border-black border bg-slate-200" style={{ padding: '2px', width: '12.5%' }}>
+                    {dientes1d[index][1] ? (
+                      <div></div>
+                    ) : (
+                      innernicf2d.map((prof, index2) => (
+                        <span
+                          key={`${index}-${index2}`}
+                          style={{ width: '30%', display: 'inline-block', textAlign: "center", fontSize: '12px' }}
+                        >
+                          {prof}
+                        </span>
+                      ))
+                    )}
+                  </th>
+                ))}
+              </tr>
+
+              {/*margen gingival tabla 2 derecha------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+
+                {mar2d.map((innermar2d, index) => (
                   <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
                     {dientes1d[index][1] ? (
                       <div></div>
                     ) : (
-                      innermar1d.map((margen, index2) => (
+                      innermar2d.map((margen, index2) => (
                         <input
                           key={`${index}-${index2}`}
                           style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
                           value={margen}
-                          onChange={(e) => cambioMar1d(e, index, index2)}
+                          onChange={(e) => cambioMar2d(e, index, index2)}
                           onFocus={(e) => e.target.value = ''}
                         />
                       ))
@@ -1050,11 +1121,107 @@ function PeriogramaPage() {
                   </th>
                 ))}
               </tr>
+
+              {/*profundidad al sondaje tabla 2 DERECHA------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+
+                {prof2d.map((innerprof2d, index) => (
+                  <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
+                    {dientes1d[index][1] ? (
+                      <div></div>
+                    ) : (
+                      innerprof2d.map((prof, index2) => (
+
+                        <input
+                          key={`${index}-${index2}`}
+                          style={{
+                            width: '30%',
+                            height: '20px',
+                            fontSize: '12px',
+                            textAlign: "center",
+                            color: prof >= 4 ? 'red' : 'black'
+                          }}
+                          value={prof}
+                          onChange={(e) => cambioProf2d(e, index, index2)}
+                          onFocus={(e) => e.target.value = ''}
+                        />
+                      ))
+                    )}
+                  </th>
+                ))}
+              </tr>
+
+              {/*placa tabla 2 derecha------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                {placa2d.map((innerplaca2d, index) => (
+                  dientes1d[index][1] ? (
+                    <th key={index} className="border-black border rounded">
+                      <div></div>
+                    </th>
+                  ) : (
+                    <th key={index} className="border-black border rounded">
+                      {innerplaca2d.map((placa, index2) => (
+
+                        <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca2d(index, index2)}>{placa}</MiniBlue>
+
+                      ))}
+                    </th>
+                  )
+                ))}
+              </tr>
+
+              {/*sangrado al sondaje 2 derecha------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                {san2d.map((innersan2d, index) => (
+                  dientes1d[index][1] ? (
+                    <th key={index} className="border-black border rounded">
+                      <div></div>
+                    </th>
+                  ) : (
+                    <th key={index} className="border-black border rounded">
+                      {innersan2d.map((san, index2) => (
+                        <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan2d(index, index2)}>
+                          {san}
+                        </MiniRed>
+                      ))}
+                    </th>
+                  )
+                ))}
+              </tr>
+
+              {/*FURCA 2 derecha------------------------------------------------------   */}
+
+              <tr>
+                <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                {furca2d.map((innerfurca2d, index) =>
+                (((dientes1d[index][1] || implante2[index]) || dientes1d[index][0] < 24 || dientes1d[index][0] === 25) ? (
+                  <th key={index} className="border-black border rounded">
+                    <div></div>
+                  </th>
+                ) : (
+                  <th key={index} className="border-black border rounded " style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight: '3px' }}>
+                    {innerfurca2d.map((san, index2) => (
+                      <FurcaButton key={`${index}-${index2}`} onClick={() => { cambiofurca2d(index, index2) }}>{san}</FurcaButton>
+
+                    ))}
+                  </th>
+                )
+                ))}
+              </tr>
+
+
+
             </tbody>
           </table>
         </div >
 
-        <button onClick={() => onSubmit(patientData)}>Save Patient Data</button>
+        {/**<button onClick={() => onSubmit(patientData)}>Save Patient Data</button>**/}
 
 
 
