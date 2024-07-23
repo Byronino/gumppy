@@ -83,7 +83,7 @@ function PeriogramaPage() {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return e.target.value;
+            return Number(e.target.value);
           }
           return value;
         });
@@ -100,7 +100,7 @@ function PeriogramaPage() {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return e.target.value;
+            return Number(e.target.value);
           }
           return value;
         });
@@ -155,7 +155,7 @@ function PeriogramaPage() {
   const [movilidad2, setMovilidad2] = useState([0, 0, 0, 0, 0, 0, 0, 0])
   const cambioMovilidad2 = (e, index) => {
     const newArray = [...movilidad2];
-    newArray[index] = e.target.value;
+    newArray[index] = Number(e.target.value);
     setMovilidad2(newArray);
   }
   //IMPLANTE 2 TABLA DERECHA
@@ -198,7 +198,7 @@ function PeriogramaPage() {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return e.target.value;
+            return Number(e.target.value);
           }
           return value;
         });
@@ -215,7 +215,7 @@ function PeriogramaPage() {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return e.target.value;
+            return Number(e.target.value);
           }
           return value;
         });
@@ -277,7 +277,7 @@ function PeriogramaPage() {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return e.target.value;
+            return Number(e.target.value);
           }
           return value;
         });
@@ -293,7 +293,7 @@ function PeriogramaPage() {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return e.target.value;
+            return Number(e.target.value);
           }
           return value;
         });
@@ -358,7 +358,7 @@ function PeriogramaPage() {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return e.target.value;
+            return Number(e.target.value);
           }
           return value;
         });
@@ -374,7 +374,7 @@ function PeriogramaPage() {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return e.target.value;
+            return Number(e.target.value);
           }
           return value;
         });
@@ -428,206 +428,356 @@ function PeriogramaPage() {
 
 
 
-//DATOS TERCERA TABLA IZQUIERDA<<<<<<<<<<<<<<<<<<<<<--------------------------------------------------
-const [dientes2i, setDientes2i] = useState([[48, false], [47, false], [46, false], [45, false], [44, false], [43, false], [42, false], [41, false]])
-const cambioDientes2i = (index) => {
-  const newArray = [...dientes2i];
-  newArray[index][1] = !newArray[index][1];
-  setDientes2i(newArray);
- 
-}
+  //DATOS TERCERA TABLA IZQUIERDA<<<<<<<<<<<<<<<<<<<<<--------------------------------------------------
+  const [dientes2i, setDientes2i] = useState([[48, false], [47, false], [46, false], [45, false], [44, false], [43, false], [42, false], [41, false]])
+  const cambioDientes2i = (index) => {
+    const newArray = [...dientes2i];
+    newArray[index][1] = !newArray[index][1];
+    setDientes2i(newArray);
 
-//MOVILIDAD 3-------------------------------------------------------------------------------------------
-const [movilidad3, setMovilidad3] = useState([0, 0, 0, 0, 0, 0, 0, 0])
-const cambioMovilidad3 = (e, index) => {
-  const newArray = [...movilidad3];
-  newArray[index] = Number(e.target.value);
-  setMovilidad3(newArray);
-}
-//IMPLANTE 3-------------------------------------------------------------------------------------------
-const [implante3, setImplante3] = useState([false, false, false, false, false, false, false, false])
-const cambioImplante3 = (index) => {
-  const newImplante3 = [...implante3]
-  newImplante3[index] = !newImplante3[index]
-  setImplante3(newImplante3);
+  }
 
-}
-//FURCA 3 IZQUIERDA-----------------------------------------------------------------------------------
-const [furca3i, setfurca3i] = useState([0, 0, 0, 0, 0, 0, 0, 0])
-const cambiofurca3i = (index) => {
-  const newFurca = [...furca3i]
-  let valor = newFurca[index] + 1
-  if (valor === 4) valor = 0
-  newFurca[index] = valor
-  setfurca3i(newFurca);
+  //MOVILIDAD 3-------------------------------------------------------------------------------------------
+  const [movilidad3, setMovilidad3] = useState([0, 0, 0, 0, 0, 0, 0, 0])
+  const cambioMovilidad3 = (e, index) => {
+    const newArray = [...movilidad3];
+    newArray[index] = Number(e.target.value);
+    setMovilidad3(newArray);
+  }
+  //IMPLANTE 3-------------------------------------------------------------------------------------------
+  const [implante3, setImplante3] = useState([false, false, false, false, false, false, false, false])
+  const cambioImplante3 = (index) => {
+    const newImplante3 = [...implante3]
+    newImplante3[index] = !newImplante3[index]
+    setImplante3(newImplante3);
 
-}
+  }
+  //FURCA 3 IZQUIERDA-----------------------------------------------------------------------------------
+  const [furca3i, setfurca3i] = useState([0, 0, 0, 0, 0, 0, 0, 0])
+  const cambiofurca3i = (index) => {
+    const newFurca = [...furca3i]
+    let valor = newFurca[index] + 1
+    if (valor === 4) valor = 0
+    newFurca[index] = valor
+    setfurca3i(newFurca);
 
-//SANGRADO AL SONDAJE tabla 3 izquierda----------------------------------------------------
-const [san3i, setsan3i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
-const cambioSan3i = (index, n) => {
-  const newsan3i = [...san3i]
-  newsan3i[index][n] = !newsan3i[index][n]
-  setsan3i(newsan3i);
+  }
 
-}
+  //SANGRADO AL SONDAJE tabla 3 izquierda----------------------------------------------------
+  const [san3i, setsan3i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSan3i = (index, n) => {
+    const newsan3i = [...san3i]
+    newsan3i[index][n] = !newsan3i[index][n]
+    setsan3i(newsan3i);
 
-//PLACA TERCERA TABLA IZQUIERDA
-const [placa3i, setplaca3i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
-const cambioPlaca3i = (index, n) => {
-  const newplaca3i = [...placa3i]
-  newplaca3i[index][n] = !newplaca3i[index][n]
-  setplaca3i(newplaca3i)
-}
-//MARGEN GINGIVAL TERCERA TABLA IZQUIERDA
-const [mar3i, setmar3i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
-const cambioMar3i = (e, index, n) => {
-  const newArray = mar3i.map((innerArray, i) => {
-    if (i === index) {
-      return innerArray.map((value, j) => {
-        if (j === n) {
-          return e.target.value;
-        }
-        return value;
-      });
-    }
-    return innerArray;
-  });
-  setmar3i(newArray);
-};
+  }
 
-//PrOFUNDIDAD AL SONDAJE TERCER TABLA IZQUIERDA
-const [prof3i, setprof3i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
-const cambioProf3i = (e, index, n) => {
-  const newArray = prof3i.map((innerArray, i) => {
-    if (i === index) {
-      return innerArray.map((value, j) => {
-        if (j === n) {
-          return e.target.value;
-        }
-        return value;
-      });
-    }
-    return innerArray;
-  });
-  setprof3i(newArray);
-};
-
-
-// DIFERENCIA ENTRE PROFUNDIDAD Y MARGEN TERCERA TABLA IZQUIERDA
-const [diff3i, setdiff3i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
-
-useEffect(() => {
-  const newDiffArray = prof3i.map((innerArray, i) => {
-    return innerArray.map((value, j) => {
-      return value - mar3i[i][j];
+  //PLACA TERCERA TABLA IZQUIERDA
+  const [placa3i, setplaca3i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioPlaca3i = (index, n) => {
+    const newplaca3i = [...placa3i]
+    newplaca3i[index][n] = !newplaca3i[index][n]
+    setplaca3i(newplaca3i)
+  }
+  //MARGEN GINGIVAL TERCERA TABLA IZQUIERDA
+  const [mar3i, setmar3i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioMar3i = (e, index, n) => {
+    const newArray = mar3i.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return Number(e.target.value);
+          }
+          return value;
+        });
+      }
+      return innerArray;
     });
-  });
-  setdiff3i(newDiffArray);
-}, [prof3i, mar3i]);
+    setmar3i(newArray);
+  };
 
-
-//DATOS TERCERA TABLA DERECHA<<<<<<<<<<<<<<<<<<<<<--------------------------------------------------
-const [dientes2d, setDientes2d] = useState([[31, false], [32, false], [33, false], [34, false], [35, false], [36, false], [37, false], [38, false]])
-const cambioDientes2d = (index) => {
-  const newArray = [...dientes2d];
-  newArray[index][1] = !newArray[index][1];
-  setDientes2d(newArray);
- 
-}
-
-//MOVILIDAD 4-------------------------------------------------------------------------------------------
-const [movilidad4, setMovilidad4] = useState([0, 0, 0, 0, 0, 0, 0, 0])
-const cambioMovilidad4 = (e, index) => {
-  const newArray = [...movilidad4];
-  newArray[index] = Number(e.target.value);
-  setMovilidad4(newArray);
-}
-//IMPLANTE 4-------------------------------------------------------------------------------------------
-const [implante4, setImplante4] = useState([false, false, false, false, false, false, false, false])
-const cambioImplante4 = (index) => {
-  const newImplante4 = [...implante4]
-  newImplante4[index] = !newImplante4[index]
-  setImplante4(newImplante4);
-
-}
-//FURCA 3 DERECHA-----------------------------------------------------------------------------------
-const [furca3d, setfurca3d] = useState([0, 0, 0, 0, 0, 0, 0, 0])
-const cambiofurca3d = (index) => {
-  const newFurca = [...furca3d]
-  let valor = newFurca[index] + 1
-  if (valor === 4) valor = 0
-  newFurca[index] = valor
-  setfurca3d(newFurca);
-
-}
-
-//SANGRADO AL SONDAJE tabla 3 DERECHA----------------------------------------------------
-const [san3d, setsan3d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
-const cambioSan3d = (index, n) => {
-  const newsan3d = [...san3d]
-  newsan3d[index][n] = !newsan3d[index][n]
-  setsan3d(newsan3d);
-
-}
-
-//PLACA TERCERA TABLA DERECHA
-const [placa3d, setplaca3d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
-const cambioPlaca3d = (index, n) => {
-  const newplaca3d = [...placa3d]
-  newplaca3d[index][n] = !newplaca3d[index][n]
-  setplaca3d(newplaca3d)
-}
-//MARGEN GINGIVAL TERCERA TABLA DERECHA
-const [mar3d, setmar3d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
-const cambioMar3d = (e, index, n) => {
-  const newArray = mar3d.map((innerArray, i) => {
-    if (i === index) {
-      return innerArray.map((value, j) => {
-        if (j === n) {
-          return e.target.value;
-        }
-        return value;
-      });
-    }
-    return innerArray;
-  });
-  setmar3d(newArray);
-};
-
-//PrOFUNDIDAD AL SONDAJE TERCER TABLA DERECHA
-const [prof3d, setprof3d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
-const cambioProf3d = (e, index, n) => {
-  const newArray = prof3d.map((innerArray, i) => {
-    if (i === index) {
-      return innerArray.map((value, j) => {
-        if (j === n) {
-          return e.target.value;
-        }
-        return value;
-      });
-    }
-    return innerArray;
-  });
-  setprof3d(newArray);
-};
-
-
-// DIFERENCIA ENTRE PROFUNDIDAD Y MARGEN TERCERA TABLA DERECHA
-const [diff3d, setdiff3d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
-
-useEffect(() => {
-  const newDiffArray = prof3d.map((innerArray, i) => {
-    return innerArray.map((value, j) => {
-      return value - mar3d[i][j];
+  //PrOFUNDIDAD AL SONDAJE TERCER TABLA IZQUIERDA
+  const [prof3i, setprof3i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioProf3i = (e, index, n) => {
+    const newArray = prof3i.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return Number(e.target.value);
+          }
+          return value;
+        });
+      }
+      return innerArray;
     });
-  });
-  setdiff3d(newDiffArray);
-}, [prof3d, mar3d]);
+    setprof3i(newArray);
+  };
+
+
+  // DIFERENCIA ENTRE PROFUNDIDAD Y MARGEN TERCERA TABLA IZQUIERDA
+  const [diff3i, setdiff3i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+
+  useEffect(() => {
+    const newDiffArray = prof3i.map((innerArray, i) => {
+      return innerArray.map((value, j) => {
+        return value - mar3i[i][j];
+      });
+    });
+    setdiff3i(newDiffArray);
+  }, [prof3i, mar3i]);
+
+
+  //DATOS TERCERA TABLA DERECHA<<<<<<<<<<<<<<<<<<<<<--------------------------------------------------
+  const [dientes2d, setDientes2d] = useState([[31, false], [32, false], [33, false], [34, false], [35, false], [36, false], [37, false], [38, false]])
+  const cambioDientes2d = (index) => {
+    const newArray = [...dientes2d];
+    newArray[index][1] = !newArray[index][1];
+    setDientes2d(newArray);
+
+  }
+
+  //MOVILIDAD 4-------------------------------------------------------------------------------------------
+  const [movilidad4, setMovilidad4] = useState([0, 0, 0, 0, 0, 0, 0, 0])
+  const cambioMovilidad4 = (e, index) => {
+    const newArray = [...movilidad4];
+    newArray[index] = Number(e.target.value);
+    setMovilidad4(newArray);
+  }
+  //IMPLANTE 4-------------------------------------------------------------------------------------------
+  const [implante4, setImplante4] = useState([false, false, false, false, false, false, false, false])
+  const cambioImplante4 = (index) => {
+    const newImplante4 = [...implante4]
+    newImplante4[index] = !newImplante4[index]
+    setImplante4(newImplante4);
+
+  }
+  //FURCA 3 DERECHA-----------------------------------------------------------------------------------
+  const [furca3d, setfurca3d] = useState([0, 0, 0, 0, 0, 0, 0, 0])
+  const cambiofurca3d = (index) => {
+    const newFurca = [...furca3d]
+    let valor = newFurca[index] + 1
+    if (valor === 4) valor = 0
+    newFurca[index] = valor
+    setfurca3d(newFurca);
+
+  }
+
+  //SANGRADO AL SONDAJE tabla 3 DERECHA----------------------------------------------------
+  const [san3d, setsan3d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSan3d = (index, n) => {
+    const newsan3d = [...san3d]
+    newsan3d[index][n] = !newsan3d[index][n]
+    setsan3d(newsan3d);
+
+  }
+
+  //PLACA TERCERA TABLA DERECHA
+  const [placa3d, setplaca3d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioPlaca3d = (index, n) => {
+    const newplaca3d = [...placa3d]
+    newplaca3d[index][n] = !newplaca3d[index][n]
+    setplaca3d(newplaca3d)
+  }
+  //MARGEN GINGIVAL TERCERA TABLA DERECHA
+  const [mar3d, setmar3d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioMar3d = (e, index, n) => {
+    const newArray = mar3d.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return Number(e.target.value);
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setmar3d(newArray);
+  };
+
+  //PrOFUNDIDAD AL SONDAJE TERCER TABLA DERECHA
+  const [prof3d, setprof3d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioProf3d = (e, index, n) => {
+    const newArray = prof3d.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return Number(e.target.value);
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setprof3d(newArray);
+  };
+
+
+  // DIFERENCIA ENTRE PROFUNDIDAD Y MARGEN TERCERA TABLA DERECHA
+  const [diff3d, setdiff3d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+
+  useEffect(() => {
+    const newDiffArray = prof3d.map((innerArray, i) => {
+      return innerArray.map((value, j) => {
+        return value - mar3d[i][j];
+      });
+    });
+    setdiff3d(newDiffArray);
+  }, [prof3d, mar3d]);
 
 
 
- 
+
+
+  //DATOS CUARTA TABLA IZQUIERDA
+
+
+
+  //MARGEN GINGIVAL CUARTA TABLA IZQUIERDA
+  const [mar4i, setmar4i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioMar4i = (e, index, n) => {
+    const newArray = mar4i.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return Number(e.target.value);
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setmar4i(newArray);
+  };
+  //PrOFUNDIDAD AL SONDAJE CUARTA TABLA IZQUIERDA
+  const [prof4i, setprof4i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioProf4i = (e, index, n) => {
+    const newArray = prof4i.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return Number(e.target.value);
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setprof4i(newArray);
+  };
+  // DIFERENCIA ENTRE PROFUNDIDAD Y MARGEN CUARTA TABLA IZQUIERDA
+  const [diff4i, setdiff4i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+
+  useEffect(() => {
+    const newDiffArray = prof4i.map((innerArray, i) => {
+      return innerArray.map((value, j) => {
+        return value - mar4i[i][j];
+      });
+    });
+    setdiff4i(newDiffArray);
+  }, [prof4i, mar4i]);
+
+  //PLACA CUARTA TABLA IZQUIERDA
+  const [placa4i, setplaca4i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioPlaca4i = (index, n) => {
+    const newplaca4i = [...placa4i]
+    newplaca4i[index][n] = !newplaca4i[index][n]
+    setplaca4i(newplaca4i)
+  }
+  //SANGRADO AL SONDAJE CUARTA TABLA IZQUIERDA----------------------------------------------------
+  const [san4i, setsan4i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSan4i = (index, n) => {
+    const newsan4i = [...san4i]
+    newsan4i[index][n] = !newsan4i[index][n]
+    setsan4i(newsan4i);
+
+  }
+  //FURCA 4 IZQUIERDA-------------------------------------------------------------------------------------------
+  const [furca4i, setfurca4i] = useState([0, 0, 0, 0, 0, 0, 0, 0])
+  const cambiofurca4i = (index) => {
+    const newFurca = [...furca4i]
+    let valor = newFurca[index] + 1
+    if (valor === 4) valor = 0
+    newFurca[index] = valor
+    setfurca4i(newFurca);
+
+  }
+
+  //DATOS CUARTA TABLA DERECHA
+
+
+
+  //MARGEN GINGIVAL CUARTA TABLA DERECHA
+  const [mar4d, setmar4d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioMar4d = (e, index, n) => {
+    const newArray = mar4d.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return Number(e.target.value);
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setmar4d(newArray);
+  };
+  //PrOFUNDIDAD AL SONDAJE CUARTA TABLA DERECHA
+  const [prof4d, setprof4d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+  const cambioProf4d = (e, index, n) => {
+    const newArray = prof4d.map((innerArray, i) => {
+      if (i === index) {
+        return innerArray.map((value, j) => {
+          if (j === n) {
+            return Number(e.target.value);
+          }
+          return value;
+        });
+      }
+      return innerArray;
+    });
+    setprof4d(newArray);
+  };
+  // DIFERENCIA ENTRE PROFUNDIDAD Y MARGEN CUARTA TABLA DERECHA
+  const [diff4d, setdiff4d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+
+  useEffect(() => {
+    const newDiffArray = prof4d.map((innerArray, i) => {
+      return innerArray.map((value, j) => {
+        return value - mar4d[i][j];
+      });
+    });
+    setdiff4d(newDiffArray);
+  }, [prof4d, mar4d]);
+
+  //PLACA CUARTA TABLA DERECHA
+  const [placa4d, setplaca4d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioPlaca4d = (index, n) => {
+    const newplaca4d = [...placa4d]
+    newplaca4d[index][n] = !newplaca4d[index][n]
+    setplaca4d(newplaca4d)
+  }
+  //SANGRADO AL SONDAJE CUARTA TABLA DERECHA----------------------------------------------------
+  const [san4d, setsan4d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSan4d = (index, n) => {
+    const newsan4d = [...san4d]
+    newsan4d[index][n] = !newsan4d[index][n]
+    setsan4d(newsan4d);
+
+  }
+  //FURCA 4 DERECHA-------------------------------------------------------------------------------------------
+  const [furca4d, setfurca4d] = useState([0, 0, 0, 0, 0, 0, 0, 0])
+  const cambiofurca4d = (index) => {
+    const newFurca = [...furca4d]
+    let valor = newFurca[index] + 1
+    if (valor === 4) valor = 0
+    newFurca[index] = valor
+    setfurca4d(newFurca);
+
+  }
+
+
 
 
   //Logica para la bd
@@ -671,19 +821,213 @@ useEffect(() => {
   };
   const patientData = {
     dientes1i: dientes1i,
+    dientes1d: dientes1d,
+    dientes2i: dientes2i,
+    dientes2d: dientes2d,
+
     movilidad1: movilidad1,
+    movilidad2: movilidad2,
+    movilidad3: movilidad3,
+    movilidad4: movilidad4,
+
     implante1: implante1,
-    san1i: san1i
+    implante2: implante2,
+    implante3: implante3,
+    implante4: implante4,
+
+    furca1i: furca1i,
+    furca1d: furca1d,
+    furca2i: furca2i,
+    furca2d: furca2d,
+    furca3i: furca3i,
+    furca3d: furca3d,
+    furca4i: furca4i,
+    furca4d: furca4d,
+
+    san1i: san1i,
+    san1d: san1d,
+    san2i: san2i,
+    san2d: san2d,
+    san3i: san3i,
+    san3d: san3d,
+    san4i: san4i,
+    san4d: san4d,
+
+    placa1i: placa1i,
+    placa1d: placa1d,
+    placa2i: placa2i,
+    placa2d: placa2d,
+    placa3i: placa3i,
+    placa3d: placa3d,
+    placa4i: placa4i,
+    placa4d: placa4d,
+
+    mar1i: mar1i,
+    mar1d: mar1d,
+    mar2i: mar2i,
+    mar2d: mar2d,
+    mar3i: mar3i,
+    mar4i: mar4i,
+    mar4d: mar4d,
+
+    prof1i: prof1i,
+    prof1d: prof1d,
+    prof2i: prof2i,
+    prof2d: prof2d,
+    prof3i: prof3i,
+    prof3d: prof3d,
+    prof4i: prof4i,
+    prof4d: prof4d,
+
+    diff1i: diff1i,
+    diff1d: diff1d,
+    diff2i: diff2i,
+    diff2d: diff2d,
+    diff3i: diff3i,
+    diff3d: diff3d,
+    diff4i: diff4i,
+    diff4d: diff4d,
   };
   useEffect(() => {
     const patientData = {
       dientes1i: dientes1i,
-      movilidad1: Number(movilidad1),
+      dientes1d: dientes1d,
+      dientes2i: dientes2i,
+      dientes2d: dientes2d,
+
+      movilidad1: movilidad1,
+      movilidad2: movilidad2,
+      movilidad3: movilidad3,
+      movilidad4: movilidad4,
+
       implante1: implante1,
-      san1i: san1i
+      implante2: implante2,
+      implante3: implante3,
+      implante4: implante4,
+
+      furca1i: furca1i,
+      furca1d: furca1d,
+      furca2i: furca2i,
+      furca2d: furca2d,
+      furca3i: furca3i,
+      furca3d: furca3d,
+      furca4i: furca4i,
+      furca4d: furca4d,
+
+      san1i: san1i,
+      san1d: san1d,
+      san2i: san2i,
+      san2d: san2d,
+      san3i: san3i,
+      san3d: san3d,
+      san4i: san4i,
+      san4d: san4d,
+
+      placa1i: placa1i,
+      placa1d: placa1d,
+      placa2i: placa2i,
+      placa2d: placa2d,
+      placa3i: placa3i,
+      placa3d: placa3d,
+      placa4i: placa4i,
+      placa4d: placa4d,
+
+      mar1i: mar1i,
+      mar1d: mar1d,
+      mar2i: mar2i,
+      mar2d: mar2d,
+      mar3i: mar3i,
+      mar3d: mar3d,
+      mar4i: mar4i,
+      mar4d: mar4d,
+
+      prof1i: prof1i,
+      prof1d: prof1d,
+      prof2i: prof2i,
+      prof2d: prof2d,
+      prof3i: prof3i,
+      prof3d: prof3d,
+      prof4i: prof4i,
+      prof4d: prof4d,
+
+      diff1i: diff1i,
+      diff1d: diff1d,
+      diff2i: diff2i,
+      diff2d: diff2d,
+      diff3i: diff3i,
+      diff3d: diff3d,
+      diff4i: diff4i,
+      diff4d: diff4d,
     };
+
+  }, [dientes1i,
+    dientes1d,
+    dientes2i,
+    dientes2d,
     
-  }, [dientes1i, movilidad1, implante1, san1i]);
+    movilidad1,
+    movilidad2,
+    movilidad3,
+    movilidad4,
+    
+    implante1,
+    implante2,
+    implante3,
+    implante4,
+    
+    furca1i,
+    furca1d,
+    furca2i,
+    furca2d,
+    furca3i,
+    furca3d,
+    furca4i,
+    furca4d,
+    
+    san1i,
+    san1d,
+    san2i,
+    san2d,
+    san3i,
+    san3d,
+    san4i,
+    san4d,
+    
+    placa1i,
+    placa1d,
+    placa2i,
+    placa2d,
+    placa3i,
+    placa3d,
+    placa4i,
+    placa4d,
+    
+    mar1i,
+    mar1d,
+    mar2i,
+    mar2d,
+    mar3i,
+    mar3d,
+    mar4i,
+    mar4d,
+    
+    prof1i,
+    prof1d,
+    prof2i,
+    prof2d,
+    prof3i,
+    prof3d,
+    prof4i,
+    prof4d,
+    
+    diff1i,
+    diff1d,
+    diff2i,
+    diff2d,
+    diff3i,
+    diff3d,
+    diff4i,
+    diff4d,]);
 
   return (
     <>
@@ -899,7 +1243,7 @@ useEffect(() => {
             </table>
           </div>
 
-          {/*cabecera dela primera tabla derecha--------------------------------------------------   */}
+          {/*primera TABLA DERECHA--------------------------------------------------   */}
 
           <div className="rounded w-1/3 my-10 " style={{ boxSizing: 'border-box' }}>
             {/*cabecera dela segunda tabla-----------------------------------------------------------   */}
@@ -922,7 +1266,7 @@ useEffect(() => {
               {/*movilidad-----------------------------------------------------------   */}
               <tbody>
                 <tr>
-                  
+
                   <th style={{ padding: '2px', width: '12.5%' }}></th>
 
                   {movilidad2.map((movilidad, index) => (
@@ -1853,10 +2197,10 @@ useEffect(() => {
 
 
 
-          {/*SEGUNDA TABLA IZQUIERDA-----------------------------------------------------------   */}
+          {/*CUARTA TABLA IZQUIERDA-----------------------------------------------------------   */}
           <div className="rounded w-1/3 my-10 -mx-3" style={{ boxSizing: 'border-box' }}>
 
-            {/*cabecera dela SEGUNDA tabla-----------------------------------------------------------   */}
+            {/*cabecera dela CUARTA tabla IZQUIERDA-----------------------------------------------------------   */}
 
             <table style={{ tableLayout: 'fixed', width: '100%' }}>
               <thead>
@@ -1865,14 +2209,14 @@ useEffect(() => {
               </thead>
 
               <tbody>
-                {/*NIC tabla 1 izquierda-------------------------------------------   */}
+                {/*NIC tabla 4 izquierda-------------------------------------------   */}
 
                 <tr>
                   <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[7]}</th>
 
-                  {diff2i.map((innernicf2i, index) => (
+                  {diff4i.map((innernicf2i, index) => (
                     <th key={index} className="border-black border bg-slate-200" style={{ padding: '2px', width: '12.5%' }}>
-                      {dientes1i[index][1] ? (
+                      {dientes2i[index][1] ? (
                         <div></div>
                       ) : (
                         innernicf2i.map((prof, index2) => (
@@ -1888,14 +2232,14 @@ useEffect(() => {
                   ))}
                 </tr>
 
-                {/*margen gingival tabla 2 IZQUIERDA------------------------------------------------------   */}
+                {/*margen gingival tabla 4 IZQUIERDA------------------------------------------------------   */}
 
                 <tr>
                   <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[5]}</th>
 
-                  {mar2i.map((innermar2i, index) => (
+                  {mar4i.map((innermar2i, index) => (
                     <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
-                      {dientes1i[index][1] ? (
+                      {dientes2i[index][1] ? (
                         <div></div>
                       ) : (
                         innermar2i.map((margen, index2) => (
@@ -1903,7 +2247,7 @@ useEffect(() => {
                             key={`${index}-${index2}`}
                             style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
                             value={margen}
-                            onChange={(e) => cambioMar2i(e, index, index2)}
+                            onChange={(e) => cambioMar4i(e, index, index2)}
                             onFocus={(e) => e.target.value = ''}
                           />
                         ))
@@ -1911,14 +2255,14 @@ useEffect(() => {
                     </th>
                   ))}
                 </tr>
-                {/*profundidad al sondaje tabla 2 izquierda-------------------------------------------   */}
+                {/*profundidad al sondaje tabla 4 izquierda-------------------------------------------   */}
 
                 <tr>
                   <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[6]}</th>
 
-                  {prof2i.map((innerprof2i, index) => (
+                  {prof4i.map((innerprof2i, index) => (
                     <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
-                      {dientes1i[index][1] ? (
+                      {dientes2i[index][1] ? (
                         <div></div>
                       ) : (
                         innerprof2i.map((prof, index2) => (
@@ -1933,7 +2277,7 @@ useEffect(() => {
                               color: prof >= 4 ? 'red' : 'black'
                             }}
                             value={prof}
-                            onChange={(e) => cambioProf2i(e, index, index2)}
+                            onChange={(e) => cambioProf4i(e, index, index2)}
                             onFocus={(e) => e.target.value = ''}
                           />
                         ))
@@ -1941,12 +2285,12 @@ useEffect(() => {
                     </th>
                   ))}
                 </tr>
-                {/*placa tabla 2 izquierda------------------------------------------------------   */}
+                {/*placa tabla 4 izquierda------------------------------------------------------   */}
 
                 <tr>
                   <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[4]}</th>
-                  {placa2i.map((innerplaca2i, index) => (
-                    dientes1i[index][1] ? (
+                  {placa4i.map((innerplaca2i, index) => (
+                    dientes2i[index][1] ? (
                       <th key={index} className="border-black border rounded">
                         <div></div>
                       </th>
@@ -1954,26 +2298,26 @@ useEffect(() => {
                       <th key={index} className="border-black border rounded">
                         {innerplaca2i.map((placa, index2) => (
 
-                          <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca2i(index, index2)}>{placa}</MiniBlue>
+                          <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca4i(index, index2)}>{placa}</MiniBlue>
 
                         ))}
                       </th>
                     )
                   ))}
                 </tr>
-                {/*sangrado al sondaje 2 izquierda------------------------------------------------------   */}
+                {/*sangrado al sondaje 4 izquierda------------------------------------------------------   */}
 
                 <tr>
                   <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[3]}</th>
-                  {san2i.map((innersan2i, index) => (
-                    dientes1i[index][1] ? (
+                  {san4i.map((innersan2i, index) => (
+                    dientes2i[index][1] ? (
                       <th key={index} className="border-black border rounded">
                         <div></div>
                       </th>
                     ) : (
                       <th key={index} className="border-black border rounded">
                         {innersan2i.map((san, index2) => (
-                          <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan2i(index, index2)}>
+                          <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan4i(index, index2)}>
                             {san}
                           </MiniRed>
                         ))}
@@ -1981,23 +2325,23 @@ useEffect(() => {
                     )
                   ))}
                 </tr>
-                {/*FURCA 2 izquierda------------------------------------------------------   */}
+                {/*Furca 4 izquierda-----------------------------------------------------------   */}
 
-                <tr>
+                <tr style={{ height: '2px', margin: 0 }}>
                   <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[2]}</th>
-                  {furca2i.map((innerfurca2i, index) =>
-                  (((dientes1i[index][1] || implante1[index]) || dientes1i[index][0] <= 13 || dientes1i[index][0] === 15) ? (
-                    <th key={index} className="border-black border rounded">
-                      <div></div>
-                    </th>
-                  ) : (
-                    <th key={index} className="border-black border rounded " style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight: '3px' }}>
-                      {innerfurca2i.map((san, index2) => (
-                        <FurcaButton key={`${index}-${index2}`} onClick={() => { cambiofurca2i(index, index2) }}>{san}</FurcaButton>
+                  {furca4i.map((furca1i, index) => (
 
-                      ))}
+                    <th key={index} className="border-black border rounded " style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight: '3px' }}>
+                      {((dientes2i[index][1] || implante3[index]) || dientes2i[index][0] <= 45) ? (
+                        <div></div>
+                      ) :
+                        (
+                          <FurcaButton onClick={() => { cambiofurca4i(index) }}>{furca1i}</FurcaButton>
+
+                        )
+                      }
+
                     </th>
-                  )
                   ))}
                 </tr>
 
@@ -2008,10 +2352,10 @@ useEffect(() => {
           </div >
 
 
-          {/*SEGUNDA TABLA DERECHA-----------------------------------------------------------   */}
+          {/*CUARTA TABLA DERECHA-----------------------------------------------------------   */}
           <div className="rounded w-1/3 my-10 " style={{ boxSizing: 'border-box' }}>
 
-            {/*cabecera dela segunda tabla derecha------------------------------------------------   */}
+            {/*cabecera dela cuarta tabla derecha------------------------------------------------   */}
 
             <table style={{ tableLayout: 'fixed', width: '100%' }}>
               <thead>
@@ -2020,14 +2364,14 @@ useEffect(() => {
               </thead>
               <tbody>
 
-                {/*NIC tabla 1 derecha-------------------------------------------   */}
+                {/*NIC tabla 4 derecha-------------------------------------------   */}
 
                 <tr>
                   <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
 
-                  {diff2d.map((innernicf2d, index) => (
+                  {diff4d.map((innernicf2d, index) => (
                     <th key={index} className="border-black border bg-slate-200" style={{ padding: '2px', width: '12.5%' }}>
-                      {dientes1d[index][1] ? (
+                      {dientes2d[index][1] ? (
                         <div></div>
                       ) : (
                         innernicf2d.map((prof, index2) => (
@@ -2043,14 +2387,14 @@ useEffect(() => {
                   ))}
                 </tr>
 
-                {/*margen gingival tabla 2 derecha------------------------------------------------------   */}
+                {/*margen gingival tabla 4 derecha------------------------------------------------------   */}
 
                 <tr>
                   <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
 
-                  {mar2d.map((innermar2d, index) => (
+                  {mar4d.map((innermar2d, index) => (
                     <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
-                      {dientes1d[index][1] ? (
+                      {dientes2d[index][1] ? (
                         <div></div>
                       ) : (
                         innermar2d.map((margen, index2) => (
@@ -2058,7 +2402,7 @@ useEffect(() => {
                             key={`${index}-${index2}`}
                             style={{ width: '30%', height: '20px', fontSize: '12px', textAlign: "center" }}
                             value={margen}
-                            onChange={(e) => cambioMar2d(e, index, index2)}
+                            onChange={(e) => cambioMar4d(e, index, index2)}
                             onFocus={(e) => e.target.value = ''}
                           />
                         ))
@@ -2067,14 +2411,14 @@ useEffect(() => {
                   ))}
                 </tr>
 
-                {/*profundidad al sondaje tabla 2 DERECHA------------------------------------------   */}
+                {/*profundidad al sondaje tabla 4 DERECHA------------------------------------------   */}
 
                 <tr>
                   <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
 
-                  {prof2d.map((innerprof2d, index) => (
+                  {prof4d.map((innerprof2d, index) => (
                     <th key={index} className="border-black border" style={{ padding: '2px', width: '12.5%' }}>
-                      {dientes1d[index][1] ? (
+                      {dientes2d[index][1] ? (
                         <div></div>
                       ) : (
                         innerprof2d.map((prof, index2) => (
@@ -2089,7 +2433,7 @@ useEffect(() => {
                               color: prof >= 4 ? 'red' : 'black'
                             }}
                             value={prof}
-                            onChange={(e) => cambioProf2d(e, index, index2)}
+                            onChange={(e) => cambioProf4d(e, index, index2)}
                             onFocus={(e) => e.target.value = ''}
                           />
                         ))
@@ -2098,12 +2442,12 @@ useEffect(() => {
                   ))}
                 </tr>
 
-                {/*placa tabla 2 derecha------------------------------------------------------   */}
+                {/*placa tabla 4 derecha------------------------------------------------------   */}
 
                 <tr>
                   <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
-                  {placa2d.map((innerplaca2d, index) => (
-                    dientes1d[index][1] ? (
+                  {placa4d.map((innerplaca2d, index) => (
+                    dientes2d[index][1] ? (
                       <th key={index} className="border-black border rounded">
                         <div></div>
                       </th>
@@ -2111,7 +2455,7 @@ useEffect(() => {
                       <th key={index} className="border-black border rounded">
                         {innerplaca2d.map((placa, index2) => (
 
-                          <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca2d(index, index2)}>{placa}</MiniBlue>
+                          <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca4d(index, index2)}>{placa}</MiniBlue>
 
                         ))}
                       </th>
@@ -2119,19 +2463,19 @@ useEffect(() => {
                   ))}
                 </tr>
 
-                {/*sangrado al sondaje 2 derecha------------------------------------------------------   */}
+                {/*sangrado al sondaje 4 derecha------------------------------------------------------   */}
 
                 <tr>
                   <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
-                  {san2d.map((innersan2d, index) => (
-                    dientes1d[index][1] ? (
+                  {san4d.map((innersan2d, index) => (
+                    dientes2d[index][1] ? (
                       <th key={index} className="border-black border rounded">
                         <div></div>
                       </th>
                     ) : (
                       <th key={index} className="border-black border rounded">
                         {innersan2d.map((san, index2) => (
-                          <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan2d(index, index2)}>
+                          <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan4d(index, index2)}>
                             {san}
                           </MiniRed>
                         ))}
@@ -2140,23 +2484,23 @@ useEffect(() => {
                   ))}
                 </tr>
 
-                {/*FURCA 2 derecha------------------------------------------------------   */}
+                {/*Furca 4 derecha-----------------------------------------------------------   */}
 
-                <tr>
-                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
-                  {furca2d.map((innerfurca2d, index) =>
-                  (((dientes1d[index][1] || implante2[index]) || dientes1d[index][0] < 24 || dientes1d[index][0] === 25) ? (
-                    <th key={index} className="border-black border rounded">
-                      <div></div>
-                    </th>
-                  ) : (
+                <tr style={{ height: '2px', margin: 0 }}>
+                  <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {furca4d.map((furca1d, index) => (
+
                     <th key={index} className="border-black border rounded " style={{ fontWeight: 'bold', fontSize: '1.2em', maxHeight: '3px' }}>
-                      {innerfurca2d.map((san, index2) => (
-                        <FurcaButton key={`${index}-${index2}`} onClick={() => { cambiofurca2d(index, index2) }}>{san}</FurcaButton>
+                      {((dientes2d[index][1] || implante4[index]) || dientes2d[index][0] < 36) ? (
+                        <div></div>
+                      ) :
+                        (
+                          <FurcaButton onClick={() => { cambiofurca4d(index) }}>{furca1d}</FurcaButton>
 
-                      ))}
+                        )
+                      }
+
                     </th>
-                  )
                   ))}
                 </tr>
 
@@ -2168,9 +2512,12 @@ useEffect(() => {
           </div >
         </div>
 
+        <div className="flex flex-row" style={{ justifyContent: 'center' }}>
+          <Button onClick={() => onSubmit(patientData)}>Guardar Periodontograma</Button>
+        </div>
 
 
-        {/**<button onClick={() => onSubmit(patientData)}>Save Patient Data</button>**/}
+
 
 
 
