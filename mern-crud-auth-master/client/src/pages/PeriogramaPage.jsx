@@ -16,6 +16,7 @@ import { Button } from "../components/ui/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { usePeriodontograma } from "../context/periodontogramaContext";
 import { createPeriodontograma } from "../../../src/controllers/periodontograma.controller";
+import dibujo1i from "../images/dibujo1i.png"
 import axios from "axios";
 function PeriogramaPage() {
 
@@ -78,12 +79,37 @@ function PeriogramaPage() {
   }
   //MARGEN GINGIVAL PRIMERA TABLA IZQUIERDA
   const [mar1i, setmar1i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+
   const cambioMar1i = (e, index, n) => {
+    const valor = e.target.value;
+  
+    // Agregamos esta condición para verificar si el valor es un símbolo -
+    if (valor === '-') {
+      const newArray = mar1i.map((innerArray, i) => {
+        if (i === index) {
+          return innerArray.map((value, j) => {
+            if (j === n) {
+              return valor;
+            }
+            return value;
+          });
+        }
+        return innerArray;
+      });
+      setmar1i(newArray);
+      return;
+    }
+  
+    const esNegativo = valor.startsWith('-');
+    const valorAbsoluto = esNegativo ? valor.substring(1) : valor;
+    const valorNumerico = Number(valorAbsoluto);
+    const valorFinal = esNegativo ? -valorNumerico : valorNumerico;
+  
     const newArray = mar1i.map((innerArray, i) => {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return Number(e.target.value);
+            return valorFinal;
           }
           return value;
         });
@@ -776,6 +802,70 @@ function PeriogramaPage() {
     setfurca4d(newFurca);
 
   }
+  //Imagenes--------------------------------------------------------------------------------------------
+
+
+  const [contexto, setContexto] = useState(null);
+  const [imagen, setImagen] = useState(null);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = placeholder;
+    img.onload = () => {
+      setImagen(img);
+    };
+  }, [dibujo1i]);
+
+  useEffect(() => {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    setContexto(ctx);
+  }, []);
+
+  useEffect(() => {
+    if (contexto && imagen) {
+      const canvasWidth = 2000;
+      const canvasHeight = 300;
+      const imagenWidth = imagen.width;
+      const imagenHeight = imagen.height;
+      const iniciox = 150;
+      const inicioy = 111;
+
+      contexto.clearRect(0, 0, canvasWidth, canvasHeight);
+      const x = (canvasWidth - imagenWidth) / 2;
+      const y = (canvasHeight - imagenHeight) / 2;
+
+      contexto.drawImage(imagen, x, y); // Dibuja la imagen centrada
+      contexto.beginPath();
+      contexto.strokeStyle = 'red';
+      contexto.lineWidth = 2;
+
+
+
+
+  for (let i = 0; i < mar1i.length; i++) {
+        for(let j=0; j<mar1i[i].length;j++){
+          contexto.lineTo(i * 50 + x + iniciox+j*11, mar1i[i][j] * 6 + y + inicioy);
+        }
+        //contexto.lineTo(i * 50 + x + iniciox+(i+1)*11, + y + inicioy);
+
+      }
+
+      
+      contexto.stroke();
+    }
+  }, [contexto, imagen, mar1i]);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -964,17 +1054,17 @@ function PeriogramaPage() {
     dientes1d,
     dientes2i,
     dientes2d,
-    
+
     movilidad1,
     movilidad2,
     movilidad3,
     movilidad4,
-    
+
     implante1,
     implante2,
     implante3,
     implante4,
-    
+
     furca1i,
     furca1d,
     furca2i,
@@ -983,7 +1073,7 @@ function PeriogramaPage() {
     furca3d,
     furca4i,
     furca4d,
-    
+
     san1i,
     san1d,
     san2i,
@@ -992,7 +1082,7 @@ function PeriogramaPage() {
     san3d,
     san4i,
     san4d,
-    
+
     placa1i,
     placa1d,
     placa2i,
@@ -1001,7 +1091,7 @@ function PeriogramaPage() {
     placa3d,
     placa4i,
     placa4d,
-    
+
     mar1i,
     mar1d,
     mar2i,
@@ -1010,7 +1100,7 @@ function PeriogramaPage() {
     mar3d,
     mar4i,
     mar4d,
-    
+
     prof1i,
     prof1d,
     prof2i,
@@ -1019,7 +1109,7 @@ function PeriogramaPage() {
     prof3d,
     prof4i,
     prof4d,
-    
+
     diff1i,
     diff1d,
     diff2i,
@@ -1448,9 +1538,19 @@ function PeriogramaPage() {
         </div>
 
         {/*IMAGEN PREVISIONAL -----------------------------------------------------------   */}
-        <div className="my-200 display-flex">
-          <img src={placeholder} width="100%" height="100" />
+        <div className="flex flex-row" style={{ justifyContent: 'center' }}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row', // Agrega esta propiedad para que los canvas se alineen horizontalmente
+            justifyContent: 'center',
+            width: '100%', // Establece el ancho del contenedor al 100% del padre
+            height: 300, // Establece el alto del contenedor
+            marginLeft: '-60px'
+          }}>
+            <canvas id="canvas" width={2000} height={300} /> {/* Establece el alto del primer canvas */}
+          </div>
         </div>
+
 
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
 
