@@ -1,4 +1,5 @@
 export function FurcaButton({ onClick, children }) {
+    
     if (children===0) {
         return (
             <button
@@ -39,5 +40,6 @@ export function FurcaButton({ onClick, children }) {
             </button>
         );
     }
+    
     
 }
