@@ -217,14 +217,39 @@ function PeriogramaPage() {
     newplaca1d[index][n] = !newplaca1d[index][n]
     setplaca1d(newplaca1d)
   }
-  //MARGEN GINGIVAL PRIMERA TABLA DERECHA 
+  //MARGEN GINGIVAL PRIMERA TABLA DERECHA
   const [mar1d, setmar1d] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
+
   const cambioMar1d = (e, index, n) => {
+    const valor = e.target.value;
+
+    // Agregamos esta condición para verificar si el valor es un símbolo -
+    if (valor === '-') {
+      const newArray = mar1d.map((innerArray, i) => {
+        if (i === index) {
+          return innerArray.map((value, j) => {
+            if (j === n) {
+              return valor;
+            }
+            return value;
+          });
+        }
+        return innerArray;
+      });
+      setmar1d(newArray);
+      return;
+    }
+
+    const esNegativo = valor.startsWith('-');
+    const valorAbsoluto = esNegativo ? valor.substring(1) : valor;
+    const valorNumerico = Number(valorAbsoluto);
+    const valorFinal = esNegativo ? -valorNumerico : valorNumerico;
+
     const newArray = mar1d.map((innerArray, i) => {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return Number(e.target.value);
+            return valorFinal;
           }
           return value;
         });
@@ -841,7 +866,97 @@ function PeriogramaPage() {
       contexto.lineWidth = 3;
 
       //dibujo acorde al tamano de cada diente
-      const referencia1i = [[0, 20, 37], [50, 70, 90], [105, 125, 155], [170, 180, 195], [210, 220, 233], [250, 260, 273], [290, 305, 317], [335,345,365]]
+      const referencia1i = [[0, 20, 37], [50, 70, 90], [105, 125, 155], [170, 180, 195], [210, 220, 233], [250, 260, 273], [290, 305, 317], [335, 345, 365]]
+
+      const alturayFurca = -36+ y + inicioy - 50
+      for (let i = 0; i < furca1i.length; i++) {
+        if (!implante1[i] && !dientes1i[i][1]) {
+          if (furca1i[i] === 1) {
+            contexto.stroke();
+            contexto.closePath();
+
+            contexto.beginPath();
+            contexto.arc(x + iniciox + referencia1i[i][1],alturayFurca , 10, 0, 2 * Math.PI);
+            contexto.fillStyle = 'white';
+            contexto.fill();
+            contexto.stroke();
+            contexto.closePath();
+
+            contexto.beginPath();
+            contexto.strokeStyle = 'green';
+            contexto.lineWidth = 3;
+            contexto.arc(x + iniciox + referencia1i[i][1], alturayFurca, 10, 0, 2 * Math.PI)
+            contexto.stroke();
+            contexto.closePath();
+
+          }
+          if (furca1i[i] == 2) {
+
+            contexto.stroke();
+            contexto.closePath();
+            contexto.strokeStyle = 'green';
+            contexto.beginPath();
+            contexto.arc(x + iniciox + referencia1i[i][1], alturayFurca, 10, 0, 2 * Math.PI);
+            contexto.fillStyle = 'white';
+            contexto.fill();
+            contexto.stroke();
+            contexto.closePath();
+            contexto.beginPath();
+
+            contexto.arc(x + iniciox + referencia1i[i][1], alturayFurca, 10, 0, 2 * Math.PI)
+            contexto.stroke();
+            contexto.closePath();
+            contexto.beginPath();
+
+            contexto.lineTo(x + iniciox + referencia1i[i][1], 3)
+            contexto.lineTo(x + iniciox + referencia1i[i][1], 23)
+            contexto.stroke();
+            contexto.closePath();
+
+
+          }
+          if (furca1i[i] == 3) {
+
+            contexto.stroke();
+            contexto.closePath();
+            contexto.strokeStyle = 'green';
+            contexto.beginPath();
+            contexto.arc(x + iniciox + referencia1i[i][1], alturayFurca, 10, 0, 2 * Math.PI);
+            contexto.fillStyle = 'white';
+            contexto.fill();
+            contexto.stroke();
+            contexto.closePath();
+            contexto.beginPath();
+
+            contexto.arc(x + iniciox + referencia1i[i][1], alturayFurca, 10, 0, 2 * Math.PI)
+            contexto.stroke();
+            contexto.closePath();
+            contexto.stroke();
+            contexto.closePath();
+            contexto.strokeStyle = 'green';
+            contexto.beginPath();
+
+            contexto.arc(x + iniciox + referencia1i[i][1], alturayFurca, 10, 0, 2 * Math.PI)
+            contexto.stroke();
+            contexto.closePath();
+            contexto.beginPath();
+
+            contexto.lineTo(x + iniciox + referencia1i[i][1], 3)
+            contexto.lineTo(x + iniciox + referencia1i[i][1], 23)
+            contexto.stroke();
+            contexto.closePath();
+            contexto.beginPath();
+
+            contexto.lineTo(x + iniciox + referencia1i[i][1] - 10,alturayFurca)
+            contexto.lineTo(x + iniciox + referencia1i[i][1] + 10, alturayFurca)
+            contexto.stroke();
+            contexto.closePath();
+
+
+          }
+        }
+
+      }
       for (let i = 0; i < dientes1i.length; i++) {
         if (dientes1i[i][1]) {
           contexto.stroke();
@@ -858,65 +973,34 @@ function PeriogramaPage() {
 
         }
 
-
-
       }
       contexto.beginPath();
       for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes1i[i][1]) {
+          contexto.strokeStyle = 'red';
+          contexto.lineWidth = 3;
+          contexto.lineTo(x + iniciox + referencia1i[i][0], mar1i[i][0] * 6 + y + inicioy)
+          contexto.lineTo(x + iniciox + referencia1i[i][1], mar1i[i][1] * 6 + y + inicioy)
+          contexto.lineTo(x + iniciox + referencia1i[i][2], mar1i[i][2] * 6 + y + inicioy)
+        }
+        else {
+          contexto.stroke();
+          contexto.closePath();
+          contexto.beginPath();
 
-        contexto.strokeStyle = 'red';
-        contexto.lineWidth = 3;
-        contexto.lineTo(x + iniciox + referencia1i[i][0], mar1i[i][0] * 6 + y + inicioy)
-        contexto.lineTo(x + iniciox + referencia1i[i][1], mar1i[i][1] * 6 + y + inicioy)
-        contexto.lineTo(x + iniciox + referencia1i[i][2], mar1i[i][2] * 6 + y + inicioy)
+
+        }
+
 
       }
       contexto.stroke();
       contexto.closePath();
-      /*contexto.beginPath();
-      contexto.strokeStyle = 'red';
-      contexto.lineWidth = 3;
-      contexto.lineTo(x + iniciox, mar1i[0][0] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 20, mar1i[0][1] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 37, mar1i[0][2] * 6 + y + inicioy)
 
-      contexto.lineTo(x + iniciox + 50, mar1i[1][0] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 70, mar1i[1][1] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 90, mar1i[1][2] * 6 + y + inicioy)
-
-      contexto.lineTo(x + iniciox + 105, mar1i[2][0] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 125, mar1i[2][1] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 155, mar1i[2][2] * 6 + y + inicioy)
-
-      contexto.lineTo(x + iniciox + 170, mar1i[3][0] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 180, mar1i[3][1] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 195, mar1i[3][2] * 6 + y + inicioy)
-
-      contexto.lineTo(x + iniciox + 210, mar1i[4][0] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 220, mar1i[4][1] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 233, mar1i[4][2] * 6 + y + inicioy)
-
-      contexto.lineTo(x + iniciox + 250, mar1i[5][0] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 260, mar1i[5][1] * 6 + y + inicioy)
-      contexto.lineTo(x + iniciox + 273, mar1i[5][2] * 6 + y + inicioy)
-
-      contexto.stroke();
-      contexto.closePath();
-*/
-
-
-      /*for (let i = 0; i < mar1i.length; i++) {
-        for (let j = 0; j < mar1i[i].length; j++) {
-          contexto.lineTo(i * 50 + x + iniciox + j * 11, mar1i[i][j] * 6 + y + inicioy);
-        }
-        //contexto.lineTo(i * 50 + x + iniciox+(i+1)*11, + y + inicioy);
-
-      }*/
 
 
 
     }
-  }, [contexto, imagen, mar1i, dientes1i]);
+  }, [contexto, imagen, mar1i, dientes1i, furca1i, implante1]);
 
 
 
