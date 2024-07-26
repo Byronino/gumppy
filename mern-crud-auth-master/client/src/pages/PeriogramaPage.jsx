@@ -1063,6 +1063,20 @@ function PeriogramaPage() {
           contexto.closePath();
 
         }
+        if (dientes1d[i][1]) {
+          contexto.stroke();
+          contexto.closePath();
+          contexto.beginPath();
+          contexto.strokeStyle = 'black';
+          contexto.lineWidth = 3;
+
+          contexto.lineTo(x + iniciox + referencia1d[i][1] - 10, 7 * 6 + y + inicioy)
+          contexto.lineTo(x + iniciox + referencia1d[i][1] + 10, -16 * 6 + y + inicioy)
+
+          contexto.stroke();
+          contexto.closePath();
+
+        }
 
       }
       //DIBUJA LA LINEA azul
