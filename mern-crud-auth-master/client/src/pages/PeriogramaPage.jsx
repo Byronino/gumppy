@@ -324,11 +324,35 @@ function PeriogramaPage() {
   //MARGEN GINGIVAL SEGUNDA TABLA IZQUIERDA
   const [mar2i, setmar2i] = useState([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]])
   const cambioMar2i = (e, index, n) => {
+    const valor = e.target.value;
+
+    // Agregamos esta condición para verificar si el valor es un símbolo -
+    if (valor === '-') {
+      const newArray = mar2i.map((innerArray, i) => {
+        if (i === index) {
+          return innerArray.map((value, j) => {
+            if (j === n) {
+              return valor;
+            }
+            return value;
+          });
+        }
+        return innerArray;
+      });
+      setmar2i(newArray);
+      return;
+    }
+
+    const esNegativo = valor.startsWith('-');
+    const valorAbsoluto = esNegativo ? valor.substring(1) : valor;
+    const valorNumerico = Number(valorAbsoluto);
+    const valorFinal = esNegativo ? -valorNumerico : valorNumerico;
+
     const newArray = mar2i.map((innerArray, i) => {
       if (i === index) {
         return innerArray.map((value, j) => {
           if (j === n) {
-            return Number(e.target.value);
+            return valorFinal;
           }
           return value;
         });
@@ -1062,6 +1086,18 @@ function PeriogramaPage() {
           contexto.stroke();
           contexto.closePath();
 
+          contexto.stroke();
+          contexto.closePath();
+          contexto.beginPath();
+          contexto.strokeStyle = 'black';
+          contexto.lineWidth = 3;
+
+          contexto.lineTo(x + iniciox + referencia1i[i][1] - 10, 7 * 6 + y + inicioy + 170)
+          contexto.lineTo(x + iniciox + referencia1i[i][1] + 10, -16 * 6 + y + inicioy + 170)
+
+          contexto.stroke();
+          contexto.closePath();
+
         }
         if (dientes1d[i][1]) {
           contexto.stroke();
@@ -1075,11 +1111,22 @@ function PeriogramaPage() {
 
           contexto.stroke();
           contexto.closePath();
+          contexto.stroke();
+          contexto.closePath();
+          contexto.beginPath();
+          contexto.strokeStyle = 'black';
+          contexto.lineWidth = 3;
+
+          contexto.lineTo(x + iniciox + referencia1d[i][1] - 10, 7 * 6 + y + inicioy + 170)
+          contexto.lineTo(x + iniciox + referencia1d[i][1] + 10, -16 * 6 + y + inicioy + 170)
+
+          contexto.stroke();
+          contexto.closePath();
 
         }
 
       }
-      //DIBUJA LA LINEA azul
+      //DIBUJA LA LINEA azul 1i
       contexto.beginPath();
       for (let i = 0; i < mar1i.length; i++) {
         if (!dientes1i[i][1]) {
@@ -1126,9 +1173,33 @@ function PeriogramaPage() {
       contexto.stroke();
       contexto.closePath();
 
+      //DIBUJA LA LINEA azul 2i
       contexto.beginPath();
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes1i[i][1]) {
+          contexto.strokeStyle = 'blue';
+
+          contexto.lineTo(x + iniciox + referencia1i[i][0], diff2i[i][0] * 6 + y + inicioy + 110)
+          contexto.lineTo(x + iniciox + referencia1i[i][1], diff2i[i][1] * 6 + y + inicioy + 110)
+          contexto.lineTo(x + iniciox + referencia1i[i][2], diff2i[i][2] * 6 + y + inicioy + 110)
+        }
+        else {
+          contexto.stroke();
+          contexto.closePath();
+          contexto.beginPath();
+
+
+        }
+
+
+      }
+      contexto.stroke();
+      contexto.closePath();
+
+
 
       //dibuja linea ROJA 1i
+      contexto.beginPath();
       for (let i = 0; i < mar1i.length; i++) {
         if (!dientes1i[i][1]) {
           contexto.strokeStyle = 'red';
@@ -1174,6 +1245,30 @@ function PeriogramaPage() {
 
       contexto.stroke();
       contexto.closePath();
+
+      //dibuja linea ROJA 2i
+      contexto.beginPath();
+
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes1i[i][1]) {
+          contexto.strokeStyle = 'red';
+          contexto.lineWidth = 3;
+          contexto.lineTo(x + iniciox + referencia1i[i][0], -mar2i[i][0] * 6 + y + inicioy + 110)
+          contexto.lineTo(x + iniciox + referencia1i[i][1], -mar2i[i][1] * 6 + y + inicioy + 110)
+          contexto.lineTo(x + iniciox + referencia1i[i][2], -mar2i[i][2] * 6 + y + inicioy + 110)
+        }
+        else {
+          contexto.stroke();
+          contexto.closePath();
+          contexto.beginPath();
+
+
+        }
+
+
+      }
+      contexto.stroke();
+      contexto.closePath();
       // Pinta el área entre las dos líneas 1I
       contexto.beginPath();
       contexto.moveTo(x + iniciox + referencia1i[0][0], -diff1i[0][0] * 6 + y + inicioy);
@@ -1183,6 +1278,12 @@ function PeriogramaPage() {
           contexto.lineTo(x + iniciox + referencia1i[i][1], -diff1i[i][1] * 6 + y + inicioy);
           contexto.lineTo(x + iniciox + referencia1i[i][2], -diff1i[i][2] * 6 + y + inicioy);
         }
+        else {
+          contexto.lineTo(x + iniciox + referencia1i[i][0], y + inicioy);
+          contexto.lineTo(x + iniciox + referencia1i[i][1], y + inicioy);
+          contexto.lineTo(x + iniciox + referencia1i[i][2], y + inicioy);
+
+        }
       }
       for (let i = mar1i.length - 1; i >= 0; i--) {
         if (!dientes1i[i][1]) {
@@ -1190,12 +1291,51 @@ function PeriogramaPage() {
           contexto.lineTo(x + iniciox + referencia1i[i][1], mar1i[i][1] * 6 + y + inicioy);
           contexto.lineTo(x + iniciox + referencia1i[i][0], mar1i[i][0] * 6 + y + inicioy);
         }
+        else {
+          contexto.lineTo(x + iniciox + referencia1i[i][2], y + inicioy);
+          contexto.lineTo(x + iniciox + referencia1i[i][1], y + inicioy);
+          contexto.lineTo(x + iniciox + referencia1i[i][0], y + inicioy);
+
+        }
       }
       contexto.closePath();
       contexto.fillStyle = 'rgba(51, 240, 255, 0.5)'; // Color de relleno
       contexto.fill();
 
-      // Pinta el área entre las dos líneas 1I
+      // Pinta el área entre las dos líneas 2I
+      contexto.beginPath();
+      contexto.moveTo(x + iniciox + referencia1i[0][0], diff1i[0][0] * 6 + y + inicioy + 110);
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes1i[i][1]) {
+          contexto.lineTo(x + iniciox + referencia1i[i][0], diff2i[i][0] * 6 + y + inicioy + 110);
+          contexto.lineTo(x + iniciox + referencia1i[i][1], diff2i[i][1] * 6 + y + inicioy + 110);
+          contexto.lineTo(x + iniciox + referencia1i[i][2], diff2i[i][2] * 6 + y + inicioy + 110);
+        }
+        else {
+          contexto.lineTo(x + iniciox + referencia1i[i][0], y + inicioy + 110);
+          contexto.lineTo(x + iniciox + referencia1i[i][1], y + inicioy + 110);
+          contexto.lineTo(x + iniciox + referencia1i[i][2], y + inicioy + 110);
+
+        }
+      }
+      for (let i = mar1i.length - 1; i >= 0; i--) {
+        if (!dientes1i[i][1]) {
+          contexto.lineTo(x + iniciox + referencia1i[i][2], -mar2i[i][2] * 6 + y + inicioy + 110);
+          contexto.lineTo(x + iniciox + referencia1i[i][1], -mar2i[i][1] * 6 + y + inicioy + 110);
+          contexto.lineTo(x + iniciox + referencia1i[i][0], -mar2i[i][0] * 6 + y + inicioy + 110);
+        }
+        else {
+          contexto.lineTo(x + iniciox + referencia1i[i][2], y + inicioy + 110);
+          contexto.lineTo(x + iniciox + referencia1i[i][1], y + inicioy + 110);
+          contexto.lineTo(x + iniciox + referencia1i[i][0], y + inicioy + 110);
+
+        }
+      }
+      contexto.closePath();
+      contexto.fillStyle = 'rgba(51, 240, 255, 0.5)'; // Color de relleno
+      contexto.fill();
+
+      // Pinta el área entre las dos líneas 1d
       contexto.beginPath();
       contexto.moveTo(x + iniciox + referencia1d[0][0], -diff1d[0][0] * 6 + y + inicioy);
       for (let i = 0; i < mar1i.length; i++) {
@@ -1204,6 +1344,11 @@ function PeriogramaPage() {
           contexto.lineTo(x + iniciox + referencia1d[i][1], -diff1d[i][1] * 6 + y + inicioy);
           contexto.lineTo(x + iniciox + referencia1d[i][2], -diff1d[i][2] * 6 + y + inicioy);
         }
+        else {
+          contexto.lineTo(x + iniciox + referencia1d[i][0], -diff1d[i][0] * 0 + y + inicioy);
+          contexto.lineTo(x + iniciox + referencia1d[i][1], -diff1d[i][1] * 0 + y + inicioy);
+          contexto.lineTo(x + iniciox + referencia1d[i][2], -diff1d[i][2] * 0 + y + inicioy);
+        }
       }
       for (let i = mar1i.length - 1; i >= 0; i--) {
         if (!dientes1i[i][1]) {
@@ -1211,17 +1356,22 @@ function PeriogramaPage() {
           contexto.lineTo(x + iniciox + referencia1d[i][1], mar1d[i][1] * 6 + y + inicioy);
           contexto.lineTo(x + iniciox + referencia1d[i][0], mar1d[i][0] * 6 + y + inicioy);
         }
+        else {
+          contexto.lineTo(x + iniciox + referencia1d[i][2], mar1d[i][2] * 0 + y + inicioy);
+          contexto.lineTo(x + iniciox + referencia1d[i][1], mar1d[i][1] + y + inicioy);
+          contexto.lineTo(x + iniciox + referencia1d[i][0], mar1d[i][0] * 0 + y + inicioy);
+        }
       }
       contexto.closePath();
       contexto.fillStyle = 'rgba(51, 240, 255, 0.5)'; // Color de relleno
       contexto.fill();
-      
+
 
 
 
     }
   }, [contexto, imagen, mar1i, dientes1i, furca1i, implante1, prof1i, diff1i,
-    dientes1d, furca1d, implante2, mar1d, prof1d, diff1d]);
+    dientes1d, furca1d, implante2, mar1d, prof1d, diff1d, mar2i, prof2i, diff2i]);
 
 
 
