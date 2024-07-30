@@ -1811,9 +1811,76 @@ function PeriogramaPage() {
     }
   }, [contexto, imagen, mar1i, dientes1i, furca1i, implante1, prof1i, diff1i,
     dientes1d, furca1d, implante2, mar1d, prof1d, diff1d, mar2i, prof2i, diff2i, diff2d, mar2d, furca2i, furca2d]);
+//IMAGEN TABLA 3 Y 4
+
+  const [contexto2, setContexto2] = useState(null);
+  const [imagen2, setImagen2] = useState(null);
+
+  useEffect(() => {
+    const img2 = new Image();
+    img2.src = placeholder2;
+    img2.onload = () => {
+      setImagen2(img2);
+      const canvas2 = document.getElementById('canvas2');
+      const ctx2 = canvas2.getContext('2d');
+      setContexto2(ctx2);
+    };
+  }, [dibujo1i]);
+
+  useEffect(() => {
+    if (contexto2 && imagen2) {
+      const canvasWidth2 = 2000;
+      const canvasHeight2 = 300;
+      const imagenWidth2 = imagen2.width;
+      const imagenHeight2 = imagen2.height;
+      const iniciox2 = 157;
+      const inicioy2 = 106;
+
+      contexto2.clearRect(0, 0, canvasWidth2, canvasHeight2);
+      const x2 = (canvasWidth2 - imagenWidth2) / 2;
+      const y2 = (canvasHeight2 - imagenHeight2) / 2;
+
+      contexto2.drawImage(imagen2, x2, y2); // Dibuja la imagen centrada
+      contexto2.beginPath();
+      contexto2.strokeStyle = 'red';
+      contexto2.lineWidth = 3
+
+      //dibujo acorde al tamano de cada diente tabla 2
+      const referencia3i = [[0, 25, 47], [63, 90, 110], [130, 150, 170], [193, 205, 215], [233, 245, 255], [273, 282, 293], [310, 320, 330], [345, 355, 364]]
+
+      const referencia3d = [[403, 423, 434], [450, 465, 477], [490, 500, 520], [530, 545, 560], [573, 585, 599], [610, 640, 665], [680, 700, 716], [730, 750, 770]]
+
+      const alturayFurca2 = -36 + y2 + inicioy2 - 50
+
+      //dibuja linea ROJA 3i
+      contexto2.beginPath();
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes2i[i][1]) {
+          contexto2.strokeStyle = 'red';
+          contexto2.lineWidth = 3;
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][0], mar3i[i][0] * 6 + y2 + inicioy2)
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], mar3i[i][1] * 6 + y2 + inicioy2)
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][2], mar3i[i][2] * 6 + y2 + inicioy2)
+        }
+        else {
+          contexto2.stroke();
+          contexto2.closePath();
+          contexto2.beginPath();
+
+
+        }
+
+
+      }
+      contexto2.stroke();
+      contexto2.closePath();
 
 
 
+
+    }
+  },
+    [contexto2,imagen2,dientes2i, mar3i, dibujo1i])
 
 
 
@@ -3245,10 +3312,21 @@ function PeriogramaPage() {
           </div>
 
         </div>
-        {/*IMAGEN 3 PREVISIONAL----------------------------------------------------------   */}
-        <div className="my-200 display-flex">
-          <img src={placeholder2} width="100%" height="100" />
+        {/*IMAGEN 12----------------------------------------------------------   */}
+        <div className="flex flex-row" style={{ justifyContent: 'center' }}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row', // Agrega esta propiedad para que los canvas se alineen horizontalmente
+            justifyContent: 'center',
+            width: '100%', // Establece el ancho del contenedor al 100% del padre
+            height: 300, // Establece el alto del contenedor
+            marginLeft: '-60px'
+          }}>
+            <canvas id="canvas2" width={2000} height={300} /> {/* Establece el alto del primer canvas */}
+          </div>
         </div>
+
+
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
 
 
