@@ -1852,10 +1852,12 @@ function PeriogramaPage() {
 
       const referencia3d = [[401, 410, 420], [432, 445, 455], [470, 480, 490], [505, 515, 530], [547, 557, 573], [587, 615, 635], [650, 675, 697], [713, 740, 765]]
 
-      const alturayFurca2 = -36 + y2 + inicioy2 - 50
+      const alturayFurca2 = -36 + y2 + inicioy2 - 45
+      const inicioy3 = inicioy2 + 5
 
 
-      //ELIMINAR DIENTES abajo
+
+      //ELIMINAR DIENTES abajo 
       for (let i = 0; i < dientes1i.length; i++) {
         if (dientes2i[i][1]) {
           contexto2.stroke();
@@ -1913,6 +1915,359 @@ function PeriogramaPage() {
 
 
 
+      //FURCAS SUPERIORES tabla3
+      for (let i = 0; i < furca1i.length; i++) {
+        //FURCA 3 
+        if (!implante3[i] && !dientes2i[i][1]) {
+          if (furca3i[i] === 1) {
+            contexto2.stroke();
+            contexto2.closePath();
+
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+
+            contexto2.beginPath();
+            contexto2.strokeStyle = 'green';
+            contexto2.lineWidth = 3;
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+
+          }
+          if (furca3i[i] == 2) {
+
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 3)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 23)
+            contexto2.stroke();
+            contexto2.closePath();
+
+
+          }
+          if (furca3i[i] == 3) {
+
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 3)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 23)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1] - 10, alturayFurca2)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1] + 10, alturayFurca2)
+            contexto2.stroke();
+            contexto2.closePath();
+
+
+          }
+        }
+
+        //FURCA4
+        if (!implante4[i] && !dientes2d[i][1]) {
+          if (furca3d[i] === 1) {
+            contexto2.stroke();
+            contexto2.closePath();
+
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+
+            contexto2.beginPath();
+            contexto2.strokeStyle = 'green';
+            contexto2.lineWidth = 3;
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+
+          }
+          if (furca3d[i] == 2) {
+
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 3)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 23)
+            contexto2.stroke();
+            contexto2.closePath();
+
+
+          }
+          if (furca3d[i] == 3) {
+
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 3)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 23)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1] - 10, alturayFurca2)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1] + 10, alturayFurca2)
+            contexto2.stroke();
+            contexto2.closePath();
+
+
+          }
+        }
+      }
+
+  //FURCAS TABLA 4
+      for (let i = 0; i < furca1i.length; i++) {
+        //FURCA 4i 
+        if (!implante3[i] && !dientes2i[i][1]) {
+          if (furca4i[i] === 1) {
+            contexto2.stroke();
+            contexto2.closePath();
+
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+
+            contexto2.beginPath();
+            contexto2.strokeStyle = 'green';
+            contexto2.lineWidth = 3;
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+
+          }
+          if (furca4i[i] == 2) {
+
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 270+3)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 23+270)
+            contexto2.stroke();
+            contexto2.closePath();
+
+
+          }
+          if (furca4i[i] == 3) {
+
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 3+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 23+270)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1] - 10, alturayFurca2+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1] + 10, alturayFurca2+270)
+            contexto2.stroke();
+            contexto2.closePath();
+
+
+          }
+        }
+
+        //FURCA 4d 
+        if (!implante4[i] && !dientes2d[i][1]) {
+          if (furca4d[i] === 1) {
+            contexto2.stroke();
+            contexto2.closePath();
+
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+
+            contexto2.beginPath();
+            contexto2.strokeStyle = 'green';
+            contexto2.lineWidth = 3;
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+
+          }
+          if (furca4d[i] == 2) {
+
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 270+3)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 23+270)
+            contexto2.stroke();
+            contexto2.closePath();
+
+
+          }
+          if (furca4d[i] == 3) {
+
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.fillStyle = 'white';
+            contexto2.fill();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.strokeStyle = 'green';
+            contexto2.beginPath();
+
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 3+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 23+270)
+            contexto2.stroke();
+            contexto2.closePath();
+            contexto2.beginPath();
+
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1] - 10, alturayFurca2+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1] + 10, alturayFurca2+270)
+            contexto2.stroke();
+            contexto2.closePath();
+
+
+          }
+        }
+      }
 
 
       //DIBUJA LA LINEA azul 3i
@@ -1962,6 +2317,55 @@ function PeriogramaPage() {
       contexto2.stroke();
       contexto2.closePath();
 
+
+      //DIBUJA LA LINEA azul 4i
+      contexto2.beginPath();
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes2i[i][1]) {
+          contexto2.strokeStyle = 'blue';
+
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][0], diff4i[i][0] * 6 + y2 + inicioy3 + 110)
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], diff4i[i][1] * 6 + y2 + inicioy3 + 110)
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][2], diff4i[i][2] * 6 + y2 + inicioy3 + 110)
+        }
+        else {
+          contexto2.stroke();
+          contexto2.closePath();
+          contexto2.beginPath();
+
+
+        }
+
+
+      }
+      contexto2.stroke();
+      contexto2.closePath();
+
+      //DIBUJA LINEA azul 4D
+      contexto2.beginPath();
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes2d[i][1]) {
+          contexto2.strokeStyle = 'blue';
+
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][0], diff4d[i][0] * 6 + y2 + inicioy3 + 110)
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], diff4d[i][1] * 6 + y2 + inicioy3 + 110)
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][2], diff4d[i][2] * 6 + y2 + inicioy3 + 110)
+        }
+        else {
+          contexto2.stroke();
+          contexto2.closePath();
+          contexto2.beginPath();
+
+
+        }
+
+
+      }
+      contexto2.stroke();
+      contexto2.closePath();
+
+
+
       //dibuja linea ROJA 3i
       contexto2.beginPath();
       for (let i = 0; i < mar1i.length; i++) {
@@ -2008,9 +2412,54 @@ function PeriogramaPage() {
 
       contexto2.stroke();
       contexto2.closePath();
+     
+
+      //dibuja linea ROJA 4i
+      contexto2.beginPath();
+
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes2i[i][1]) {
+          contexto2.strokeStyle = 'red';
+          contexto2.lineWidth = 3;
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][0], -mar4i[i][0] * 6 + y2 + inicioy3 + 110)
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], -mar4i[i][1] * 6 + y2 + inicioy3 + 110)
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][2], -mar4i[i][2] * 6 + y2 + inicioy3 + 110)
+        }
+        else {
+          contexto2.stroke();
+          contexto2.closePath();
+          contexto2.beginPath();
 
 
+        }
 
+
+      }
+      contexto2.stroke();
+      contexto2.closePath();
+
+      //dibuja linea ROJA 4d
+      contexto2.beginPath();
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes2d[i][1]) {
+          contexto2.strokeStyle = 'red';
+          contexto2.lineWidth = 3;
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][0], -mar4d[i][0] * 6 + y2 + inicioy3 + 110)
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], -mar4d[i][1] * 6 + y2 + inicioy3 + 110)
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][2], -mar4d[i][2] * 6 + y2 + inicioy3 + 110)
+        }
+        else {
+          contexto2.stroke();
+          contexto2.closePath();
+          contexto2.beginPath();
+
+
+        }
+
+
+      }
+      contexto2.stroke();
+      contexto2.closePath();
 
 
 
@@ -2050,6 +2499,7 @@ function PeriogramaPage() {
       contexto2.fillStyle = 'rgba(51, 240, 255, 0.5)'; // Color de relleno
       contexto2.fill();
 
+
       // Pinta el área entre las dos líneas 3d
       contexto2.beginPath();
       contexto2.moveTo(x2 + iniciox2 + referencia3d[0][0], -diff3d[0][0] * 6 + y2 + inicioy2);
@@ -2083,10 +2533,80 @@ function PeriogramaPage() {
 
 
 
+      // Pinta el área entre las dos líneas 4I
+      contexto2.beginPath();
+      contexto2.moveTo(x2 + iniciox2 + referencia3i[0][0], diff4i[0][0] * 6 + y2 + inicioy3 + 110);
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes2i[i][1]) {
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][0], diff4i[i][0] * 6 + y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], diff4i[i][1] * 6 + y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][2], diff4i[i][2] * 6 + y2 + inicioy3 + 110);
+        }
+        else {
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][0], y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][2], y2 + inicioy3 + 110);
+
+        }
+      }
+      for (let i = mar1i.length - 1; i >= 0; i--) {
+        if (!dientes2i[i][1]) {
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][2], -mar4i[i][2] * 6 + y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], -mar4i[i][1] * 6 + y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][0], -mar4i[i][0] * 6 + y2 + inicioy3 + 110);
+        }
+        else {
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][2], y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3i[i][0], y2 + inicioy3 + 110);
+
+        }
+      }
+      contexto2.closePath();
+      contexto2.fillStyle = 'rgba(51, 240, 255, 0.5)'; // Color de relleno
+      contexto2.fill();
+
+
+      // Pinta el área entre las dos líneas 2d
+      contexto2.beginPath();
+      contexto2.moveTo(x2 + iniciox2 + referencia3d[0][0], diff4d[0][0] * 6 + y2 + inicioy3 + 110);
+      for (let i = 0; i < mar1i.length; i++) {
+        if (!dientes2d[i][1]) {
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][0], diff4d[i][0] * 6 + y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], diff4d[i][1] * 6 + y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][2], diff4d[i][2] * 6 + y2 + inicioy3 + 110);
+        }
+        else {
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][0], y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][2], y2 + inicioy3 + 110);
+
+        }
+      }
+      for (let i = mar1i.length - 1; i >= 0; i--) {
+        if (!dientes2d[i][1]) {
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][2], -mar4d[i][2] * 6 + y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], -mar4d[i][1] * 6 + y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][0], -mar4d[i][0] * 6 + y2 + inicioy3 + 110);
+        }
+        else {
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][2], y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], y2 + inicioy3 + 110);
+          contexto2.lineTo(x2 + iniciox2 + referencia3d[i][0], y2 + inicioy3 + 110);
+
+        }
+      }
+      contexto2.closePath();
+      contexto2.fillStyle = 'rgba(51, 240, 255, 0.5)'; // Color de relleno
+      contexto2.fill();
+
+
+
+
 
     }
   },
-    [contexto2, imagen2, dientes2i, dientes2d, mar3i, dibujo1i, mar3d, diff3i,diff3d])
+    [contexto2, imagen2, dientes2i, dientes2d, mar3i, dibujo1i, mar3d, diff3i, diff3d, furca3i, implante3, furca3d, mar4i, mar4d,diff4i,diff4d,furca4i,furca4d])
 
 
 
