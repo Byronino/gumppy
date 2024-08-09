@@ -15,7 +15,12 @@ export function Navbar() {
               <Link to={isAuthenticated ? "/tasks" : "/"}> Dr. {user.username}</Link>
             </h1>
             <ul className="flex gap-x-2">
-        
+              <li className="my-4">
+                <ButtonLink to="/pacientes">Pacientes</ButtonLink>
+              </li>
+              <li className="my-4">
+                <ButtonLink to="/add-paciente">Añadir paciente</ButtonLink>
+              </li>
               <li className="my-4">
                 <ButtonLink to="/add-task">Add Task</ButtonLink>
               </li>
@@ -49,7 +54,7 @@ export function Navbar() {
           </>)
       }
 
-      
+
     </div>
   );
 }
