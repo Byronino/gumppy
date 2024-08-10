@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { usePacientes } from "../context/pacienteContext";
 import { TaskCard } from "../components/tasks/TaskCard";
 import { ImFileEmpty } from "react-icons/im";
-
+import { TarjetaPaciente } from "../components/ui/TarjetaPaciente";
 
 
 export function PacientesPage() {
@@ -21,7 +21,7 @@ export function PacientesPage() {
 
 
                 {pacientes.length === 0 && (
-                    <div className="flex justify-center items-center p-10">
+                    <div className="flex justify-center items-center p-10 mt-3">
                         <div>
                             <ImFileEmpty className="text-8xl text-gray-400 m-auto my-2" />
                             <h1 className="font-bold text-xl">
@@ -30,13 +30,12 @@ export function PacientesPage() {
                         </div>
                     </div>
                 )}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-                    {pacientes.map((paciente, index) => (
-                        <div key={index}>
-                            <h1>{paciente.nomPac}</h1>
-                            <h2>{paciente.fecNacPac}</h2>
-                        </div>
-                    ))}
+                <div className="justify-center items-center p-5 " style={{width:"100%" }}>
+                    <div >
+                        {pacientes.map((paciente, index) => (
+                            <TarjetaPaciente paciente={paciente} key={paciente._id} />
+                        ))}
+                    </div>
                 </div>
 
 
