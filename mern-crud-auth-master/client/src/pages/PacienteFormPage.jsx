@@ -29,12 +29,12 @@ export function PacienteFormPage() {
             if (params.id) {
                 updatePaciente(params.id, {
                     ...data,
-                    fecNacPac: dayjs.utc(data.date).format(),
+                    fecNacPac: dayjs.utc(data.fecNacPac).format(),
                 });
             } else {
                 createPaciente({
                     ...data,
-                    fecNacPac: dayjs.utc(data.date).format(),
+                    fecNacPac: dayjs.utc(data.fecNacPac).format(),
                 });
             }
 

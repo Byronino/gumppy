@@ -5,9 +5,9 @@ import { ButtonLink } from "../ui"
 export function TarjetaPaciente({ paciente }) {
     return (
         <>
-            <div className=" text-black mt-3  p-10 rounded-full shadow-lg" style={{ background: '#f87a85', width: "100%", color: "white", borderColor: '#fc9099', borderWidth: '10px',boxShadow: '20px 20px 10px rgba(0, 0 , 0, 0.5)', }}>
+            <div className=" text-black mt-3  p-10 rounded-3xl shadow-lg" style={{ background: '#f87a85', width: "100%", color: "white", borderColor: '#fc9099', borderWidth: '10px', boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)', }}>
 
-                <header className ="rounded-full p-2 mb-2 flex flex-auto" style={{background:"#fc9099", display:"flex",boxShadow: '10px 8px 10px rgba(0, 0, 0, 0.5)'}}>
+                <header className="rounded-3xl p-2 mb-2 flex flex-auto" style={{ background: "#fc9099", display: "flex", boxShadow: '10px 8px 10px rgba(0, 0, 0, 0.5)' }}>
                     <h1 className="text-2xl font-bold mx-3">{paciente.nomPac}</h1>
                 </header>
 
@@ -28,23 +28,24 @@ export function TarjetaPaciente({ paciente }) {
                         <p><b>Telefono: +569 </b>{paciente.telPac}</p>
 
                     </div>
-                    {paciente.descripcion == "" ?(
+                    {paciente.descripcion == "" ? (
                         <div></div>
 
-                    ):(
-                    <div className="mx-20" style={{ overflowWrap: 'break-word',
-                        flexWrap: 'wrap',
-                     }}>
-                        <p><b>Descripcion:  </b>{paciente.descripcion}</p>
+                    ) : (
+                        <div className="mx-20" style={{
+                            overflowWrap: 'break-word',
+                            flexWrap: 'wrap',
+                        }}>
+                            <p><b>Descripcion:  </b>{paciente.descripcion}</p>
 
-                    </div>
+                        </div>
                     )}
 
                     <div>
 
 
                         <div className="flex gap-x-2 items-center justify-end -mx-30">
-                            <ButtonLink to={`/`}>prueba</ButtonLink>
+                            <ButtonLink to={`/probando-paciente/${paciente.nomPac}`}  >prueba</ButtonLink>
 
                         </div>
 

@@ -20,7 +20,7 @@ import PeriogramaPage from "./pages/PeriogramaPage";
 import { PacienteProvider } from "./context/pacienteContext";
 import { PacientesPage } from "./pages/PacientesPage";
 import { PacienteFormPage } from "./pages/PacienteFormPage";
-
+import { ProbandoPacientes } from "./pages/probandoPacientes";
 
 
 function App() {
@@ -52,6 +52,8 @@ function App() {
 
                     <Route path="/pacientes" element={<PacientesPage />} />
                     <Route path="/add-paciente" element={<PacienteFormPage/>} />
+                    <Route path="/probando-paciente/:id" element={<ProbandoPacientes/>} />
+
 
                   </Route>
                 </Routes>
