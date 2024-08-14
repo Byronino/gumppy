@@ -37,6 +37,46 @@ const pacienteSchema = new mongoose.Schema(
             type: mongoose.Types.ObjectId,
             ref: "User",
         },
+        alergia: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        tabaco: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        alcohol: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        drogas: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        nCepillados: {
+            type: String,
+            required: false,
+        },
+        cedaDental: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        cepilloInterdental: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        clorhexidina: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+
     },
     {
         timestamps: true,

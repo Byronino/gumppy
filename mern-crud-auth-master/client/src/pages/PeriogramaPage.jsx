@@ -2871,7 +2871,7 @@ function PeriogramaPage() {
   return (
     <>
 
-      <div className="mb-16 color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+      <div className="mb-16 color: black border rounded bg-white" style={{ boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)',color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
           {/*PRIMERA TABLA IZQUIERDA-----------------------------------------------------------   */}
           <div className=" rounded w-1/3 my-10" style={{ boxSizing: 'border-box' }}>

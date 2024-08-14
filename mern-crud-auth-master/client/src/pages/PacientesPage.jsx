@@ -36,7 +36,7 @@ export function PacientesPage() {
 
     return (
         <>
-            <div className="mb-16 color: black border rounded bg-white" style={{  minHeight: '500px',color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+            <div className="mb-16 color: black border rounded bg-white" style={{  minHeight: '500px',color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0',boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
 
             <div className="justify-center items-center p-5 " style={{ width: "50%" }}>
             <div className="px-4 py-2">

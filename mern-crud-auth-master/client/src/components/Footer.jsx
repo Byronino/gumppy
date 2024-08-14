@@ -18,6 +18,7 @@ export function Footer() {
             backgroundColor: '#fc9099',
             padding: '8px',
             borderRadius: '10px',
+            boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)'
           }}
         >
           <h1 style={{ fontWeight: 'bold', margin: '2px', fontSize: '4xl' }}>

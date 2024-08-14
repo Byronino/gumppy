@@ -54,6 +54,17 @@ export function PacienteFormPage() {
                 setValue("telPac", paciente.telPac);
                 setValue("rutPac", paciente.rutPac);
                 setValue("razaPac", paciente.razaPac);
+                setValue("descripcion", paciente.descripcion);
+                setValue("alergia", paciente.alergia);
+                setValue("tabaco", paciente.tabaco);
+                setValue("alcohol", paciente.alcohol);
+                setValue("drogas", paciente.drogas);
+                setValue("nCepillados", paciente.nCepillados);
+                setValue("cedaDental", paciente.cedaDental);
+                setValue("cepilloInterdental", paciente.cepilloInterdental);
+                setValue("clorehexidina", paciente.clorhexidina);
+
+
                 setValue(
                     "fecNacPac",
                     paciente.fecNacPac ? dayjs(paciente.fecNacPac).utc().format("DD-MM-YYYY") : ""
@@ -69,91 +80,191 @@ export function PacienteFormPage() {
 
     return (
         <>
-            <div className="mb-16 color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+
+            <div className="mb-16 color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0', boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
 
 
-                <Card>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <Label htmlFor="nomPac">Nombre del Paciente</Label>
-                        <Input
-                            type="text"
-                            name="nomPac"
-                            placeholder="Nombre del paciente"
-                            {...register("nomPac")}
-                            autoFocus
-                        />
-                        {errors.nomPac && (
-                            <p className="text-red-500 text-xs italic">Porfavor ingrese el nombre completo</p>
-                        )}
+                <div className="bg-slate-100 text-black max-w-md w-full p-10 rounded-md mt-3 mb-1" style={{ minWidth: "80%", boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
 
-                        <Label htmlFor="rutPac">Rut del Paciente</Label>
-                        <Input
-                            type="text"
-                            name="rutPac"
-                            placeholder="XXXXXXXX-X"
-                            {...register("rutPac")}
-                            autoFocus
-                        />
-                        {errors.rutPac && (
-                            <p className="text-red-500 text-xs italic">Porfavor ingrese un rut correcto</p>
-                        )}
-
-                        <Label htmlFor="emailPac">Email del Paciente</Label>
-                        <Input
-                            type="text"
-                            name="emailPac"
-                            placeholder="ejemplo@dominio.extension"
-                            {...register("emailPac")}
-                            autoFocus
-                        />
-                        {errors.emailPac && (
-                            <p className="text-red-500 text-xs italic">Porfavor ingrese un email correcto</p>
-                        )}
-
-                        <Label htmlFor="telPac">Telefono del Paciente</Label>
-                        <Input
-                            type="text"
-                            name="telPac"
-                            placeholder="+569 XXXXXXXX"
-                            {...register("telPac")}
-                            autoFocus
-                        />
-                        {errors.telPac && (
-                            <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
-                        )}
-
-                        <Label htmlFor="razaPac">Etnia del Paciente</Label>
-                        <Input
-                            type="text"
-                            name="razaPac"
-                            placeholder="Etnia"
-                            {...register("razaPac")}
-                            autoFocus
-                        />
-                        {errors.razaPac && (
-                            <p className="text-red-500 text-xs italic">Porfavor ingrese una raza correcta</p>
-                        )}
+                    <h1 className="text-3xl font-bold font-montserrat mt-3">Agregar nuevo paciente</h1>
 
 
+                </div>
 
-                        <Label htmlFor="fecNacPac">Fecha de Nacimiento</Label>
-                        <Input type="date" name="fecNacPac" {...register("fecNacPac")} />
+                <div className="grid grid-cols-2 gap-2">
+                    <Card>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <Label htmlFor="nomPac" id="nomPac-label">Nombre del Paciente</Label>
+                            <Input
+                                type="text"
+                                name="nomPac"
+                                placeholder="Nombre del paciente"
+                                {...register("nomPac")}
+                                autoFocus
+                            />
+                            {errors.nomPac && (
+                                <p className="text-red-500 text-xs italic">Porfavor ingrese el nombre completo</p>
+                            )}
 
-                        <Label htmlFor="description">Descripcion</Label>
-                        <Textarea
-                            name="descripcion"
-                            id="descripcion"
-                            rows="3"
-                            placeholder="Descripcion"
-                            {...register("descripcion")}
-                        ></Textarea>
-                        <Button>Save</Button>
-                    </form>
-                </Card>
+                            <Label htmlFor="rutPac" id="rutPac-label">Rut del Paciente</Label>
+                            <Input
+                                type="text"
+                                name="rutPac"
+                                placeholder="XXXXXXXX-X"
+                                {...register("rutPac")}
+
+                            />
+                            {errors.rutPac && (
+                                <p className="text-red-500 text-xs italic">Porfavor ingrese un rut correcto</p>
+                            )}
+
+                            <Label htmlFor="emailPac" id="emailPac-label">Email del Paciente</Label>
+                            <Input
+                                type="text"
+                                name="emailPac"
+                                placeholder="ejemplo@dominio.extension"
+                                {...register("emailPac")}
+
+                            />
+                            {errors.emailPac && (
+                                <p className="text-red-500 text-xs italic">Porfavor ingrese un email correcto</p>
+                            )}
+
+                            <Label htmlFor="telPac" id="telPac-label">Telefono del Paciente</Label>
+                            <Input
+                                type="text"
+                                name="telPac"
+                                placeholder="+569 XXXXXXXX"
+                                {...register("telPac")}
+
+                            />
+                            {errors.telPac && (
+                                <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
+                            )}
+
+                            <Label htmlFor="razaPac" id="razaPac-label">Etnia del Paciente</Label>
+                            <Input
+                                type="text"
+                                name="razaPac"
+                                placeholder="Etnia"
+                                {...register("razaPac")}
+
+                            />
+                            {errors.razaPac && (
+                                <p className="text-red-500 text-xs italic">Porfavor ingrese una raza correcta</p>
+                            )}
 
 
-            </div>
 
-        </>
-    )
+                            <Label htmlFor="fecNacPac" id="fecNacPac-label">Fecha de Nacimiento</Label>
+                            <Input type="date" name="fecNacPac" {...register("fecNacPac")} />
+
+                            <Label htmlFor="description" id="description-label">Descripcion</Label>
+                            <Textarea
+                                name="descripcion"
+                                id="descripcion"
+                                rows="3"
+                                placeholder="Descripcion"
+                                {...register("descripcion")}
+                            ></Textarea>
+
+
+                            <Button>Añadir paciente</Button>
+
+                        </form>
+                    </Card>
+                    <Card>
+                        <h1 className="text-xl underline">Hábitos del paciente</h1>
+                        <div className="mt-3 grid grid-cols-2 gap-4">
+                            <Label htmlFor="alergia" id="alergia-label">¿Posee alergias el paciente?</Label>
+                            <Input
+
+                                type="checkbox"
+                                name="alergia"
+                                {...register("alergia")}
+
+                            />
+                            <Label htmlFor="tabaco" id="tabaco-label">¿Consume tabaco?</Label>
+                            <Input
+                                type="checkbox"
+                                name="tabaco"
+
+                                {...register("tabaco")}
+                            />
+
+                            <Label htmlFor="alcohol" id="alcohol-label">¿Consume alcohol?</Label>
+                            <Input
+                                type="checkbox"
+                                name="alcohol"
+
+                                {...register("alcohol")}
+                            />
+
+                           <Label htmlFor="drogas" id="drogas-label">¿Consume algun tipo de droga?</Label>
+            <Input
+              type="checkbox"
+              name="drogas"
+
+              {...register("drogas")}
+            />
+
+
+          </div>
+          <h1 className="text-xl underline mt-3">Higiene del paciente</h1>
+
+          <div className="mt-3 grid grid-cols-2 gap-4">
+            <Label htmlFor="cedaDental" id="cedaDental-label">¿Utiliza ceda dental?</Label>
+            <Input
+              type="checkbox"
+              name="cedaDental"
+
+              {...register("cedaDental")}
+            />
+
+            <Label htmlFor="cepilloInterdental" id="cepilloInterdental-label">¿Utiliza cepillo interdental?</Label>
+            <Input
+              type="checkbox"
+              name="cepilloInterdental"
+
+              {...register("cepilloInterdental")}
+            />
+
+            <Label htmlFor="cepilloInterdental" id="cepilloInterdental-label">¿Utiliza cepillo interdental?</Label>
+            <Input
+              type="checkbox"
+              name="cepilloInterdental"
+
+              {...register("cepilloInterdental")}
+            />
+
+            <Label htmlFor="clorhexidina" id="clorhexidina-label">¿Utiliza clorhexidina?</Label>
+            <Input
+              type="checkbox"
+              name="clorhexidina"
+
+              {...register("clorhexidina")}
+            />
+            <Label htmlFor="nCepillados" id="nCepillados-label">¿Cuántas veces se cepilla al día?</Label>
+            <select
+              name="nCepillados"
+              {...register("nCepillados")}
+            >
+              <option value="0">0 veces al día</option>
+              <option value="1">1 vez al día</option>
+              <option value="2">2 veces al día</option>
+              <option value="3">3 veces al día</option>
+              <option value="4">Más de 3 veces al día</option>
+            </select>
+
+          </div>
+        </Card>
+
+
+      </div>
+
+
+    </div>
+
+  </>
+)
 }
