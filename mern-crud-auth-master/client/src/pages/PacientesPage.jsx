@@ -36,9 +36,9 @@ export function PacientesPage() {
 
     return (
         <>
-            <div className="mb-16 color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+            <div className="mb-16 color: black border rounded bg-white" style={{  minHeight: '500px',color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
 
-            <div className="justify-center items-center p-5 " style={{ width: "100%" }}>
+            <div className="justify-center items-center p-5 " style={{ width: "50%" }}>
             <div className="px-4 py-2">
                     <input
                         type="search"

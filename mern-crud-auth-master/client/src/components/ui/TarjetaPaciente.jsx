@@ -26,7 +26,7 @@ export function TarjetaPaciente({ paciente }) {
                     onClick={handleClick}
                     >
 
-                    <header className="rounded-3xl p-2 mb-2 flex flex-auto" style={{ background: "#fc9099", display: "flex", boxShadow: '10px 8px 10px rgba(0, 0, 0, 0.5)' }}>
+                    <header className="rounded-3xl p-2 mb-2 flex flex-auto" style={{ background: "#fc9099", display: "flex", }}>
                         <h1 className="text-2xl font-bold mx-3">{paciente.nomPac}</h1>
                     </header>
 
