@@ -2092,7 +2092,7 @@ function PeriogramaPage() {
         }
       }
 
-  //FURCAS TABLA 4
+      //FURCAS TABLA 4
       for (let i = 0; i < furca1i.length; i++) {
         //FURCA 4i 
         if (!implante3[i] && !dientes2i[i][1]) {
@@ -2101,7 +2101,7 @@ function PeriogramaPage() {
             contexto2.closePath();
 
             contexto2.beginPath();
-            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI);
             contexto2.fillStyle = 'white';
             contexto2.fill();
             contexto2.stroke();
@@ -2110,7 +2110,7 @@ function PeriogramaPage() {
             contexto2.beginPath();
             contexto2.strokeStyle = 'green';
             contexto2.lineWidth = 3;
-            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI)
             contexto2.stroke();
             contexto2.closePath();
 
@@ -2121,20 +2121,20 @@ function PeriogramaPage() {
             contexto2.closePath();
             contexto2.strokeStyle = 'green';
             contexto2.beginPath();
-            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI);
             contexto2.fillStyle = 'white';
             contexto2.fill();
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI)
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 270+3)
-            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 23+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 270 + 3)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 23 + 270)
             contexto2.stroke();
             contexto2.closePath();
 
@@ -2146,14 +2146,14 @@ function PeriogramaPage() {
             contexto2.closePath();
             contexto2.strokeStyle = 'green';
             contexto2.beginPath();
-            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI);
             contexto2.fillStyle = 'white';
             contexto2.fill();
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI)
             contexto2.stroke();
             contexto2.closePath();
             contexto2.stroke();
@@ -2161,19 +2161,19 @@ function PeriogramaPage() {
             contexto2.strokeStyle = 'green';
             contexto2.beginPath();
 
-            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.arc(x2 + iniciox2 + referencia3i[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI)
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 3+270)
-            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 23+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 3 + 270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1], 23 + 270)
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1] - 10, alturayFurca2+270)
-            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1] + 10, alturayFurca2+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1] - 10, alturayFurca2 + 270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3i[i][1] + 10, alturayFurca2 + 270)
             contexto2.stroke();
             contexto2.closePath();
 
@@ -2188,7 +2188,7 @@ function PeriogramaPage() {
             contexto2.closePath();
 
             contexto2.beginPath();
-            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI);
             contexto2.fillStyle = 'white';
             contexto2.fill();
             contexto2.stroke();
@@ -2197,7 +2197,7 @@ function PeriogramaPage() {
             contexto2.beginPath();
             contexto2.strokeStyle = 'green';
             contexto2.lineWidth = 3;
-            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI)
             contexto2.stroke();
             contexto2.closePath();
 
@@ -2208,20 +2208,20 @@ function PeriogramaPage() {
             contexto2.closePath();
             contexto2.strokeStyle = 'green';
             contexto2.beginPath();
-            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI);
             contexto2.fillStyle = 'white';
             contexto2.fill();
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI)
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 270+3)
-            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 23+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 270 + 3)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 23 + 270)
             contexto2.stroke();
             contexto2.closePath();
 
@@ -2233,14 +2233,14 @@ function PeriogramaPage() {
             contexto2.closePath();
             contexto2.strokeStyle = 'green';
             contexto2.beginPath();
-            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI);
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI);
             contexto2.fillStyle = 'white';
             contexto2.fill();
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI)
             contexto2.stroke();
             contexto2.closePath();
             contexto2.stroke();
@@ -2248,19 +2248,19 @@ function PeriogramaPage() {
             contexto2.strokeStyle = 'green';
             contexto2.beginPath();
 
-            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2+270, 10, 0, 2 * Math.PI)
+            contexto2.arc(x2 + iniciox2 + referencia3d[i][1], alturayFurca2 + 270, 10, 0, 2 * Math.PI)
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 3+270)
-            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 23+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 3 + 270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1], 23 + 270)
             contexto2.stroke();
             contexto2.closePath();
             contexto2.beginPath();
 
-            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1] - 10, alturayFurca2+270)
-            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1] + 10, alturayFurca2+270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1] - 10, alturayFurca2 + 270)
+            contexto2.lineTo(x2 + iniciox2 + referencia3d[i][1] + 10, alturayFurca2 + 270)
             contexto2.stroke();
             contexto2.closePath();
 
@@ -2412,7 +2412,7 @@ function PeriogramaPage() {
 
       contexto2.stroke();
       contexto2.closePath();
-     
+
 
       //dibuja linea ROJA 4i
       contexto2.beginPath();
@@ -2606,15 +2606,159 @@ function PeriogramaPage() {
 
     }
   },
-    [contexto2, imagen2, dientes2i, dientes2d, mar3i, dibujo1i, mar3d, diff3i, diff3d, furca3i, implante3, furca3d, mar4i, mar4d,diff4i,diff4d,furca4i,furca4d])
+    [contexto2, imagen2, dientes2i, dientes2d, mar3i, dibujo1i, mar3d, diff3i, diff3d, furca3i, implante3, furca3d, mar4i, mar4d, diff4i, diff4d, furca4i, furca4d])
 
 
 
 
+  //variables calculables
+
+  const [psMax, setpsMax] = useState(0)
+
+  const updatepsMax = (ps) => {
+    let max = 0
+    for (let i = 0; i < ps.length; i++) {
+      if (ps[i][0] > max) max = ps[i][0]
+      if (ps[i][1] > max) max = ps[i][1]
+      if (ps[i][2] > max) max = ps[i][2]
+    }
+    return max;
+  }
+
+  const updatepsMin = (ps) => {
+    let min = 1000
+    for (let i = 0; i < ps.length; i++) {
+      if (ps[i][0] < min) min = ps[i][0]
+      if (ps[i][1] < min) min = ps[i][1]
+      if (ps[i][2] < min) min = ps[i][2]
+    }
+    return min;
+  }
+
+  useEffect(() => {
+    let max = 0;
+    max = Math.max(max, updatepsMax(prof1i));
+    max = Math.max(max, updatepsMax(prof1d));
+    max = Math.max(max, updatepsMax(prof2i));
+    max = Math.max(max, updatepsMax(prof2d));
+    setpsMax(max);
+  }, [prof1i, prof1d, prof2i, prof2d]);
+
+  const [psMax2, setpsMax2] = useState(0)
+
+  useEffect(() => {
+    let max = 0;
+    max = Math.max(max, updatepsMax(prof3i));
+    max = Math.max(max, updatepsMax(prof3d));
+    max = Math.max(max, updatepsMax(prof4i));
+    max = Math.max(max, updatepsMax(prof4d));
+    setpsMax2(max);
+  }, [prof3i, prof3d, prof4i, prof4d]);
+
+  const [nicMax, setnicMax] = useState(0)
+  const [nicMin, setnicMin] = useState(0)
+
+  useEffect(() => {
+    let max = 0;
+    let min = Infinity;
+    max = Math.max(max, updatepsMax(diff1i));
+    max = Math.max(max, updatepsMax(diff1d));
+    max = Math.max(max, updatepsMax(diff2i));
+    max = Math.max(max, updatepsMax(diff2d));
+    max = Math.max(max, updatepsMax(diff3i));
+    max = Math.max(max, updatepsMax(diff3d));
+    max = Math.max(max, updatepsMax(diff4i));
+    max = Math.max(max, updatepsMax(diff4d));
+    setnicMax(max);
+
+    min = Math.min(min, updatepsMin(diff1i));
+    min = Math.min(min, updatepsMin(diff1d));
+    min = Math.min(min, updatepsMin(diff2i));
+    min = Math.min(min, updatepsMin(diff2d));
+    min = Math.min(min, updatepsMin(diff3i));
+    min = Math.min(min, updatepsMin(diff3d));
+    min = Math.min(min, updatepsMin(diff4i));
+    min = Math.min(min, updatepsMin(diff4d));
+    if (min < 0) { setnicMin(0) }
+    else {
+      setnicMin(min);
+    }
 
 
+  }, [diff1i, diff1d, diff2i, diff2d, diff3i, diff3d, diff4i, diff4d])
 
 
+  const [cantDientes, setcantDientes] = useState(0)
+
+  const contarDientes = (dientes) => {
+    let cantidad = 0
+    for (let i = 0; i < dientes1i.length; i++) {
+      if (!dientes[i][1])
+        cantidad++
+    }
+    return cantidad
+  }
+  useEffect(() => {
+    let cantidad = 0
+    cantidad = cantidad + contarDientes(dientes1i) + contarDientes(dientes1d) + contarDientes(dientes2i) + contarDientes(dientes2d)
+    setcantDientes(cantidad)
+
+  }, [dientes1i, dientes1d, dientes2i, dientes2d])
+
+
+  const [cantDientesNIC, setcantDientesNIC] = useState(0)
+  const [porcentajeAfectados, setporcentajeAfectados] = useState(0)
+
+  const contarDientesAfectados = (dientes, nic) => {
+    let cantidad = 0
+    for (let i = 0; i < dientes1i.length; i++) {
+      if (!dientes[i][1] && (nic[i][0] >= 1 || nic[i][1] >= 1 || nic[i][2] >= 1))
+        cantidad++
+    }
+    return cantidad
+  }
+  useEffect(() => {
+    let cantidad = 0
+    let porcentaje = 0
+    cantidad = cantidad
+      + contarDientesAfectados(dientes1i, diff1i) + contarDientesAfectados(dientes1i, diff2i)
+      + contarDientesAfectados(dientes1d, diff1d) + contarDientesAfectados(dientes1d, diff2d)
+      + contarDientesAfectados(dientes2i, diff3i) + contarDientesAfectados(dientes2i, diff4i)
+      + contarDientesAfectados(dientes2d, diff3d) + contarDientesAfectados(dientes2i, diff4d)
+    setcantDientesNIC(cantidad)
+    porcentaje = ((cantDientesNIC / cantDientes) * 100).toFixed(2)
+    setporcentajeAfectados(porcentaje)
+
+
+  }, [dientes1i, dientes1d, dientes2i, dientes2d, diff1i, diff1d, diff2i, diff2d, diff3i, diff3d, diff4i, diff4d, cantDientesNIC, cantDientes])
+
+
+  const [porcentajeSangre, setporcentajeSangre]= useState(0)
+  const contarSangre=(dientes,sangre)=>{
+    let cantidad=0
+    for(let i=0; i<sangre.length;i++){
+      if(!dientes[i][1]){
+        if(sangre[i][0]) cantidad++
+        if(sangre[i][1]) cantidad++
+        if(sangre[i][2]) cantidad++
+      }
+    }
+    return cantidad
+  }
+
+  useEffect(() => {
+    let cantidad = 0
+    let porcentaje = 0
+    cantidad = cantidad
+      + contarSangre(dientes1i, san1i) + contarSangre(dientes1i, san2i)
+      + contarSangre(dientes1d, san1d) + contarSangre(dientes1d, san2d)
+      + contarSangre(dientes2i, san3i) + contarSangre(dientes2i, san4i)
+      + contarSangre(dientes2d, san3d) + contarSangre(dientes2i, san4d)
+    porcentaje = ((cantidad/ (cantDientes*6)) * 100).toFixed(2)
+    setporcentajeSangre(porcentaje)
+
+
+  }, [dientes1i, dientes1d, dientes2i, dientes2d, san1i, san1d, san2i, san2d, san3i, san3d, san4i, san4d, cantDientes])
 
 
 
@@ -2871,8 +3015,15 @@ function PeriogramaPage() {
   return (
     <>
 
-      <div className="mb-16 color: black border rounded bg-white" style={{ boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)',color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+      <div className="mb-16 color: black border rounded bg-white" style={{ boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)', color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+
+        
+
+
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
+
+
+
           {/*PRIMERA TABLA IZQUIERDA-----------------------------------------------------------   */}
           <div className=" rounded w-1/3 my-10" style={{ boxSizing: 'border-box' }}>
 
@@ -3066,13 +3217,13 @@ function PeriogramaPage() {
                       ) : (
                         innernicf1i.map((prof, index2) => (
 
-                          
+
                           <span
                             key={`${index}-${index2}`}
                             style={{ width: '30%', display: 'inline-block', textAlign: "center", fontSize: '12px' }}
                           >
-                            { prof < 0 ? (0):( prof )}
-                            
+                            {prof < 0 ? (0) : (prof)}
+
                           </span>
                         ))
                       )}
@@ -3623,9 +3774,28 @@ function PeriogramaPage() {
           </div >
         </div>
 
-        {/*IMAGEN 2 PREVISIONAL----------------------------------------------------------   */}
-        <div className="my-200 display-flex">
-          <img src={borde} width="100%" height="100" />
+        {/*datos calculados----------------------------------------------------------   */}
+        <div className="bg-slate-100 text-black max-w-md w-full p-10 rounded-md mt-3 mb-1" style={{ minWidth: "80%", boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
+          <h1>Mayor PS superior: {psMax}mm</h1>
+          <h1>Mayor PS inferior: {psMax2}mm</h1>
+          <h1>Rango de NIC:({nicMin}-{nicMax}) mm</h1>
+
+          {cantDientes == 1 ? (<h1>Cantidad de dientes: {cantDientes} unidad</h1>
+          ) : (<h1>Cantidad de dientes: {cantDientes} unidades</h1>
+          )}
+
+          {cantDientesNIC == 1 ? (
+            <h1>Cantidad de dientes con NIC  &ge; 1: {cantDientesNIC} unidad</h1>
+          ) : (
+            <h1>Cantidad de dientes con NIC  &ge; 1: {cantDientesNIC} unidades</h1>
+          )}
+
+
+
+          <h1>Porcentaje de dientes afectados: {porcentajeAfectados}%</h1>
+          <h1>Porcentaje de sangrado: {porcentajeSangre}%</h1>
+
+
         </div>
 
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
