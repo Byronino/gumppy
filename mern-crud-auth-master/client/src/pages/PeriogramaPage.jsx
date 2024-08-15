@@ -3065,11 +3065,14 @@ function PeriogramaPage() {
                         <div></div>
                       ) : (
                         innernicf1i.map((prof, index2) => (
+
+                          
                           <span
                             key={`${index}-${index2}`}
                             style={{ width: '30%', display: 'inline-block', textAlign: "center", fontSize: '12px' }}
                           >
-                            {prof}
+                            { prof < 0 ? (0):( prof )}
+                            
                           </span>
                         ))
                       )}

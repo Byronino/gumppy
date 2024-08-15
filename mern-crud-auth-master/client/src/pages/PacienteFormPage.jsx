@@ -94,7 +94,7 @@ export function PacienteFormPage() {
                 <div className="grid grid-cols-2 gap-2">
                     <Card>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <Label htmlFor="nomPac" id="nomPac-label">Nombre del Paciente</Label>
+                            <Label htmlFor="nomPac" id="nomPac-label">Nombre completo</Label>
                             <Input
                                 type="text"
                                 name="nomPac"
@@ -106,7 +106,7 @@ export function PacienteFormPage() {
                                 <p className="text-red-500 text-xs italic">Porfavor ingrese el nombre completo</p>
                             )}
 
-                            <Label htmlFor="rutPac" id="rutPac-label">Rut del Paciente</Label>
+                            <Label htmlFor="rutPac" id="rutPac-label">Rut </Label>
                             <Input
                                 type="text"
                                 name="rutPac"
@@ -118,7 +118,7 @@ export function PacienteFormPage() {
                                 <p className="text-red-500 text-xs italic">Porfavor ingrese un rut correcto</p>
                             )}
 
-                            <Label htmlFor="emailPac" id="emailPac-label">Email del Paciente</Label>
+                            <Label htmlFor="emailPac" id="emailPac-label">Email </Label>
                             <Input
                                 type="text"
                                 name="emailPac"
@@ -130,7 +130,7 @@ export function PacienteFormPage() {
                                 <p className="text-red-500 text-xs italic">Porfavor ingrese un email correcto</p>
                             )}
 
-                            <Label htmlFor="telPac" id="telPac-label">Telefono del Paciente</Label>
+                            <Label htmlFor="telPac" id="telPac-label">Telefono </Label>
                             <Input
                                 type="text"
                                 name="telPac"
@@ -142,7 +142,7 @@ export function PacienteFormPage() {
                                 <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
                             )}
 
-                            <Label htmlFor="razaPac" id="razaPac-label">Etnia del Paciente</Label>
+                            <Label htmlFor="razaPac" id="razaPac-label">Etnia</Label>
                             <Input
                                 type="text"
                                 name="razaPac"
@@ -176,7 +176,7 @@ export function PacienteFormPage() {
                     <Card>
                         <h1 className="text-xl underline">Hábitos del paciente</h1>
                         <div className="mt-3 grid grid-cols-2 gap-4">
-                            <Label htmlFor="alergia" id="alergia-label">¿Posee alergias el paciente?</Label>
+                            <Label htmlFor="alergia" id="alergia-label">¿Posee alergias?</Label>
                             <Input
 
                                 type="checkbox"
