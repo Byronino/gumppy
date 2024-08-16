@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Myriad Pro', 'sans-serif'],
-        myriad: 'Myriad Pro',
+        sans: ['Roboto', 'sans-serif'],
+        roboto: 'Roboto',
       },
 
     },

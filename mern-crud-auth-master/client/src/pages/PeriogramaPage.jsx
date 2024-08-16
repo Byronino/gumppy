@@ -18,6 +18,8 @@ import { usePeriodontograma } from "../context/periodontogramaContext";
 import { createPeriodontograma } from "../../../src/controllers/periodontograma.controller";
 import dibujo1i from "../images/dibujo1i.png"
 import axios from "axios";
+import { Subtitulo } from "../components/ui/Subtitulo";
+
 function PeriogramaPage() {
 
 
@@ -2733,14 +2735,14 @@ function PeriogramaPage() {
   }, [dientes1i, dientes1d, dientes2i, dientes2d, diff1i, diff1d, diff2i, diff2d, diff3i, diff3d, diff4i, diff4d, cantDientesNIC, cantDientes])
 
 
-  const [porcentajeSangre, setporcentajeSangre]= useState(0)
-  const contarSangre=(dientes,sangre)=>{
-    let cantidad=0
-    for(let i=0; i<sangre.length;i++){
-      if(!dientes[i][1]){
-        if(sangre[i][0]) cantidad++
-        if(sangre[i][1]) cantidad++
-        if(sangre[i][2]) cantidad++
+  const [porcentajeSangre, setporcentajeSangre] = useState(0)
+  const contarSangre = (dientes, sangre) => {
+    let cantidad = 0
+    for (let i = 0; i < sangre.length; i++) {
+      if (!dientes[i][1]) {
+        if (sangre[i][0]) cantidad++
+        if (sangre[i][1]) cantidad++
+        if (sangre[i][2]) cantidad++
       }
     }
     return cantidad
@@ -2754,7 +2756,7 @@ function PeriogramaPage() {
       + contarSangre(dientes1d, san1d) + contarSangre(dientes1d, san2d)
       + contarSangre(dientes2i, san3i) + contarSangre(dientes2i, san4i)
       + contarSangre(dientes2d, san3d) + contarSangre(dientes2i, san4d)
-    porcentaje = ((cantidad/ (cantDientes*6)) * 100).toFixed(2)
+    porcentaje = ((cantidad / (cantDientes * 6)) * 100).toFixed(2)
     setporcentajeSangre(porcentaje)
 
 
@@ -3015,10 +3017,10 @@ function PeriogramaPage() {
   return (
     <>
 
-      <div className="mb-16 color: black border rounded bg-white" style={{ boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)', color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+      <div className="mb-3 color: black border rounded bg-white" style={{ boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)', color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
 
-        
 
+        <Subtitulo>Periodontograma</Subtitulo>
 
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
 

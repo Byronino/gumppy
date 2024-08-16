@@ -10,7 +10,7 @@ export function ProbandoPacientes() {
 
     return (
         <>
-            <div className="mb-16 color: black border rounded bg-white" style={{   minHeight: '500px',color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+            <div className="mb-3 color: black border rounded bg-white" style={{   minHeight: '500px',color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
 
                 <div>
                     <h1>{paciente.nomPac}</h1>

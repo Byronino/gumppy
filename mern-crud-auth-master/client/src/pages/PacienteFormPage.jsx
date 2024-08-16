@@ -8,6 +8,8 @@ import { usePacientes } from "../context/pacienteContext";
 import { Textarea } from "../components/ui/Textarea";
 import { useForm } from "react-hook-form";
 import { OfficialCard } from "../components/ui/OfficialCard";
+import { Subtitulo } from "../components/ui/Subtitulo";
+import ReactSwitch from 'react-switch';
 
 dayjs.extend(utc);
 
@@ -85,15 +87,10 @@ export function PacienteFormPage() {
     return (
         <>
 
-            <div className="mb-16 color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0', boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
+            <div className="mb-3 color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0', boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
 
+                <Subtitulo>Formulario Paciente</Subtitulo>
 
-                <div className="bg-slate-100 text-black max-w-md w-full p-10 rounded-md mt-3 mb-1" style={{ minWidth: "80%", boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
-
-                    <h1 className="text-3xl font-bold font-myriad mt-3">Formulario paciente</h1>
-
-
-                </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-2 gap-2">
                         <OfficialCard>
@@ -173,7 +170,7 @@ export function PacienteFormPage() {
                             ></Textarea>
 
 
-                            
+
 
 
                         </OfficialCard>
@@ -185,6 +182,9 @@ export function PacienteFormPage() {
 
                                     type="checkbox"
                                     name="alergia"
+                                    style={{
+                                        accentColor: '#F87A85' // change the color of the checkbox
+                                      }}
                                     {...register("alergia")}
 
                                 />
@@ -192,7 +192,10 @@ export function PacienteFormPage() {
                                 <Input
                                     type="checkbox"
                                     name="tabaco"
-
+                                    style={{
+                                        accentColor: '#F87A85' // change the color of the checkbox
+                                      }}
+                                    
                                     {...register("tabaco")}
                                 />
 
@@ -200,6 +203,9 @@ export function PacienteFormPage() {
                                 <Input
                                     type="checkbox"
                                     name="alcohol"
+                                    style={{
+                                        accentColor: '#F87A85' // change the color of the checkbox
+                                      }}
 
                                     {...register("alcohol")}
                                 />
@@ -208,9 +214,14 @@ export function PacienteFormPage() {
                                 <Input
                                     type="checkbox"
                                     name="drogas"
+                                    style={{
+                                        accentColor: '#F87A85' // change the color of the checkbox
+                                      }}
 
                                     {...register("drogas")}
                                 />
+
+                                
 
 
                             </div>
@@ -221,6 +232,9 @@ export function PacienteFormPage() {
                                 <Input
                                     type="checkbox"
                                     name="cedaDental"
+                                    style={{
+                                        accentColor: '#F87A85' // change the color of the checkbox
+                                      }}
 
                                     {...register("cedaDental")}
                                 />
@@ -229,6 +243,9 @@ export function PacienteFormPage() {
                                 <Input
                                     type="checkbox"
                                     name="cepilloInterdental"
+                                    style={{
+                                        accentColor: '#F87A85' // change the color of the checkbox
+                                      }}
 
                                     {...register("cepilloInterdental")}
                                 />
@@ -238,6 +255,9 @@ export function PacienteFormPage() {
                                 <Input
                                     type="checkbox"
                                     name="clorhexidina"
+                                    style={{
+                                        accentColor: '#F87A85' // change the color of the checkbox
+                                      }}
 
                                     {...register("clorhexidina")}
                                 />

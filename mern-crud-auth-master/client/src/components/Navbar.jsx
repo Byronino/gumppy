@@ -11,7 +11,7 @@ export function Navbar() {
       {isAuthenticated ? (
         <>
           <nav className="bg-[#f87a85]  flex justify-between py-1 px-10 rounded-lg " style={{boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)'}}>
-            <h1 className="text-2xl font-bold my-2">
+            <h1 className="text-2xl font-roboto my-2">
               <Link to={isAuthenticated ? "/tasks" : "/"}> Dr. {user.username}</Link>
             </h1>
             <ul className="flex gap-x-2">
