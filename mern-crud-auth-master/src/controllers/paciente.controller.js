@@ -11,7 +11,7 @@ export const getPacientes = async (req, res) => {
 
 export const createPaciente = async (req, res) => {
   try {
-    const { nomPac,emailPac,telPac,rutPac,fecNacPac, razaPac,descripcion,alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloIntendental,clorhexidina} = req.body;
+    const { nomPac,emailPac,telPac,rutPac,fecNacPac, razaPac,descripcion,alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloInterdental,clorhexidina} = req.body;
     const newPaciente = new Paciente({
       nomPac,
       emailPac,
@@ -21,7 +21,7 @@ export const createPaciente = async (req, res) => {
       razaPac,
       descripcion,
       user: req.user.id,
-      alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloIntendental,clorhexidina
+      alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloInterdental,clorhexidina
     });
     await newPaciente.save();
     res.json(newPaciente);
@@ -44,10 +44,10 @@ export const deletePaciente = async (req, res) => {
 
 export const updatePaciente = async (req, res) => {
   try {
-    const { nomPac,emailPac,telPac,rutPac,fecNacPac, razaPac, descripcion, alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloIntendental,clorhexidina} = req.body;
+    const { nomPac,emailPac,telPac,rutPac,fecNacPac, razaPac, descripcion, alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloInterdental,clorhexidina} = req.body;
     const pacienteUpdated = await Paciente.findOneAndUpdate(
       { _id: req.params.id },
-      { nomPac,emailPac,telPac,rutPac,fecNacPac, razaPac,descripcion,alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloIntendental,clorhexidina},
+      { nomPac,emailPac,telPac,rutPac,fecNacPac, razaPac,descripcion,alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloInterdental,clorhexidina},
       { new: true }
     );
     return res.json(pacienteUpdated);

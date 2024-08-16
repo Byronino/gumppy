@@ -1,7 +1,7 @@
 
 import logo from "../images/logo.png"
 import { useLocation } from 'react-router-dom';
-
+import { ButtonLink } from "../components/ui";
 
 export function ProbandoPacientes() {
 
@@ -20,6 +20,7 @@ export function ProbandoPacientes() {
                     <h1>{paciente._id}</h1>
 
                     <h1>sadasdads</h1>
+                    <ButtonLink to={`/pacientes/${paciente._id}`}>Edit</ButtonLink>
                     <div><img src={logo} width="100" height="100" /></div>
 
 

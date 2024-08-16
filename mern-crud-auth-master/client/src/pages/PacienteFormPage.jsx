@@ -27,7 +27,9 @@ export function PacienteFormPage() {
     const onSubmit = async (data) => {
         try {
             if (params.id) {
+                console.log("este es el id: " + params.id)
                 updatePaciente(params.id, {
+
                     ...data,
                     fecNacPac: dayjs.utc(data.fecNacPac).format(),
                 });
@@ -62,12 +64,12 @@ export function PacienteFormPage() {
                 setValue("nCepillados", paciente.nCepillados);
                 setValue("cedaDental", paciente.cedaDental);
                 setValue("cepilloInterdental", paciente.cepilloInterdental);
-                setValue("clorehexidina", paciente.clorhexidina);
+                setValue("clorhexidina", paciente.clorhexidina);
 
 
                 setValue(
                     "fecNacPac",
-                    paciente.fecNacPac ? dayjs(paciente.fecNacPac).utc().format("DD-MM-YYYY") : ""
+                    paciente.fecNacPac ? dayjs(paciente.fecNacPac).utc().format("YYYY-MM-DD") : ""
                 )
             }
         };
@@ -86,14 +88,14 @@ export function PacienteFormPage() {
 
                 <div className="bg-slate-100 text-black max-w-md w-full p-10 rounded-md mt-3 mb-1" style={{ minWidth: "80%", boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
 
-                    <h1 className="text-3xl font-bold font-montserrat mt-3">Agregar nuevo paciente</h1>
+                    <h1 className="text-3xl font-bold font-montserrat mt-3">Formulario paciente</h1>
 
 
                 </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="grid grid-cols-2 gap-2">
+                        <Card>
 
-                <div className="grid grid-cols-2 gap-2">
-                    <Card>
-                        <form onSubmit={handleSubmit(onSubmit)}>
                             <Label htmlFor="nomPac" id="nomPac-label">Nombre completo</Label>
                             <Input
                                 type="text"
@@ -169,102 +171,96 @@ export function PacienteFormPage() {
                             ></Textarea>
 
 
-                            <Button>Añadir paciente</Button>
-
-                        </form>
-                    </Card>
-                    <Card>
-                        <h1 className="text-xl underline">Hábitos del paciente</h1>
-                        <div className="mt-3 grid grid-cols-2 gap-4">
-                            <Label htmlFor="alergia" id="alergia-label">¿Posee alergias?</Label>
-                            <Input
-
-                                type="checkbox"
-                                name="alergia"
-                                {...register("alergia")}
-
-                            />
-                            <Label htmlFor="tabaco" id="tabaco-label">¿Consume tabaco?</Label>
-                            <Input
-                                type="checkbox"
-                                name="tabaco"
-
-                                {...register("tabaco")}
-                            />
-
-                            <Label htmlFor="alcohol" id="alcohol-label">¿Consume alcohol?</Label>
-                            <Input
-                                type="checkbox"
-                                name="alcohol"
-
-                                {...register("alcohol")}
-                            />
-
-                           <Label htmlFor="drogas" id="drogas-label">¿Consume algun tipo de droga?</Label>
-            <Input
-              type="checkbox"
-              name="drogas"
-
-              {...register("drogas")}
-            />
+                            
 
 
-          </div>
-          <h1 className="text-xl underline mt-3">Higiene del paciente</h1>
+                        </Card>
+                        <Card>
+                            <h1 className="text-xl underline">Hábitos del paciente</h1>
+                            <div className="mt-3 grid grid-cols-2 gap-4">
+                                <Label htmlFor="alergia" id="alergia-label">¿Posee alergias?</Label>
+                                <Input
 
-          <div className="mt-3 grid grid-cols-2 gap-4">
-            <Label htmlFor="cedaDental" id="cedaDental-label">¿Utiliza ceda dental?</Label>
-            <Input
-              type="checkbox"
-              name="cedaDental"
+                                    type="checkbox"
+                                    name="alergia"
+                                    {...register("alergia")}
 
-              {...register("cedaDental")}
-            />
+                                />
+                                <Label htmlFor="tabaco" id="tabaco-label">¿Consume tabaco?</Label>
+                                <Input
+                                    type="checkbox"
+                                    name="tabaco"
 
-            <Label htmlFor="cepilloInterdental" id="cepilloInterdental-label">¿Utiliza cepillo interdental?</Label>
-            <Input
-              type="checkbox"
-              name="cepilloInterdental"
+                                    {...register("tabaco")}
+                                />
 
-              {...register("cepilloInterdental")}
-            />
+                                <Label htmlFor="alcohol" id="alcohol-label">¿Consume alcohol?</Label>
+                                <Input
+                                    type="checkbox"
+                                    name="alcohol"
 
-            <Label htmlFor="cepilloInterdental" id="cepilloInterdental-label">¿Utiliza cepillo interdental?</Label>
-            <Input
-              type="checkbox"
-              name="cepilloInterdental"
+                                    {...register("alcohol")}
+                                />
 
-              {...register("cepilloInterdental")}
-            />
+                                <Label htmlFor="drogas" id="drogas-label">¿Consume algun tipo de droga?</Label>
+                                <Input
+                                    type="checkbox"
+                                    name="drogas"
 
-            <Label htmlFor="clorhexidina" id="clorhexidina-label">¿Utiliza clorhexidina?</Label>
-            <Input
-              type="checkbox"
-              name="clorhexidina"
-
-              {...register("clorhexidina")}
-            />
-            <Label htmlFor="nCepillados" id="nCepillados-label">¿Cuántas veces se cepilla al día?</Label>
-            <select
-              name="nCepillados"
-              {...register("nCepillados")}
-            >
-              <option value="0">0 veces al día</option>
-              <option value="1">1 vez al día</option>
-              <option value="2">2 veces al día</option>
-              <option value="3">3 veces al día</option>
-              <option value="4">Más de 3 veces al día</option>
-            </select>
-
-          </div>
-        </Card>
+                                    {...register("drogas")}
+                                />
 
 
-      </div>
+                            </div>
+                            <h1 className="text-xl underline mt-3">Higiene del paciente</h1>
+
+                            <div className="mt-3 grid grid-cols-2 gap-4">
+                                <Label htmlFor="cedaDental" id="cedaDental-label">¿Utiliza ceda dental?</Label>
+                                <Input
+                                    type="checkbox"
+                                    name="cedaDental"
+
+                                    {...register("cedaDental")}
+                                />
+
+                                <Label htmlFor="cepilloInterdental" id="cepilloInterdental-label">¿Utiliza cepillo interdental?</Label>
+                                <Input
+                                    type="checkbox"
+                                    name="cepilloInterdental"
+
+                                    {...register("cepilloInterdental")}
+                                />
 
 
-    </div>
+                                <Label htmlFor="clorhexidina" id="clorhexidina-label">¿Utiliza clorhexidina?</Label>
+                                <Input
+                                    type="checkbox"
+                                    name="clorhexidina"
 
-  </>
-)
+                                    {...register("clorhexidina")}
+                                />
+                                <Label htmlFor="nCepillados" id="nCepillados-label">¿Cuántas veces se cepilla al día?</Label>
+                                <select
+                                    name="nCepillados"
+                                    {...register("nCepillados")}
+                                >
+                                    <option value="0">0 veces al día</option>
+                                    <option value="1">1 vez al día</option>
+                                    <option value="2">2 veces al día</option>
+                                    <option value="3">3 veces al día</option>
+                                    <option value="4">Más de 3 veces al día</option>
+                                </select>
+
+                            </div>
+                        </Card>
+
+
+                    </div>
+                    <Button>Guardar</Button>
+                </form>
+
+            </div>
+
+        </>
+    )
 }
