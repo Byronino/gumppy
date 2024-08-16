@@ -7,6 +7,8 @@ import { Button, Card, Input, Label } from "../components/ui";
 import { usePacientes } from "../context/pacienteContext";
 import { Textarea } from "../components/ui/Textarea";
 import { useForm } from "react-hook-form";
+import { OfficialCard } from "../components/ui/OfficialCard";
+
 dayjs.extend(utc);
 
 
@@ -88,13 +90,13 @@ export function PacienteFormPage() {
 
                 <div className="bg-slate-100 text-black max-w-md w-full p-10 rounded-md mt-3 mb-1" style={{ minWidth: "80%", boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
 
-                    <h1 className="text-3xl font-bold font-montserrat mt-3">Formulario paciente</h1>
+                    <h1 className="text-3xl font-bold font-myriad mt-3">Formulario paciente</h1>
 
 
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-2 gap-2">
-                        <Card>
+                        <OfficialCard>
 
                             <Label htmlFor="nomPac" id="nomPac-label">Nombre completo</Label>
                             <Input
@@ -174,7 +176,7 @@ export function PacienteFormPage() {
                             
 
 
-                        </Card>
+                        </OfficialCard>
                         <Card>
                             <h1 className="text-xl underline">Hábitos del paciente</h1>
                             <div className="mt-3 grid grid-cols-2 gap-4">

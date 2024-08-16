@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Myriad Pro', 'sans-serif'],
+        myriad: 'Myriad Pro',
+      },
+
+    },
   },
   plugins: [],
 };
