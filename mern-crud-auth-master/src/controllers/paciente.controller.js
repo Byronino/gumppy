@@ -2,7 +2,7 @@ import Paciente from "../models/paciente.model.js";
 
 export const getPacientes = async (req, res) => {
   try {
-    const pacientes = await Paciente.find({ user : req.user.id }).populate("user");
+    const pacientes = await Paciente.find({ user: req.user.id }).populate("user");
     res.json(pacientes);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -11,17 +11,44 @@ export const getPacientes = async (req, res) => {
 
 export const createPaciente = async (req, res) => {
   try {
-    const { nomPac,emailPac,telPac,rutPac,fecNacPac, razaPac,descripcion,alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloInterdental,clorhexidina} = req.body;
+    const { nomPac, apellidoPac, rutPac, nacionalidadPac, fecNacPac, comunaPac, regionPac, emailPac, telPac, nCepillados, limpiezaInterdental, colutorio, tipoCepillo, tabaco, drogas, alcohol, medicamentos, alergia, embarazo, lactancia, cardiovascular, pulmonar, nervioso, hematologico, gastrointestinal, genitourinario, endocrino, musculoEsqueletal, sistemaInmune, dermatologico, otros, observaciones } = req.body;
     const newPaciente = new Paciente({
+      user: req.user.id,
       nomPac,
+      apellidoPac,
+      rutPac,
+      nacionalidadPac,
+      fecNacPac,
+      comunaPac,
+      regionPac,
       emailPac,
       telPac,
-      rutPac,
-      fecNacPac,
-      razaPac,
-      descripcion,
-      user: req.user.id,
-      alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloInterdental,clorhexidina
+
+      nCepillados,
+      limpiezaInterdental,
+      colutorio,
+      tipoCepillo,
+      tabaco,
+      drogas,
+      alcohol,
+      medicamentos,
+      alergia,
+      embarazo,
+
+      lactancia,
+      cardiovascular,
+      pulmonar,
+      nervioso,
+      hematologico,
+      gastrointestinal,
+      genitourinario,
+      endocrino,
+      musculoEsqueletal,
+      sistemaInmune,
+
+      dermatologico,
+      otros,
+      observaciones
     });
     await newPaciente.save();
     res.json(newPaciente);
@@ -44,10 +71,10 @@ export const deletePaciente = async (req, res) => {
 
 export const updatePaciente = async (req, res) => {
   try {
-    const { nomPac,emailPac,telPac,rutPac,fecNacPac, razaPac, descripcion, alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloInterdental,clorhexidina} = req.body;
+    const { nomPac, apellidoPac, rutPac, nacionalidadPac, fecNacPac, comunaPac, regionPac, emailPac, telPac, nCepillados, limpiezaInterdental, colutorio, tipoCepillo, tabaco, drogas, alcohol, medicamentos, alergia, embarazo, lactancia, cardiovascular, pulmonar, nervioso, hematologico, gastrointestinal, genitourinario, endocrino, musculoEsqueletal, sistemaInmune, dermatologico, otros, observaciones } = req.body;
     const pacienteUpdated = await Paciente.findOneAndUpdate(
       { _id: req.params.id },
-      { nomPac,emailPac,telPac,rutPac,fecNacPac, razaPac,descripcion,alergia,tabaco,alcohol,drogas,nCepillados, cedaDental,cepilloInterdental,clorhexidina},
+      { nomPac, apellidoPac, rutPac, nacionalidadPac, fecNacPac, comunaPac, regionPac, emailPac, telPac, nCepillados, limpiezaInterdental, colutorio, tipoCepillo, tabaco, drogas, alcohol, medicamentos, alergia, embarazo, lactancia, cardiovascular, pulmonar, nervioso, hematologico, gastrointestinal, genitourinario, endocrino, musculoEsqueletal, sistemaInmune, dermatologico, otros, observaciones },
       { new: true }
     );
     return res.json(pacienteUpdated);

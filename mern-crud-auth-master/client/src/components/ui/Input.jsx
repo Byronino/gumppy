@@ -5,5 +5,6 @@ export const Input = forwardRef((props, ref) => (
     {...props}
     ref={ref}
     className="w-full bg-[white] text-black px-4 py-2 rounded-full"
+    //style={{width:"70%"}}
   />
 ));
