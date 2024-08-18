@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { OfficialCard } from "../components/ui/OfficialCard";
 import { Subtitulo } from "../components/ui/Subtitulo";
 import ReactSwitch from 'react-switch';
+import { Newselect } from "../components/ui/Newselect";
 
 dayjs.extend(utc);
 
@@ -117,14 +118,15 @@ export function PacienteFormPage() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div >
                         <OfficialCard >
-                            <h1 className="text-xl font-roboto">Informacion</h1>
-                            <div className="grid grid-cols-2 gap-2">
+                            <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Información</h1>
+                            <div className="grid grid-cols-2 gap-6">
                                 <div >
-                                    <Label htmlFor="nomPac" id="nomPac-label">Nombres</Label>
+                               
+                                    <Label htmlFor="nomPac" id="nomPac-label">Nombre*</Label>
                                     <Input
                                         type="text"
                                         name="nomPac"
-                                        placeholder="Nombres*"
+                                        placeholder="Nombre"
                                         {...register("nomPac")}
                                         autoFocus
                                     />
@@ -132,11 +134,11 @@ export function PacienteFormPage() {
                                         <p className="text-red-500 text-xs italic">Porfavor ingrese el nombre </p>
                                     )}
 
-                                    <Label htmlFor="apellidoPac" id="apellidoPac-label">Apellidos</Label>
+                                    <Label htmlFor="apellidoPac" id="apellidoPac-label">Apellidos*</Label>
                                     <Input
                                         type="text"
                                         name="apellidoPac"
-                                        placeholder="Apellidos*"
+                                        placeholder="Apellidos"
                                         {...register("apellidoPac")}
 
                                     />
@@ -144,11 +146,11 @@ export function PacienteFormPage() {
                                         <p className="text-red-500 text-xs italic">Porfavor ingrese el apellido</p>
                                     )}
 
-                                    <Label htmlFor="rutPac" id="rutPac-label">Rut </Label>
+                                    <Label htmlFor="rutPac" id="rutPac-label">RUT* </Label>
                                     <Input
                                         type="text"
                                         name="rutPac"
-                                        placeholder="RUT*"
+                                        placeholder="Ej: 12.345.678-9"
                                         {...register("rutPac")}
 
                                     />
@@ -156,11 +158,11 @@ export function PacienteFormPage() {
                                         <p className="text-red-500 text-xs italic">Porfavor ingrese un rut correcto</p>
                                     )}
 
-                                    <Label htmlFor="nacionalidadPac" id="nacionalidadPac-label">Nacionalidad </Label>
+                                    <Label htmlFor="nacionalidadPac" id="nacionalidadPac-label">Nacionalidad* </Label>
                                     <Input
                                         type="text"
                                         name="nacionalidadPac"
-                                        placeholder="Nacionalidad Ej: Chilena, Argentina"
+                                        placeholder="Ej: Chilena, Argentina"
                                         {...register("nacionalidadPac")}
 
                                     />
@@ -171,12 +173,12 @@ export function PacienteFormPage() {
 
                                 </div>
                                 <div>
-                                    <Label htmlFor="fecNacPac" id="fecNacPac-label">Fecha de Nacimiento</Label>
+                                    <Label htmlFor="fecNacPac" id="fecNacPac-label">Fecha de Nacimiento*</Label>
                                     <Input type="date" name="fecNacPac" {...register("fecNacPac")} />
 
-                                    <div className="grid grid-cols-2 gap-2">
+                                    <div className="grid grid-cols-2 gap-4">
                                         <div>
-                                            <Label htmlFor="comunaPac" id="comunaPac-label">Comuna </Label>
+                                            <Label htmlFor="comunaPac" id="comunaPac-label">Comuna*</Label>
                                             <Input
                                                 type="text"
                                                 name="comunaPac"
@@ -189,7 +191,7 @@ export function PacienteFormPage() {
                                             )}
                                         </div>
                                         <div>
-                                            <Label htmlFor="regionPac" id="regionPac-label">Región </Label>
+                                            <Label htmlFor="regionPac" id="regionPac-label">Región*</Label>
                                             <Input
                                                 type="text"
                                                 name="regionPac"
@@ -204,7 +206,7 @@ export function PacienteFormPage() {
 
                                     </div>
 
-                                    <Label htmlFor="emailPac" id="emailPac-label">Email </Label>
+                                    <Label htmlFor="emailPac" id="emailPac-label">Email*</Label>
                                     <Input
                                         type="text"
                                         name="emailPac"
@@ -218,11 +220,11 @@ export function PacienteFormPage() {
 
 
 
-                                    <Label htmlFor="telPac" id="telPac-label">Telefono </Label>
+                                    <Label htmlFor="telPac" id="telPac-label">Telefono*</Label>
                                     <Input
                                         type="text"
                                         name="telPac"
-                                        placeholder="Telefono +569 XXXXXXXX"
+                                        placeholder="+569 XXXXXXXX"
                                         {...register("telPac")}
 
                                     />
@@ -243,11 +245,11 @@ export function PacienteFormPage() {
 
                         <OfficialCard>
 
-                            <div className="mt-3 grid grid-cols-3 gap-3">
+                            <div className="mt-3 grid grid-cols-3 gap-6">
 
                                 {/*primera columna*/}
                                 <div>
-                                    <h1 className="text-xl font-roboto">Higiene</h1>
+                                    <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Higiene</h1>
 
                                     <Label htmlFor="nCepillados" id="nCepillados-label">Frecuencia cepillado</Label>
                                     <select
@@ -271,7 +273,7 @@ export function PacienteFormPage() {
                                                 type="checkbox"
                                                 name="limpiezaInterdental"
                                                 style={{
-                                                    accentColor: '#F87A85',
+                                                    accentColor: '#e34453',
                                                     transform: 'scale(1.5)'
                                                 }}
                                                 {...register("limpiezaInterdental")}
@@ -289,7 +291,7 @@ export function PacienteFormPage() {
                                                 type="checkbox"
                                                 name="colutorio"
                                                 style={{
-                                                    accentColor: '#F87A85',
+                                                    accentColor: '#e34453',
                                                     transform: 'scale(1.5)'
                                                 }}
                                                 {...register("colutorio")}
@@ -312,7 +314,7 @@ export function PacienteFormPage() {
                                 </div>
                                 {/*segunda columna*/}
                                 <div>
-                                    <h1 className="text-xl font-roboto">Hábitos</h1>
+                                    <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Hábitos</h1>
 
                                     <Label htmlFor="tabaco" id="tabaco-label">Tabaco</Label>
                                     <select
@@ -347,7 +349,7 @@ export function PacienteFormPage() {
                                                 type="checkbox"
                                                 name="alcohol"
                                                 style={{
-                                                    accentColor: '#F87A85',
+                                                    accentColor: '#e34453',
                                                     transform: 'scale(1.5)'
                                                 }}
                                                 {...register("alcohol")}
@@ -360,7 +362,7 @@ export function PacienteFormPage() {
 
                                 {/*tercera columna*/}
                                 <div>
-                                    <h1 className="text-xl font-roboto">Otros</h1>
+                                    <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Otros</h1>
 
                                     <Label htmlFor="medicamentos" id="medicamentos-label">Medicamentos </Label>
                                     <Input
@@ -396,7 +398,7 @@ export function PacienteFormPage() {
                                                 type="checkbox"
                                                 name="embarazo"
                                                 style={{
-                                                    accentColor: '#F87A85',
+                                                    accentColor: '#e34453',
                                                     transform: 'scale(1.5)'
                                                 }}
                                                 {...register("embarazo")}
@@ -414,7 +416,7 @@ export function PacienteFormPage() {
                                                 type="checkbox"
                                                 name="lactancia"
                                                 style={{
-                                                    accentColor: '#F87A85',
+                                                    accentColor: '#e34453',
                                                     transform: 'scale(1.5)'
                                                 }}
                                                 {...register("lactancia")}
@@ -429,7 +431,7 @@ export function PacienteFormPage() {
                         </OfficialCard>
 
                         <OfficialCard>
-                            <h1 className="text-xl font-roboto">Patologías</h1>
+                            <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Patologías</h1>
 
                             <div className="mt-3 grid grid-cols-3 gap-3">
                                 <div>
@@ -579,7 +581,7 @@ export function PacienteFormPage() {
 
 
                         <OfficialCard>
-                            <h1 className="text-xl font-roboto">Observaciones / Intervenciones Quirúrgicas / Alertas Médicas</h1>
+                            <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Observaciones / Intervenciones Quirúrgicas / Alertas Médicas</h1>
                             <Label htmlFor="observaciones" id="observaciones-label"></Label>
                             <Textarea
                                 name="observaciones"
