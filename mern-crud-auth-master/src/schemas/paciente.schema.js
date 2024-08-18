@@ -7,6 +7,8 @@ export const createPacienteSchema = z.object({
   rutPac: z.string().optional(),
   nacionalidadPac: z.string().optional(),
   fecNacPac: z.string().datetime().optional(),
+  sexo: z.string().min(1, 'El sexo del paciente es requerido'),
+
   comunaPac: z.string().optional(),
   regionPac: z.string().optional(),
   emailPac: z.string().email('El email no es válido').min(1, 'El email del paciente es requerido'),

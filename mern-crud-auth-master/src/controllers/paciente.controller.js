@@ -11,7 +11,7 @@ export const getPacientes = async (req, res) => {
 
 export const createPaciente = async (req, res) => {
   try {
-    const { nomPac, apellidoPac, rutPac, nacionalidadPac, fecNacPac, comunaPac, regionPac, emailPac, telPac, nCepillados, limpiezaInterdental, colutorio, tipoCepillo, tabaco, drogas, alcohol, medicamentos, alergia, embarazo, lactancia, cardiovascular, pulmonar, nervioso, hematologico, gastrointestinal, genitourinario, endocrino, musculoEsqueletal, sistemaInmune, dermatologico, otros, observaciones } = req.body;
+    const { nomPac, apellidoPac, rutPac, nacionalidadPac, sexo,fecNacPac, comunaPac, regionPac, emailPac, telPac, nCepillados, limpiezaInterdental, colutorio, tipoCepillo, tabaco, drogas, alcohol, medicamentos, alergia, embarazo, lactancia, cardiovascular, pulmonar, nervioso, hematologico, gastrointestinal, genitourinario, endocrino, musculoEsqueletal, sistemaInmune, dermatologico, otros, observaciones } = req.body;
     const newPaciente = new Paciente({
       user: req.user.id,
       nomPac,
@@ -19,6 +19,7 @@ export const createPaciente = async (req, res) => {
       rutPac,
       nacionalidadPac,
       fecNacPac,
+      sexo,
       comunaPac,
       regionPac,
       emailPac,
@@ -71,10 +72,10 @@ export const deletePaciente = async (req, res) => {
 
 export const updatePaciente = async (req, res) => {
   try {
-    const { nomPac, apellidoPac, rutPac, nacionalidadPac, fecNacPac, comunaPac, regionPac, emailPac, telPac, nCepillados, limpiezaInterdental, colutorio, tipoCepillo, tabaco, drogas, alcohol, medicamentos, alergia, embarazo, lactancia, cardiovascular, pulmonar, nervioso, hematologico, gastrointestinal, genitourinario, endocrino, musculoEsqueletal, sistemaInmune, dermatologico, otros, observaciones } = req.body;
+    const { nomPac, apellidoPac, rutPac, nacionalidadPac, sexo,fecNacPac, comunaPac, regionPac, emailPac, telPac, nCepillados, limpiezaInterdental, colutorio, tipoCepillo, tabaco, drogas, alcohol, medicamentos, alergia, embarazo, lactancia, cardiovascular, pulmonar, nervioso, hematologico, gastrointestinal, genitourinario, endocrino, musculoEsqueletal, sistemaInmune, dermatologico, otros, observaciones } = req.body;
     const pacienteUpdated = await Paciente.findOneAndUpdate(
       { _id: req.params.id },
-      { nomPac, apellidoPac, rutPac, nacionalidadPac, fecNacPac, comunaPac, regionPac, emailPac, telPac, nCepillados, limpiezaInterdental, colutorio, tipoCepillo, tabaco, drogas, alcohol, medicamentos, alergia, embarazo, lactancia, cardiovascular, pulmonar, nervioso, hematologico, gastrointestinal, genitourinario, endocrino, musculoEsqueletal, sistemaInmune, dermatologico, otros, observaciones },
+      { nomPac, apellidoPac, rutPac, nacionalidadPac, sexo,fecNacPac, comunaPac, regionPac, emailPac, telPac, nCepillados, limpiezaInterdental, colutorio, tipoCepillo, tabaco, drogas, alcohol, medicamentos, alergia, embarazo, lactancia, cardiovascular, pulmonar, nervioso, hematologico, gastrointestinal, genitourinario, endocrino, musculoEsqueletal, sistemaInmune, dermatologico, otros, observaciones },
       { new: true }
     );
     return res.json(pacienteUpdated);

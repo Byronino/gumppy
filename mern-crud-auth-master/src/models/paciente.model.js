@@ -24,6 +24,10 @@ const pacienteSchema = new mongoose.Schema(
             type: Date,
             required: true,
         },
+        sexo:{
+            type:String,
+            required:true,
+        },
         comunaPac: {
             type: String,
             required: true,

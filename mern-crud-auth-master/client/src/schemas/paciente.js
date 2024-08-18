@@ -9,6 +9,8 @@ export const pacienteSchema = z.object({
   comunaPac: z.string().optional(),
   regionPac: z.string().optional(),
   emailPac: z.string().email('El email no es válido').min(1, 'El email del paciente es requerido'),
+  sexo: z.string().min(1, 'El sexo del paciente es requerido'),
+
   telPac: z.string().min(1, 'El teléfono del paciente es requerido'),
 
   nCepillados: z.string().optional(),

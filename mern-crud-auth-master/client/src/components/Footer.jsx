@@ -9,9 +9,7 @@ export function Footer() {
         {/* Contenido de la página */}
         {/* ... */}
   
-        <div className="rounded-md " style={{ boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)'}}
-          
-        >
+        <div className="rounded-md mt-300 bg-[#F87A85]"   >
           
           <div ><img className="rounded-md" src={futer} width="100%" height="20%" /></div>
         </div>

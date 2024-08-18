@@ -6,6 +6,7 @@ import { ImFileEmpty } from "react-icons/im";
 import { TarjetaPaciente } from "../components/ui/TarjetaPaciente";
 import React, { useState } from 'react';
 import { Subtitulo } from "../components/ui/Subtitulo";
+import { Caja } from "../components/ui/Caja";
 
 export function PacientesPage() {
 
@@ -36,8 +37,7 @@ export function PacientesPage() {
 
     return (
         <>
-            <div className="mb-3 color: black border rounded bg-white" style={{ minHeight: '500px', color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0', boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
-
+<Caja>
                 <Subtitulo>Pacientes</Subtitulo>
 
 
@@ -88,7 +88,7 @@ export function PacientesPage() {
 
 
 
-            </div>
+                </Caja>
 
         </>
     )

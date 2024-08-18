@@ -20,6 +20,7 @@ import dibujo1i from "../images/dibujo1i.png"
 import axios from "axios";
 import { Subtitulo } from "../components/ui/Subtitulo";
 
+
 function PeriogramaPage() {
 
 
@@ -3017,11 +3018,11 @@ function PeriogramaPage() {
   return (
     <>
 
-      <div className="mb-3 color: black border rounded bg-white" style={{ boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)', color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0' }}>
+      <div className="mb-3 " style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', }}>
 
-
-        <Subtitulo>Periodontograma</Subtitulo>
-
+      <div className="w-4/5" style={{ width: "80%" }}>
+          <Subtitulo>Periodontograma</Subtitulo>
+        </div>
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
 
 
@@ -4547,7 +4548,7 @@ function PeriogramaPage() {
           </div >
         </div>
 
-        <div className="flex flex-row" style={{ justifyContent: 'center' }}>
+        <div className="flex flex-row mb-16" style={{ justifyContent: 'center', color:"white"}}>
           <Button onClick={() => onSubmit(patientData)}>Guardar Periodontograma</Button>
         </div>
 

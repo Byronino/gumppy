@@ -11,6 +11,7 @@ import { OfficialCard } from "../components/ui/OfficialCard";
 import { Subtitulo } from "../components/ui/Subtitulo";
 import ReactSwitch from 'react-switch';
 import { Newselect } from "../components/ui/Newselect";
+import { Caja } from "../components/ui/Caja";
 
 dayjs.extend(utc);
 
@@ -32,7 +33,6 @@ export function PacienteFormPage() {
     const onSubmit = async (data) => {
         try {
             if (params.id) {
-                console.log("este es el id: " + params.id)
                 updatePaciente(params.id, {
 
                     ...data,
@@ -61,6 +61,7 @@ export function PacienteFormPage() {
                 setValue("rutPac", paciente.rutPac);
                 setValue("nacionalidadPac", paciente.nacionalidadPac);
                 setValue("fecNacPac", paciente.fecNacPac);
+                setValue("sexo", paciente.sexo);
                 setValue("comunaPac", paciente.comunaPac);
                 setValue("regionPac", paciente.regionPac);
                 setValue("emailPac", paciente.emailPac);
@@ -91,8 +92,8 @@ export function PacienteFormPage() {
                 setValue("otros", paciente.otros);
                 setValue("observaciones", paciente.observaciones);
 
-                
-                
+
+
 
 
                 setValue(
@@ -111,495 +112,523 @@ export function PacienteFormPage() {
     return (
         <>
 
-            <div className="mb-3 color: black border rounded bg-white" style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', borderColor: '#fc9099', borderWidth: '10px', padding: '0', boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
+            <Caja>
+                    <Subtitulo>Formulario Paciente</Subtitulo>
 
-                <Subtitulo>Formulario Paciente</Subtitulo>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div >
+                            <OfficialCard >
+                                <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Información</h1>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div >
 
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div >
-                        <OfficialCard >
-                            <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Información</h1>
-                            <div className="grid grid-cols-2 gap-6">
-                                <div >
-                               
-                                    <Label htmlFor="nomPac" id="nomPac-label">Nombre*</Label>
-                                    <Input
-                                        type="text"
-                                        name="nomPac"
-                                        placeholder="Nombre"
-                                        {...register("nomPac")}
-                                        autoFocus
-                                    />
-                                    {errors.nomPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese el nombre </p>
-                                    )}
+                                        <Label htmlFor="nomPac" id="nomPac-label">Nombre*</Label>
+                                        <Input
+                                            type="text"
+                                            name="nomPac"
+                                            placeholder="Nombre"
+                                            {...register("nomPac")}
+                                            autoFocus
+                                        />
+                                        {errors.nomPac && (
+                                            <p className="text-red-500 text-xs italic">Porfavor ingrese el nombre </p>
+                                        )}
 
-                                    <Label htmlFor="apellidoPac" id="apellidoPac-label">Apellidos*</Label>
-                                    <Input
-                                        type="text"
-                                        name="apellidoPac"
-                                        placeholder="Apellidos"
-                                        {...register("apellidoPac")}
+                                        <Label htmlFor="apellidoPac" id="apellidoPac-label">Apellidos*</Label>
+                                        <Input
+                                            type="text"
+                                            name="apellidoPac"
+                                            placeholder="Apellidos"
+                                            {...register("apellidoPac")}
 
-                                    />
-                                    {errors.apellidoPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese el apellido</p>
-                                    )}
+                                        />
+                                        {errors.apellidoPac && (
+                                            <p className="text-red-500 text-xs italic">Porfavor ingrese el apellido</p>
+                                        )}
 
-                                    <Label htmlFor="rutPac" id="rutPac-label">RUT* </Label>
-                                    <Input
-                                        type="text"
-                                        name="rutPac"
-                                        placeholder="Ej: 12.345.678-9"
-                                        {...register("rutPac")}
+                                        <Label htmlFor="rutPac" id="rutPac-label">RUT* </Label>
+                                        <Input
+                                            type="text"
+                                            name="rutPac"
+                                            placeholder="Ej: 12.345.678-9"
+                                            {...register("rutPac")}
 
-                                    />
-                                    {errors.rutPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese un rut correcto</p>
-                                    )}
+                                        />
+                                        {errors.rutPac && (
+                                            <p className="text-red-500 text-xs italic">Porfavor ingrese un rut correcto</p>
+                                        )}
 
-                                    <Label htmlFor="nacionalidadPac" id="nacionalidadPac-label">Nacionalidad* </Label>
-                                    <Input
-                                        type="text"
-                                        name="nacionalidadPac"
-                                        placeholder="Ej: Chilena, Argentina"
-                                        {...register("nacionalidadPac")}
+                                        <Label htmlFor="nacionalidadPac" id="nacionalidadPac-label">Nacionalidad* </Label>
+                                        <Input
+                                            type="text"
+                                            name="nacionalidadPac"
+                                            placeholder="Ej: Chilena, Argentina"
+                                            {...register("nacionalidadPac")}
 
-                                    />
-                                    {errors.nacionalidadPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese una nacionalidad</p>
-                                    )}
+                                        />
+                                        {errors.nacionalidadPac && (
+                                            <p className="text-red-500 text-xs italic">Porfavor ingrese una nacionalidad</p>
+                                        )}
 
 
-                                </div>
-                                <div>
-                                    <Label htmlFor="fecNacPac" id="fecNacPac-label">Fecha de Nacimiento*</Label>
-                                    <Input type="date" name="fecNacPac" {...register("fecNacPac")} />
+                                    </div>
+                                    <div>
 
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <Label htmlFor="comunaPac" id="comunaPac-label">Comuna*</Label>
-                                            <Input
-                                                type="text"
-                                                name="comunaPac"
-                                                placeholder="Comuna"
-                                                {...register("comunaPac")}
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <Label htmlFor="fecNacPac" id="fecNacPac-label">Fecha de Nacimiento*</Label>
+                                                <Input type="date" name="fecNacPac" {...register("fecNacPac")} />
+                                            </div>
+                                            <div>
+                                                <Label htmlFor="nCepillados" id="nCepillados-label">Sexo</Label>
+                                                <select
+                                                    className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
 
-                                            />
-                                            {errors.telPac && (
-                                                <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
-                                            )}
+                                                    name="sexo"
+                                                    {...register("sexo")}
+                                                >
+                                                    <option value="0">- -</option>
+                                                    <option value="1">Masculino</option>
+                                                    <option value="2">Femenino</option>
+                                                    <option value="3">Otro</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <Label htmlFor="regionPac" id="regionPac-label">Región*</Label>
-                                            <Input
-                                                type="text"
-                                                name="regionPac"
-                                                placeholder="Region"
-                                                {...register("regionPac")}
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <Label htmlFor="comunaPac" id="comunaPac-label">Comuna*</Label>
+                                                <Input
+                                                    type="text"
+                                                    name="comunaPac"
+                                                    placeholder="Comuna"
+                                                    {...register("comunaPac")}
 
-                                            />
-                                            {errors.telPac && (
-                                                <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
-                                            )}
+                                                />
+                                                {errors.telPac && (
+                                                    <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
+                                                )}
+                                            </div>
+                                            <div>
+                                                <Label htmlFor="regionPac" id="regionPac-label">Región*</Label>
+                                                <Input
+                                                    type="text"
+                                                    name="regionPac"
+                                                    placeholder="Region"
+                                                    {...register("regionPac")}
+
+                                                />
+                                                {errors.telPac && (
+                                                    <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
+                                                )}
+                                            </div>
+
                                         </div>
+
+                                        <Label htmlFor="emailPac" id="emailPac-label">Email*</Label>
+                                        <Input
+                                            type="text"
+                                            name="emailPac"
+                                            placeholder="email@dominio.extension"
+                                            {...register("emailPac")}
+
+                                        />
+                                        {errors.emailPac && (
+                                            <p className="text-red-500 text-xs italic">Porfavor ingrese un email correcto</p>
+                                        )}
+
+
+
+                                        <Label htmlFor="telPac" id="telPac-label">Telefono*</Label>
+                                        <Input
+                                            type="text"
+                                            name="telPac"
+                                            placeholder="+569 XXXXXXXX"
+                                            {...register("telPac")}
+
+                                        />
+                                        {errors.telPac && (
+                                            <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
+                                        )}
+
+
+
+
+
 
                                     </div>
 
-                                    <Label htmlFor="emailPac" id="emailPac-label">Email*</Label>
-                                    <Input
-                                        type="text"
-                                        name="emailPac"
-                                        placeholder="email@dominio.extension"
-                                        {...register("emailPac")}
-
-                                    />
-                                    {errors.emailPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese un email correcto</p>
-                                    )}
-
-
-
-                                    <Label htmlFor="telPac" id="telPac-label">Telefono*</Label>
-                                    <Input
-                                        type="text"
-                                        name="telPac"
-                                        placeholder="+569 XXXXXXXX"
-                                        {...register("telPac")}
-
-                                    />
-                                    {errors.telPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
-                                    )}
-
-
-
-
-
-
                                 </div>
 
-                            </div>
+                            </OfficialCard>
 
-                        </OfficialCard>
+                            <OfficialCard>
 
-                        <OfficialCard>
+                                <div className="mt-3 grid grid-cols-3 gap-6">
 
-                            <div className="mt-3 grid grid-cols-3 gap-6">
+                                    {/*primera columna*/}
+                                    <div>
+                                        <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Higiene</h1>
 
-                                {/*primera columna*/}
-                                <div>
-                                    <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Higiene</h1>
+                                        <Label htmlFor="nCepillados" id="nCepillados-label">Frecuencia cepillado</Label>
+                                        <select
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
 
-                                    <Label htmlFor="nCepillados" id="nCepillados-label">Frecuencia cepillado</Label>
-                                    <select
-                                        name="nCepillados"
-                                        {...register("nCepillados")}
-                                    >
-                                        <option value="0">0 veces al día</option>
-                                        <option value="1">1 vez al día</option>
-                                        <option value="2">2 veces al día</option>
-                                        <option value="3">3 veces al día</option>
-                                        <option value="4">Más de 3 veces al día</option>
-                                    </select>
+                                            name="nCepillados"
+                                            {...register("nCepillados")}
+                                        >
+                                            <option value="0">0 veces al día</option>
+                                            <option value="1">1 vez al día</option>
+                                            <option value="2">2 veces al día</option>
+                                            <option value="3">3 veces al día</option>
+                                            <option value="4">Más de 3 veces al día</option>
+                                        </select>
 
-                                    <div className="flex items-center justify-between">
-                                        <Label htmlFor="limpiezaInterdental" id="limpiezaInterdental-label" style={{
-                                            flexBasis: '150px',
-                                            whiteSpace: 'nowrap'
-                                        }}>Limpieza interdental</Label>
-                                        <div style={{ width: '24px' }}>
-                                            <Input
+                                        <div className="flex items-center mb-3 ">
+                                            <input
                                                 type="checkbox"
                                                 name="limpiezaInterdental"
                                                 style={{
                                                     accentColor: '#e34453',
-                                                    transform: 'scale(1.5)'
+                                                    transform: 'scale(1.5)',
                                                 }}
                                                 {...register("limpiezaInterdental")}
+                                                className="mr-2"
                                             />
+                                            <Label htmlFor="limpiezaInterdental" id="limpiezaInterdental-label" className="flex-1">Limpieza interdental</Label>
                                         </div>
-                                    </div>
 
-                                    <div className="flex items-center justify-between">
-                                        <Label htmlFor="colutorio" id="colutorio-label" style={{
-                                            flexBasis: '150px',
-                                            whiteSpace: 'nowrap'
-                                        }}>Uso de colutorio</Label>
-                                        <div style={{ width: '24px' }}>
-                                            <Input
+                                        <div className="flex items-center mb-3 ">
+                                            <input
                                                 type="checkbox"
                                                 name="colutorio"
                                                 style={{
                                                     accentColor: '#e34453',
-                                                    transform: 'scale(1.5)'
+                                                    transform: 'scale(1.5)',
                                                 }}
                                                 {...register("colutorio")}
+                                                className="mr-2"
                                             />
+                                            <Label htmlFor="colutorio" id="colutorio-label" className="flex-1">Uso de colutorio</Label>
                                         </div>
+
+
+
+
+
+                                        <Label htmlFor="tipoCepillo" id="tipoCepillo-label">Tipo de Cepillo</Label>
+                                        <select
+                                            name="tipoCepillo"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("tipoCepillo")}
+                                        >
+                                            <option value="0">Suave</option>
+                                            <option value="1">Medio</option>
+                                            <option value="2">Duro</option>
+
+                                        </select>
+
                                     </div>
+                                    {/*segunda columna*/}
+                                    <div>
+                                        <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Hábitos</h1>
 
-                                    <Label htmlFor="tipoCepillo" id="tipoCepillo-label">Tipo de Cepillo</Label>
-                                    <select
-                                        name="tipoCepillo"
-                                        {...register("tipoCepillo")}
-                                    >
-                                        <option value="0">cepillo weno</option>
-                                        <option value="1">cepillo maomeno</option>
-                                        <option value="2">cepillo malardo</option>
-                                        <option value="3">cepillin</option>
-                                        <option value="4">no uso</option>
-                                    </select>
+                                        <Label htmlFor="tabaco" id="tabaco-label">Tabaco</Label>
+                                        <select
+                                            name="tabaco"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
 
-                                </div>
-                                {/*segunda columna*/}
-                                <div>
-                                    <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Hábitos</h1>
+                                            {...register("tabaco")}
+                                        >
+                                            <option value="0">No consume</option>
+                                            <option value="1">Fumador liviano 1-10 cigs./día</option>
+                                            <option value="2">Fumador moderado 10-19 cigs./día</option>
+                                            <option value="3">Fumador pesado mayor a 20 cigs./día</option>
+                                            <option value="4">Exfumador mayor a 10 años</option>
 
-                                    <Label htmlFor="tabaco" id="tabaco-label">Tabaco</Label>
-                                    <select
-                                        name="tabaco"
-                                        {...register("tabaco")}
-                                    >
-                                        <option value="0">no fuma</option>
-                                        <option value="1">fuma maomeno</option>
-                                        <option value="2">fumamalardo</option>
-                                        <option value="3">cepillin</option>
-                                        <option value="4">no c</option>
-                                    </select>
+                                        </select>
 
-                                    <Label htmlFor="drogas" id="drogas-label">Tabaco</Label>
-                                    <select
-                                        name="drogas"
-                                        {...register("drogas")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
-                                    <div className="flex items-center justify-between">
-                                        <Label htmlFor="alcohol" id="alcohol-label" style={{
-                                            flexBasis: '150px',
-                                            whiteSpace: 'nowrap'
-                                        }}>Alcohol</Label>
-                                        <div style={{ width: '24px' }}>
-                                            <Input
+                                        <Label htmlFor="drogas" id="drogas-label">Drogas</Label>
+                                        <select
+                                            name="drogas"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("drogas")}
+                                        >
+                                            <option value="0">No consume</option>
+                                            <option value="1">Marihuana</option>
+                                            <option value="2">Cocaína</option>
+                                            <option value="3">Otros</option>
+
+                                        </select>
+                                        <div className="flex items-center mb-3 ">
+                                            <input
                                                 type="checkbox"
                                                 name="alcohol"
                                                 style={{
                                                     accentColor: '#e34453',
-                                                    transform: 'scale(1.5)'
+                                                    transform: 'scale(1.5)',
                                                 }}
                                                 {...register("alcohol")}
+                                                className="mr-2"
                                             />
+                                            <Label htmlFor="alcohol" id="alcohol-label" className="flex-1">Alcohol</Label>
                                         </div>
+
+
                                     </div>
 
+                                    {/*tercera columna*/}
+                                    <div>
+                                        <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Otros</h1>
 
-                                </div>
+                                        <Label htmlFor="medicamentos" id="medicamentos-label">Medicamentos </Label>
+                                        <Input
+                                            type="text"
+                                            name="medicamentos"
+                                            placeholder="medicamentos"
+                                            {...register("medicamentos")}
 
-                                {/*tercera columna*/}
-                                <div>
-                                    <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Otros</h1>
+                                        />
+                                        {errors.medicamentos && (
+                                            <p className="text-red-500 text-xs italic">Porfavor ingrese una nacionalidad</p>
+                                        )}
 
-                                    <Label htmlFor="medicamentos" id="medicamentos-label">Medicamentos </Label>
-                                    <Input
-                                        type="text"
-                                        name="medicamentos"
-                                        placeholder="medicamentos"
-                                        {...register("medicamentos")}
+                                        <Label htmlFor="alergia" id="alergia-label">Alergias </Label>
+                                        <Input
+                                            type="text"
+                                            name="alergia"
+                                            placeholder="alergia"
+                                            {...register("alergia")}
 
-                                    />
-                                    {errors.medicamentos && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese una nacionalidad</p>
-                                    )}
+                                        />
+                                        {errors.alergia && (
+                                            <p className="text-red-500 text-xs italic">Porfavor ingrese una nacionalidad</p>
+                                        )}
 
-                                    <Label htmlFor="alergia" id="alergia-label">Alergias </Label>
-                                    <Input
-                                        type="text"
-                                        name="alergia"
-                                        placeholder="alergia"
-                                        {...register("alergia")}
-
-                                    />
-                                    {errors.alergia && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese una nacionalidad</p>
-                                    )}
-
-                                    <div className="flex items-center justify-between">
-                                        <Label htmlFor="embarazo" id="embarazo-label" style={{
-                                            flexBasis: '150px',
-                                            whiteSpace: 'nowrap'
-                                        }}>Embarazo</Label>
-                                        <div style={{ width: '24px' }}>
-                                            <Input
+                                        <div className="flex items-center mb-3 ">
+                                            <input
                                                 type="checkbox"
                                                 name="embarazo"
                                                 style={{
                                                     accentColor: '#e34453',
-                                                    transform: 'scale(1.5)'
+                                                    transform: 'scale(1.5)',
                                                 }}
                                                 {...register("embarazo")}
+                                                className="mr-2"
                                             />
+                                            <Label htmlFor="embarazo" id="embarazo-label" className="flex-1">Embarazo</Label>
                                         </div>
-                                    </div>
 
-                                    <div className="flex items-center justify-between">
-                                        <Label htmlFor="lactancia" id="lactancia-label" style={{
-                                            flexBasis: '150px',
-                                            whiteSpace: 'nowrap'
-                                        }}>Lactancia</Label>
-                                        <div style={{ width: '24px' }}>
-                                            <Input
+                                        <div className="flex items-center mb-3 ">
+                                            <input
                                                 type="checkbox"
                                                 name="lactancia"
                                                 style={{
                                                     accentColor: '#e34453',
-                                                    transform: 'scale(1.5)'
+                                                    transform: 'scale(1.5)',
                                                 }}
                                                 {...register("lactancia")}
+                                                className="mr-2"
                                             />
+                                            <Label htmlFor="lactancia" id="lactancia-label" className="flex-1">Lactancia</Label>
                                         </div>
+
+
+
                                     </div>
-
-
-
                                 </div>
-                            </div>
-                        </OfficialCard>
+                            </OfficialCard>
 
-                        <OfficialCard>
-                            <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Patologías</h1>
+                            <OfficialCard>
+                                <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Patologías</h1>
 
-                            <div className="mt-3 grid grid-cols-3 gap-3">
-                                <div>
-                                    <Label htmlFor="cardiovascular" id="cardiovascular-label">Cardiovascular</Label>
-                                    <select
-                                        name="cardiovascular"
-                                        {...register("cardiovascular")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
+                                <div className="mt-3 grid grid-cols-3 gap-3">
+                                    <div>
+                                        <Label htmlFor="cardiovascular" id="cardiovascular-label">Cardiovascular</Label>
+                                        <select
+                                            name="cardiovascular"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
 
-                                    <Label htmlFor="pulmonar" id="pulmonar-label">Pulmonar</Label>
-                                    <select
-                                        name="pulmonar"
-                                        {...register("pulmonar")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
-
-                                    <Label htmlFor="nervioso" id="nervioso-label">Nervioso</Label>
-                                    <select
-                                        name="nervioso"
-                                        {...register("nervioso")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
-
-                                    <Label htmlFor="hematologico" id="hematologico-label">Hematológico</Label>
-                                    <select
-                                        name="hematologico"
-                                        {...register("hematologico")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
+                                            {...register("cardiovascular")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">Hipertensión</option>
+                                            <option value="2">Cardiopatía Isquémica</option>
+                                            <option value="3">Otro</option>
 
 
+                                        </select>
 
+                                        <Label htmlFor="pulmonar" id="pulmonar-label">Pulmonar</Label>
+                                        <select
+                                            name="pulmonar"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("pulmonar")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">EPOC</option>
+                                            <option value="2">Asma</option>
+                                            <option value="3">Otro</option>
+
+                                        </select>
+
+                                        <Label htmlFor="nervioso" id="nervioso-label">Nervioso</Label>
+                                        <select
+                                            name="nervioso"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("nervioso")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">Epilepsia</option>
+                                            <option value="2">Otro</option>
+
+                                        </select>
+
+                                        <Label htmlFor="hematologico" id="hematologico-label">Hematológico</Label>
+                                        <select
+                                            name="hematologico"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("hematologico")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">Discrasias Sanguíneas</option>
+                                            <option value="2">Otros</option>
+
+                                        </select>
+
+
+
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="gastrointestinal" id="gastrointestinal-label">Gastrointestinal</Label>
+                                        <select
+                                            name="gastrointestinal"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("gastrointestinal")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">Ulcera Péptica</option>
+                                            <option value="2">Gastritis Crónica</option>
+                                            <option value="3">Cirugía Bariátrica</option>
+                                        </select>
+
+                                        <Label htmlFor="genitourinario" id="genitourinario-label">Genitourinario</Label>
+                                        <select
+                                            name="genitourinario"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("genitourinario")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">Insuficiencia Renal Crónica</option>
+                                            <option value="2">Otro</option>
+
+                                        </select>
+
+                                        <Label htmlFor="endocrino" id="endocrino-label">Endocrino</Label>
+                                        <select
+                                            name="endocrino"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("endocrino")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">Hipertiroidismo</option>
+                                            <option value="2">Hipotiroidismo</option>
+                                            <option value="3">Diabetes I</option>
+                                            <option value="4">Diabetes II</option>
+                                            <option value="5">Otro</option>
+
+                                        </select>
+
+                                        <Label htmlFor="musculoEsqueletal" id="musculoEsqueletal-label">Musculo Esqueletal</Label>
+                                        <select
+                                            name="musculoEsqueletal"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("musculoEsqueletal")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">Artritis Reumatoide</option>
+                                            <option value="2">Artrosis</option>
+                                            <option value="3">Otro</option>
+
+                                        </select>
+
+
+
+
+
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="sistemaInmune" id="sistemaInmune-label">Sistema Inmune</Label>
+                                        <select
+                                            name="sistemaInmune"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("sistemaInmune")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">Inmunodeficiencia</option>
+                                            <option value="2">Alergias</option>
+                                            <option value="3">S. Sjögren</option>
+                                            <option value="4">Lupus</option>
+                                            <option value="5">Otro</option>
+                                        </select>
+
+                                        <Label htmlFor="dermatologico" id="dermatologico-label">Dermatológico</Label>
+                                        <select
+                                            name="dermatologico"
+                                            className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+
+                                            {...register("dermatologico")}
+                                        >
+                                            <option value="0">- -</option>
+                                            <option value="1">Dermatitis de contacto</option>
+                                            <option value="2">Otro</option>
+
+                                        </select>
+
+                                        <Label htmlFor="otros" id="otros-label">Otros</Label>
+                                        <Textarea
+                                            name="otros"
+                                            id="otros"
+                                            rows="4"
+                                            placeholder="otros"
+                                            {...register("otros")}
+                                        ></Textarea>
+
+                                    </div>
                                 </div>
-                                <div>
-                                    <Label htmlFor="gastrointestinal" id="gastrointestinal-label">Gastrointestinal</Label>
-                                    <select
-                                        name="gastrointestinal"
-                                        {...register("gastrointestinal")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
 
-                                    <Label htmlFor="genitourinario" id="genitourinario-label">Genitourinario</Label>
-                                    <select
-                                        name="genitourinario"
-                                        {...register("genitourinario")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
-
-                                    <Label htmlFor="endocrino" id="endocrino-label">Endocrino</Label>
-                                    <select
-                                        name="endocrino"
-                                        {...register("endocrino")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
-
-                                    <Label htmlFor="musculoEsqueletal" id="musculoEsqueletal-label">Musculo Esqueletal</Label>
-                                    <select
-                                        name="musculoEsqueletal"
-                                        {...register("musculoEsqueletal")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
+                            </OfficialCard>
 
 
+                            <OfficialCard>
+                                <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Observaciones / Intervenciones Quirúrgicas / Alertas Médicas</h1>
+                                <Label htmlFor="observaciones" id="observaciones-label"></Label>
+                                <Textarea
+                                    name="observaciones"
+                                    id="observaciones"
+                                    rows="10"
+                                    placeholder="observaciones"
+                                    {...register("observaciones")}
+                                ></Textarea>
+                            </OfficialCard>
 
 
+                        </div>
+                        <div className="flex justify-center">
+                            <Button>Guardar</Button>
 
-                                </div>
-                                <div>
-                                    <Label htmlFor="sistemaInmune" id="sistemaInmune-label">Sistema Inmune</Label>
-                                    <select
-                                        name="sistemaInmune"
-                                        {...register("sistemaInmune")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
-
-                                    <Label htmlFor="dermatologico" id="dermatologico-label">Dermatológico</Label>
-                                    <select
-                                        name="dermatologico"
-                                        {...register("dermatologico")}
-                                    >
-                                        <option value="0">no le hace</option>
-                                        <option value="1">marihuana</option>
-                                        <option value="2">cocaina</option>
-                                        <option value="3">krokodile</option>
-                                        <option value="4">fentanilo</option>
-                                    </select>
-
-                                    <Label htmlFor="otros" id="otros-label">Otros</Label>
-                                    <Textarea
-                                        name="otros"
-                                        id="otros"
-                                        rows="4"
-                                        placeholder="otros"
-                                        {...register("otros")}
-                                    ></Textarea>
-
-                                </div>
-                            </div>
-
-                        </OfficialCard>
-
-
-                        <OfficialCard>
-                            <h1 className="text-xl font-bold" style={{paddingBottom:"30px"}}>Observaciones / Intervenciones Quirúrgicas / Alertas Médicas</h1>
-                            <Label htmlFor="observaciones" id="observaciones-label"></Label>
-                            <Textarea
-                                name="observaciones"
-                                id="observaciones"
-                                rows="10"
-                                placeholder="observaciones"
-                                {...register("observaciones")}
-                            ></Textarea>
-                        </OfficialCard>
-
-
-                    </div>
-                    <Button>Guardar</Button>
-                </form>
-
-
-            </div>
-
+                        </div>
+                    </form>
+                    </Caja>
         </>
     )
 }
