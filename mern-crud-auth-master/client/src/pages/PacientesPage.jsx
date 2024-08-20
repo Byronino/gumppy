@@ -37,8 +37,8 @@ export function PacientesPage() {
 
     return (
         <>
-<Caja>
-                <Subtitulo>Pacientes</Subtitulo>
+            <Caja>
+                <Subtitulo>LISTA DE PACIENTES</Subtitulo>
 
 
 
@@ -88,7 +88,7 @@ export function PacientesPage() {
 
 
 
-                </Caja>
+            </Caja>
 
         </>
     )

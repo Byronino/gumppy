@@ -3021,7 +3021,7 @@ function PeriogramaPage() {
       <div className="mb-3 " style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', }}>
 
       <div className="w-4/5" style={{ width: "80%" }}>
-          <Subtitulo>Periodontograma</Subtitulo>
+          <Subtitulo>PERIODONTOGRAMA</Subtitulo>
         </div>
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
 

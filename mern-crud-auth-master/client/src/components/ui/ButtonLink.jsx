@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 export const ButtonLink = ({ to, children }) => (
-  <Link to={to} className="bg-indigo-500 hover:bg-indigo-700 active:bg-indigo-900 px-4 py-2 my-4 rounded-md 
-            text-white font-bold text-md transition duration-300 ease-in-out">
+  <Link to={to} className="bg-[#f87a85] px-4 py-3 rounded-md my-2 disabled:bg-indigo-300 hover:bg-[#f95a6a] hover:text-white transition duration-300"
+  style={{ minWidth: "500px", minHeight: "50px", boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
     {children}
   </Link>
 );
