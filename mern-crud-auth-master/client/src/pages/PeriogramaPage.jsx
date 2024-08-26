@@ -19,10 +19,16 @@ import { createPeriodontograma } from "../../../src/controllers/periodontograma.
 import dibujo1i from "../images/dibujo1i.png"
 import axios from "axios";
 import { Subtitulo } from "../components/ui/Subtitulo";
-
+import { useLocation } from "react-router-dom";
+import { OfficialCard } from "../components/ui/OfficialCard";
+import { Fila } from "../components/ui/Fila";
+import { Textorosa } from "../components/ui/Textorosa";
 
 function PeriogramaPage() {
+  const location = useLocation();
+  const paciente = location.state;
 
+  const patient = paciente._id
 
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
   const nombres1 = ["Movilidad", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C."]
@@ -2806,6 +2812,7 @@ function PeriogramaPage() {
     ]
   };
   const patientData = {
+    patient: patient,
     dientes1i: dientes1i,
     dientes1d: dientes1d,
     dientes2i: dientes2i,
@@ -2876,6 +2883,7 @@ function PeriogramaPage() {
   };
   useEffect(() => {
     const patientData = {
+      patient: patient,
       dientes1i: dientes1i,
       dientes1d: dientes1d,
       dientes2i: dientes2i,
@@ -2946,7 +2954,7 @@ function PeriogramaPage() {
       diff4d: diff4d,
     };
 
-  }, [dientes1i,
+  }, [patient,dientes1i,
     dientes1d,
     dientes2i,
     dientes2d,
@@ -3022,9 +3030,41 @@ function PeriogramaPage() {
 
       <div className="w-4/5" style={{ width: "80%" }}>
           <Subtitulo>PERIODONTOGRAMA</Subtitulo>
-        </div>
-        <div className="flex flex-row" style={{ justifyContent: 'center' }}>
+          <OfficialCard>
 
+                        <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Información</h1>
+                        <Fila>
+                            <Textorosa>Nombre:</Textorosa>
+                            <h1 className="text-xs block my-1  font-roboto">{paciente.nomPac} {paciente.apellidoPac}</h1>
+                        </Fila>
+
+                        <Fila>
+                            <Textorosa>RUT:</Textorosa>
+                            <h1 className="text-xs block my-1  font-roboto">{paciente.rutPac}</h1>
+                        </Fila>
+                        <Fila>
+                            <Textorosa>Nacionalidad:</Textorosa>
+                            <h1 className="text-xs block my-1  font-roboto">{paciente.nacionalidadPac}</h1>
+                        </Fila>
+                        <Fila>
+                            <Textorosa>Fecha de nacimiento:</Textorosa>
+                            <h1 className="text-xs block my-1  font-roboto"> {new Date(paciente.fecNacPac).toLocaleDateString('es-ES', {
+                                year: 'numeric',
+                                month: '2-digit',
+                                day: '2-digit',
+                            })}</h1>
+                        </Fila>
+                        <Fila>
+                            <Textorosa>Género:</Textorosa>
+                            <h1 className="text-xs block my-1  font-roboto">{paciente.sexo}</h1>
+                        </Fila>
+
+
+
+                    </OfficialCard>
+        </div>
+        
+        <div className="flex flex-row" style={{ justifyContent: 'center' }}>
 
 
           {/*PRIMERA TABLA IZQUIERDA-----------------------------------------------------------   */}

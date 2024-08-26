@@ -22,6 +22,7 @@ import { PacientesPage } from "./pages/PacientesPage";
 import { PacienteFormPage } from "./pages/PacienteFormPage";
 import { ProbandoPacientes } from "./pages/probandoPacientes";
 
+import { ListaPerio } from "./pages/ListaPerio";
 
 function App() {
   return (
@@ -42,7 +43,6 @@ function App() {
                   <Route path="/login" element={<LoginPage />} />
                   <Route path="/register" element={<RegisterPage />} />
                   <Route path="/periograma" element={<PeriogramaPage />} />
-                  <Route path="/crear_periodontograma" element={<PeriogramaPage />}></Route>
                   <Route element={<ProtectedRoute />}>
                     <Route path="/tasks" element={<TasksPage />} />
                     <Route path="/add-task" element={<TaskFormPage />} />
@@ -54,6 +54,11 @@ function App() {
                     <Route path="/add-paciente" element={<PacienteFormPage/>} />
                     <Route path="/probando-paciente" element={<ProbandoPacientes/>} />
                     <Route path="/pacientes/:id" element={<PacienteFormPage />} />
+
+                    <Route path="/crear_periodontograma" element={<PeriogramaPage />}></Route>
+
+                    <Route path="/lista-perio" element={<ListaPerio/>} />
+
 
                   </Route>
                 </Routes>

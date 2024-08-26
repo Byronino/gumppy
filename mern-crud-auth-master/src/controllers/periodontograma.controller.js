@@ -1,8 +1,19 @@
 import Periodontograma from "../models/periodontograma.model.js";
 
+export const getPeriodontograma = async (req,res) =>{
+  try{
+    const periodontogramas = await Periodontograma.find({})
+  }
+  catch{
+
+  }
+}
+
+
 export const createPeriodontograma = async (req, res) => {
   try {
     const {
+      patient,
       dientes1i,
       dientes1d,
       dientes2i,
@@ -73,6 +84,7 @@ export const createPeriodontograma = async (req, res) => {
       diff4d,
     } = req.body;
     const newPeriodontograma = new Periodontograma({
+      patient,
       dientes1i,
       dientes1d,
       dientes2i,

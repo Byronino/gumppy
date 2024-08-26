@@ -7,6 +7,6 @@ import { createPeriodontogramaSchema } from "../schemas/periodontograma.schema.j
 
 const router = Router();
 
-router.post("/crear_periodontograma", validateSchema(createPeriodontogramaSchema), createPeriodontograma);
+router.post("/crear_periodontograma", auth,validateSchema(createPeriodontogramaSchema), createPeriodontograma);
 
 export default router;

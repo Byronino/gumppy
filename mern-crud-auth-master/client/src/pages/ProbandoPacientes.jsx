@@ -7,12 +7,31 @@ import { OfficialCard } from "../components/ui/OfficialCard";
 import { Subtitulo } from "../components/ui/Subtitulo";
 import { Fila } from "../components/ui/Fila";
 import { Textorosa } from "../components/ui/Textorosa";
+import { useNavigate } from 'react-router-dom';
+import { ButtonTest } from "../components/ui/ButtonTest";
 
 export function ProbandoPacientes() {
 
     const location = useLocation();
     const paciente = location.state;
+    const navigate = useNavigate();
 
+    const handleClick = () => {
+        navigate('/lista-perio', { state: paciente });
+    };
+
+    const handleClickDo = () => {
+        navigate('/crear_periodontograma', { state: paciente });
+    };
+
+
+    const handleMouseOver = () => {
+        setHover(true);
+    };
+
+    const handleMouseOut = () => {
+        setHover(false);
+    };
     return (
         <>
             <Caja>
@@ -63,7 +82,16 @@ export function ProbandoPacientes() {
 
 
                     </OfficialCard>
-                    <OfficialCard></OfficialCard>
+                    <OfficialCard>
+                    <div className="grid grid-cols-2 gap-6">
+                    <ButtonTest onClick={handleClick}> VER EXÁMENES</ButtonTest>
+                    <ButtonTest onClick={handleClickDo}> CREAR PERIODONTOGRAMA</ButtonTest>
+                    </div>
+
+                        
+                        
+
+                    </OfficialCard>
                 </div>
 
                 <div className="grid grid-cols-2 gap-6">
@@ -177,15 +205,15 @@ export function ProbandoPacientes() {
                     </OfficialCard>
                 </div>
                 <OfficialCard>
-                <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Observaciones / Intervenciones Quirúrgicas / Alertas Médicas</h1>
-                    {paciente.observaciones?(
+                    <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Observaciones / Intervenciones Quirúrgicas / Alertas Médicas</h1>
+                    {paciente.observaciones ? (
                         <h1 className="text-xs block my-1  font-roboto">{paciente.observaciones}</h1>
 
-                    ):(
+                    ) : (
                         <h1 className="text-xs block my-1  font-roboto">No registra</h1>
 
                     )}
-                    
+
 
                 </OfficialCard>
 
