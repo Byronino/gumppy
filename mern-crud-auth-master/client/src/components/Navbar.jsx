@@ -38,11 +38,14 @@ export function Navbar() {
       ) :
         (
           <>
-            <nav className="bg-zinc-700  flex justify-between py-2 px-10 rounded-lg ">
+            <nav className="bg-zinc-700  flex justify-between py-2 px-4 rounded-lg ">
               <h1 className="text-2xl font-bold">
                 <Link to={isAuthenticated ? "/tasks" : "/"}>Task Manager</Link>
               </h1>
               <ul className="flex gap-x-2">
+              <li className="my-2">
+                <ButtonLink to="/free-perio">Periodontograma</ButtonLink>
+              </li>
                 <li>
                   <ButtonLink to="/login">Login</ButtonLink>
                 </li>

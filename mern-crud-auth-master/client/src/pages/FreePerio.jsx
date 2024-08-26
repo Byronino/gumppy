@@ -24,12 +24,9 @@ import { OfficialCard } from "../components/ui/OfficialCard";
 import { Fila } from "../components/ui/Fila";
 import { Textorosa } from "../components/ui/Textorosa";
 
-function PeriogramaPage() {
-  const location = useLocation();
-  const paciente = location.state;
+function FreePerio() {
 
-  const patient = paciente._id
-
+const patient = ""
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
   const nombres1 = ["Movilidad", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C."]
 
@@ -3128,39 +3125,8 @@ function PeriogramaPage() {
       <div className="mb-3 " style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', }}>
 
         <div className="w-4/5" style={{ width: "80%" }}>
-          <Subtitulo>PERIODONTOGRAMA</Subtitulo>
-          <OfficialCard>
-
-            <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Información</h1>
-            <Fila>
-              <Textorosa>Nombre:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto">{paciente.nomPac} {paciente.apellidoPac}</h1>
-            </Fila>
-
-            <Fila>
-              <Textorosa>RUT:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto">{paciente.rutPac}</h1>
-            </Fila>
-            <Fila>
-              <Textorosa>Nacionalidad:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto">{paciente.nacionalidadPac}</h1>
-            </Fila>
-            <Fila>
-              <Textorosa>Fecha de nacimiento:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto"> {new Date(paciente.fecNacPac).toLocaleDateString('es-ES', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-              })}</h1>
-            </Fila>
-            <Fila>
-              <Textorosa>Género:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto">{paciente.sexo}</h1>
-            </Fila>
-
-
-
-          </OfficialCard>
+          <Subtitulo>PERIODONTOGRAMA </Subtitulo>
+          
         </div>
 
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
@@ -4687,9 +4653,7 @@ function PeriogramaPage() {
           </div >
         </div>
 
-        <div className="flex flex-row mb-16" style={{ justifyContent: 'center', color: "white" }}>
-          <Button onClick={() => onSubmit(patientData)}>Guardar Periodontograma</Button>
-        </div>
+        
 
 
 
@@ -4703,4 +4667,4 @@ function PeriogramaPage() {
   )
 }
 
-export default PeriogramaPage
+export default FreePerio

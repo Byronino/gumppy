@@ -8,6 +8,7 @@ import RegisterPage from "./pages/RegisterPage";
 import { TaskFormPage } from "./pages/TaskFormPage";
 import { LoginPage } from "./pages/LoginPage";
 import { TasksPage } from "./pages/TasksPage";
+import  FreePerio from "./pages/FreePerio"
 
 import { TaskProvider } from "./context/tasksContext";
 import { PruebaPage } from "./pages/PruebaPage";
@@ -43,6 +44,8 @@ function App() {
                   <Route path="/login" element={<LoginPage />} />
                   <Route path="/register" element={<RegisterPage />} />
                   <Route path="/periograma" element={<PeriogramaPage />} />
+                  <Route path="/free-perio" element={<FreePerio/>} />
+
                   <Route element={<ProtectedRoute />}>
                     <Route path="/tasks" element={<TasksPage />} />
                     <Route path="/add-task" element={<TaskFormPage />} />
