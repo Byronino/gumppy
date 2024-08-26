@@ -2,9 +2,12 @@ import Periodontograma from "../models/periodontograma.model.js";
 
 export const getPeriodontograma = async (req,res) =>{
   try{
-    const periodontogramas = await Periodontograma.find({})
+    const pacienteId = req.params.pacienteId;
+    const periodontogramas = await Periodontograma.find({patient: pacienteId})
+    res.json(periodontogramas)
   }
-  catch{
+  catch (error){
+    return res.status(500).json({ message: error.message });
 
   }
 }

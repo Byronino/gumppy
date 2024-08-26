@@ -5,10 +5,20 @@ import { Subtitulo } from "../components/ui/Subtitulo";
 import { OfficialCard } from "../components/ui/OfficialCard";
 import { Fila } from "../components/ui/Fila";
 import { Textorosa } from "../components/ui/Textorosa";
+import { usePeriodontograma } from "../context/periodontogramaContext";
+import { useEffect, useState } from "react";
+
 
 export function ListaPerio() {
     const location = useLocation();
     const paciente = location.state;
+
+    const { periodontograma, getPeriodontogramas } = usePeriodontograma();
+
+    useEffect(() => {
+        console.log("pasan cosillas")
+        getPeriodontogramas(paciente._id);
+    }, []);
 
     return (
         <>
@@ -50,7 +60,20 @@ export function ListaPerio() {
                     </OfficialCard>
                     <div></div>
                 </div>
-               
+
+                <div>{periodontograma.length === 0 && (
+                    <div className="text-black">nada q ver aqui</div>
+                )}</div>
+                {periodontograma.map((perio, index) => (
+                    <OfficialCard>
+                        <Fila>
+                            <Textorosa>Numero: {index}</Textorosa>
+                        </Fila>
+                        <Fila>
+                            <Textorosa>Numero: {perio.patient}</Textorosa>
+                        </Fila>
+                    </OfficialCard>
+                ))}
             </Caja>
 
         </>
