@@ -23,6 +23,9 @@ import { useLocation } from "react-router-dom";
 import { OfficialCard } from "../components/ui/OfficialCard";
 import { Fila } from "../components/ui/Fila";
 import { Textorosa } from "../components/ui/Textorosa";
+import { MiniBlack } from "../components/ui/MiniBlack";
+import { MiniYellow } from "../components/ui/MiniYellow";
+import { MiniPurple } from "../components/ui/MiniPurple";
 
 function PeriogramaPage() {
   const location = useLocation();
@@ -31,7 +34,7 @@ function PeriogramaPage() {
   const patient = paciente._id
 
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
-  const nombres1 = ["Movilidad", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C."]
+  const nombres1 = ["Movilidad", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C.", "C.R.", "R.M.A", "Sup."]
 
   //DATOS PRIMERA TABLA IZQUIERDA<<<<<<<<<<<<<<<<<<<<<--------------------------------------------------------------------------------------------
   const [dientes1i, setDientes1i] = useState([[18, false], [17, false], [16, false], [15, false], [14, false], [13, false], [12, false], [11, false]])
@@ -982,6 +985,206 @@ function PeriogramaPage() {
     setfurca4d(newFurca);
 
   }
+
+  //NUEVAS FUNCIONES--------------------------------------------------------------------------------------
+
+  //CARIES RADICULAR 1i
+  const [car1i, setcar1i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioCar1i = (index, n) => {
+    const newcar1i = [...car1i]
+    newcar1i[index][n] = !newcar1i[index][n]
+    setcar1i(newcar1i);
+
+  }
+
+  //Restauracion mal ajustada 1i
+  const [res1i, setres1i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioRes1i = (index, n) => {
+    const newres1i = [...res1i]
+    newres1i[index][n] = !newres1i[index][n]
+    setres1i(newres1i);
+
+  }
+  //supuracion 1i
+  const [sup1i, setsup1i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSup1i = (index, n) => {
+    const newsup1i = [...sup1i]
+    newsup1i[index][n] = !newsup1i[index][n]
+    setsup1i(newsup1i);
+
+  }
+
+  //CARIES 1D
+  const [car1d, setcar1d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioCar1d = (index, n) => {
+    const newcar1d = [...car1d]
+    newcar1d[index][n] = !newcar1d[index][n]
+    setcar1d(newcar1d);
+
+  }
+
+  //restauracion 1D
+  const [res1d, setres1d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioRes1d = (index, n) => {
+    const newres1d = [...res1d]
+    newres1d[index][n] = !newres1d[index][n]
+    setres1d(newres1d);
+
+  }
+
+  //supouracion 1D
+  const [sup1d, setsup1d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSup1d = (index, n) => {
+    const newsup1d = [...sup1d]
+    newsup1d[index][n] = !newsup1d[index][n]
+    setsup1d(newsup1d);
+
+  }
+
+  //Caries 2i
+  const [car2i, setcar2i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioCar2i = (index, n) => {
+    const newcar2i = [...car2i]
+    newcar2i[index][n] = !newcar2i[index][n]
+    setcar2i(newcar2i);
+  }
+
+  //Restauración 2i
+  const [res2i, setres2i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioRes2i = (index, n) => {
+    const newres2i = [...res2i]
+    newres2i[index][n] = !newres2i[index][n]
+    setres2i(newres2i);
+  }
+
+  //Supouración 2i
+  const [sup2i, setsup2i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSup2i = (index, n) => {
+    const newsup2i = [...sup2i]
+    newsup2i[index][n] = !newsup2i[index][n]
+    setsup2i(newsup2i);
+  }
+
+  //Caries 2d
+  const [car2d, setcar2d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioCar2d = (index, n) => {
+    const newcar2d = [...car2d]
+    newcar2d[index][n] = !newcar2d[index][n]
+    setcar2d(newcar2d);
+  }
+
+  //Restauración 2d
+  const [res2d, setres2d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioRes2d = (index, n) => {
+    const newres2d = [...res2d]
+    newres2d[index][n] = !newres2d[index][n]
+    setres2d(newres2d);
+  }
+
+  //Supouración 2d
+  const [sup2d, setsup2d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSup2d = (index, n) => {
+    const newsup2d = [...sup2d]
+    newsup2d[index][n] = !newsup2d[index][n]
+    setsup2d(newsup2d);
+  }
+
+  //Caries 3i
+  const [car3i, setcar3i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioCar3i = (index, n) => {
+    const newcar3i = [...car3i]
+    newcar3i[index][n] = !newcar3i[index][n]
+    setcar3i(newcar3i);
+  }
+
+  //Restauración 3i
+  const [res3i, setres3i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioRes3i = (index, n) => {
+    const newres3i = [...res3i]
+    newres3i[index][n] = !newres3i[index][n]
+    setres3i(newres3i);
+  }
+
+  //Supouración 3i
+  const [sup3i, setsup3i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSup3i = (index, n) => {
+    const newsup3i = [...sup3i]
+    newsup3i[index][n] = !newsup3i[index][n]
+    setsup3i(newsup3i);
+  }
+
+  //Caries 3d
+  const [car3d, setcar3d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioCar3d = (index, n) => {
+    const newcar3d = [...car3d]
+    newcar3d[index][n] = !newcar3d[index][n]
+    setcar3d(newcar3d);
+  }
+
+  //Restauración 3d
+  const [res3d, setres3d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioRes3d = (index, n) => {
+    const newres3d = [...res3d]
+    newres3d[index][n] = !newres3d[index][n]
+    setres3d(newres3d);
+  }
+
+  //Supouración 3d
+  const [sup3d, setsup3d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSup3d = (index, n) => {
+    const newsup3d = [...sup3d]
+    newsup3d[index][n] = !newsup3d[index][n]
+    setsup3d(newsup3d);
+  }
+
+  //Caries 4i
+  const [car4i, setcar4i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioCar4i = (index, n) => {
+    const newcar4i = [...car4i]
+    newcar4i[index][n] = !newcar4i[index][n]
+    setcar4i(newcar4i);
+  }
+
+  //Restauración 4i
+  const [res4i, setres4i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioRes4i = (index, n) => {
+    const newres4i = [...res4i]
+    newres4i[index][n] = !newres4i[index][n]
+    setres4i(newres4i);
+  }
+
+  //Supouración 4i
+  const [sup4i, setsup4i] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSup4i = (index, n) => {
+    const newsup4i = [...sup4i]
+    newsup4i[index][n] = !newsup4i[index][n]
+    setsup4i(newsup4i);
+  }
+
+  //Caries 4d
+  const [car4d, setcar4d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioCar4d = (index, n) => {
+    const newcar4d = [...car4d]
+    newcar4d[index][n] = !newcar4d[index][n]
+    setcar4d(newcar4d);
+  }
+
+  //Restauración 4d
+  const [res4d, setres4d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioRes4d = (index, n) => {
+    const newres4d = [...res4d]
+    newres4d[index][n] = !newres4d[index][n]
+    setres4d(newres4d);
+  }
+
+  //Supouración 4d
+  const [sup4d, setsup4d] = useState([[false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false], [false, false, false]])
+  const cambioSup4d = (index, n) => {
+    const newsup4d = [...sup4d]
+    newsup4d[index][n] = !newsup4d[index][n]
+    setsup4d(newsup4d);
+  }
+
   //Imagenes--------------------------------------------------------------------------------------------
 
 
@@ -2979,6 +3182,34 @@ function PeriogramaPage() {
     diff3d: diff3d,
     diff4i: diff4i,
     diff4d: diff4d,
+
+    car1i: car1i,
+    car1d: car1d,
+    car2i: car2i,
+    car2d: car2d,
+    car3i: car3i,
+    car3d: car3d,
+    car4i: car4i,
+    car4d: car4d,
+
+    res1i: res1i,
+    res1d: res1d,
+    res2i: res2i,
+    res2d: res2d,
+    res3i: res3i,
+    res3d: res3d,
+    res4i: res4i,
+    res4d: res4d,
+
+    sup1i: sup1i,
+    sup1d: sup1d,
+    sup2i: sup2i,
+    sup2d: sup2d,
+    sup3i: sup3i,
+    sup3d: sup3d,
+    sup4i: sup4i,
+    sup4d: sup4d,
+
   };
   useEffect(() => {
     const patientData = {
@@ -3051,6 +3282,33 @@ function PeriogramaPage() {
       diff3d: diff3d,
       diff4i: diff4i,
       diff4d: diff4d,
+
+      car1i: car1i,
+      car1d: car1d,
+      car2i: car2i,
+      car2d: car2d,
+      car3i: car3i,
+      car3d: car3d,
+      car4i: car4i,
+      car4d: car4d,
+
+      res1i: res1i,
+      res1d: res1d,
+      res2i: res2i,
+      res2d: res2d,
+      res3i: res3i,
+      res3d: res3d,
+      res4i: res4i,
+      res4d: res4d,
+
+      sup1i: sup1i,
+      sup1d: sup1d,
+      sup2i: sup2i,
+      sup2d: sup2d,
+      sup3i: sup3i,
+      sup3d: sup3d,
+      sup4i: sup4i,
+      sup4d: sup4d,
     };
 
   }, [patient, dientes1i,
@@ -3120,7 +3378,11 @@ function PeriogramaPage() {
     diff3i,
     diff3d,
     diff4i,
-    diff4d,]);
+    diff4d,
+    car1i, car1d, car2i, car2d, car3i, car3d, car4i, car4d,
+    res1i, res1d, res2i, res2d, res3i, res3d, res4i, res4d,
+    sup1i, sup1d, sup2i, sup2d, sup3i, sup3d, sup4i, sup4d,
+  ]);
 
   return (
     <>
@@ -3285,6 +3547,69 @@ function PeriogramaPage() {
 
                           <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca1i(index, index2)}>{placa}</MiniBlue>
 
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*caries 1 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[8]}</th>
+                  {car1i.map((innersan1i, index) => (
+                    dientes1i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniBlack key={`${index}-${index2}`} onClick={() => cambioCar1i(index, index2)}>
+                            {san}
+                          </MiniBlack>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*restauracion 1 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[9]}</th>
+                  {res1i.map((innersan1i, index) => (
+                    dientes1i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniPurple key={`${index}-${index2}`} onClick={() => cambioRes1i(index, index2)}>
+                            {san}
+                          </MiniPurple>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*supuracion 1 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[10]}</th>
+                  {sup1i.map((innersan1i, index) => (
+                    dientes1i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniYellow key={`${index}-${index2}`} onClick={() => cambioSup1i(index, index2)}>
+                            {san}
+                          </MiniYellow>
                         ))}
                       </th>
                     )
@@ -3498,6 +3823,74 @@ function PeriogramaPage() {
                     )
                   ))}
                 </tr>
+
+                {/*caries 1 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {car1d.map((innersan1i, index) => (
+                    dientes1d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniBlack key={`${index}-${index2}`} onClick={() => cambioCar1d(index, index2)}>
+                            {san}
+                          </MiniBlack>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*restauracion 1 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {res1d.map((innersan1i, index) => (
+                    dientes1d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniPurple key={`${index}-${index2}`} onClick={() => cambioRes1d(index, index2)}>
+                            {san}
+                          </MiniPurple>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*supuracion 1 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {sup1d.map((innersan1i, index) => (
+                    dientes1d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniYellow key={`${index}-${index2}`} onClick={() => cambioSup1d(index, index2)}>
+                            {san}
+                          </MiniYellow>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+
+
+
+
                 {/*margen gingival tabla 1 derecha------------------------------------------------------   */}
 
                 <tr>
@@ -3689,26 +4082,6 @@ function PeriogramaPage() {
                     </th>
                   ))}
                 </tr>
-                {/*placa tabla 2 izquierda------------------------------------------------------   */}
-
-                <tr>
-                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[4]}</th>
-                  {placa2i.map((innerplaca2i, index) => (
-                    dientes1i[index][1] ? (
-                      <th key={index} className="border-black border rounded">
-                        <div></div>
-                      </th>
-                    ) : (
-                      <th key={index} className="border-black border rounded">
-                        {innerplaca2i.map((placa, index2) => (
-
-                          <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca2i(index, index2)}>{placa}</MiniBlue>
-
-                        ))}
-                      </th>
-                    )
-                  ))}
-                </tr>
                 {/*sangrado al sondaje 2 izquierda------------------------------------------------------   */}
 
                 <tr>
@@ -3729,6 +4102,93 @@ function PeriogramaPage() {
                     )
                   ))}
                 </tr>
+                {/*placa tabla 2 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[4]}</th>
+                  {placa2i.map((innerplaca2i, index) => (
+                    dientes1i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innerplaca2i.map((placa, index2) => (
+
+                          <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca2i(index, index2)}>{placa}</MiniBlue>
+
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+
+                {/*caries 2 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[8]}</th>
+                  {car2i.map((innersan1i, index) => (
+                    dientes1i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniBlack key={`${index}-${index2}`} onClick={() => cambioCar2i(index, index2)}>
+                            {san}
+                          </MiniBlack>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*restauracion 1 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[9]}</th>
+                  {res2i.map((innersan1i, index) => (
+                    dientes1i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniPurple key={`${index}-${index2}`} onClick={() => cambioRes2i(index, index2)}>
+                            {san}
+                          </MiniPurple>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*supuracion 1 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[10]}</th>
+                  {sup2i.map((innersan1i, index) => (
+                    dientes1i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniYellow key={`${index}-${index2}`} onClick={() => cambioSup2i(index, index2)}>
+                            {san}
+                          </MiniYellow>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+
+
                 {/*FURCA 2 izquierda------------------------------------------------------   */}
 
                 <tr>
@@ -3845,6 +4305,26 @@ function PeriogramaPage() {
                     </th>
                   ))}
                 </tr>
+                {/*sangrado al sondaje 2 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {san2d.map((innersan2d, index) => (
+                    dientes1d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan2d.map((san, index2) => (
+                          <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan2d(index, index2)}>
+                            {san}
+                          </MiniRed>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
 
                 {/*placa tabla 2 derecha------------------------------------------------------   */}
 
@@ -3867,26 +4347,71 @@ function PeriogramaPage() {
                   ))}
                 </tr>
 
-                {/*sangrado al sondaje 2 derecha------------------------------------------------------   */}
+
+
+                {/*caries 2 derecha------------------------------------------------------   */}
 
                 <tr>
-                  <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
-                  {san2d.map((innersan2d, index) => (
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {car2d.map((innersan1i, index) => (
                     dientes1d[index][1] ? (
                       <th key={index} className="border-black border rounded">
                         <div></div>
                       </th>
                     ) : (
                       <th key={index} className="border-black border rounded">
-                        {innersan2d.map((san, index2) => (
-                          <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan2d(index, index2)}>
+                        {innersan1i.map((san, index2) => (
+                          <MiniBlack key={`${index}-${index2}`} onClick={() => cambioCar2d(index, index2)}>
                             {san}
-                          </MiniRed>
+                          </MiniBlack>
                         ))}
                       </th>
                     )
                   ))}
                 </tr>
+
+                {/*restauracion 2 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {res2d.map((innersan1i, index) => (
+                    dientes1d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniPurple key={`${index}-${index2}`} onClick={() => cambioRes2d(index, index2)}>
+                            {san}
+                          </MiniPurple>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*supuracion 2 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {sup2d.map((innersan1i, index) => (
+                    dientes1d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniYellow key={`${index}-${index2}`} onClick={() => cambioSup2d(index, index2)}>
+                            {san}
+                          </MiniYellow>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
 
                 {/*FURCA 2 derecha------------------------------------------------------   */}
 
@@ -4060,6 +4585,69 @@ function PeriogramaPage() {
 
                           <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca3i(index, index2)}>{placa}</MiniBlue>
 
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*caries 3 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[8]}</th>
+                  {car3i.map((innersan1i, index) => (
+                    dientes2i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniBlack key={`${index}-${index2}`} onClick={() => cambioCar3i(index, index2)}>
+                            {san}
+                          </MiniBlack>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*restauracion 3 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[9]}</th>
+                  {res3i.map((innersan1i, index) => (
+                    dientes2i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniPurple key={`${index}-${index2}`} onClick={() => cambioRes3i(index, index2)}>
+                            {san}
+                          </MiniPurple>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*supuracion 3 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[10]}</th>
+                  {sup3i.map((innersan1i, index) => (
+                    dientes2i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniYellow key={`${index}-${index2}`} onClick={() => cambioSup3i(index, index2)}>
+                            {san}
+                          </MiniYellow>
                         ))}
                       </th>
                     )
@@ -4269,6 +4857,72 @@ function PeriogramaPage() {
                     )
                   ))}
                 </tr>
+
+
+                {/*caries 3 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {car3d.map((innersan1i, index) => (
+                    dientes2d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniBlack key={`${index}-${index2}`} onClick={() => cambioCar3d(index, index2)}>
+                            {san}
+                          </MiniBlack>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*restauracion 3 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {res3d.map((innersan1i, index) => (
+                    dientes2d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniPurple key={`${index}-${index2}`} onClick={() => cambioRes3d(index, index2)}>
+                            {san}
+                          </MiniPurple>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*supuracion 3 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {sup3d.map((innersan1i, index) => (
+                    dientes2d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniYellow key={`${index}-${index2}`} onClick={() => cambioSup3d(index, index2)}>
+                            {san}
+                          </MiniYellow>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+
                 {/*margen gingival tabla 3 derecha--------------------------------------------------   */}
 
                 <tr>
@@ -4460,26 +5114,7 @@ function PeriogramaPage() {
                     </th>
                   ))}
                 </tr>
-                {/*placa tabla 4 izquierda------------------------------------------------------   */}
 
-                <tr>
-                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[4]}</th>
-                  {placa4i.map((innerplaca2i, index) => (
-                    dientes2i[index][1] ? (
-                      <th key={index} className="border-black border rounded">
-                        <div></div>
-                      </th>
-                    ) : (
-                      <th key={index} className="border-black border rounded">
-                        {innerplaca2i.map((placa, index2) => (
-
-                          <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca4i(index, index2)}>{placa}</MiniBlue>
-
-                        ))}
-                      </th>
-                    )
-                  ))}
-                </tr>
                 {/*sangrado al sondaje 4 izquierda------------------------------------------------------   */}
 
                 <tr>
@@ -4500,6 +5135,91 @@ function PeriogramaPage() {
                     )
                   ))}
                 </tr>
+                {/*placa tabla 4 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[4]}</th>
+                  {placa4i.map((innerplaca2i, index) => (
+                    dientes2i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innerplaca2i.map((placa, index2) => (
+
+                          <MiniBlue key={`${index}-${index2}`} onClick={() => cambioPlaca4i(index, index2)}>{placa}</MiniBlue>
+
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+
+                {/*caries 4 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[8]}</th>
+                  {car4i.map((innersan1i, index) => (
+                    dientes2i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniBlack key={`${index}-${index2}`} onClick={() => cambioCar4i(index, index2)}>
+                            {san}
+                          </MiniBlack>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*restauracion 4 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[9]}</th>
+                  {res4i.map((innersan1i, index) => (
+                    dientes2i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniPurple key={`${index}-${index2}`} onClick={() => cambioRes4i(index, index2)}>
+                            {san}
+                          </MiniPurple>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*supuracion 4 izquierda------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}>{nombres1[10]}</th>
+                  {sup4i.map((innersan1i, index) => (
+                    dientes2i[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniYellow key={`${index}-${index2}`} onClick={() => cambioSup4i(index, index2)}>
+                            {san}
+                          </MiniYellow>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
                 {/*Furca 4 izquierda-----------------------------------------------------------   */}
 
                 <tr style={{ height: '2px', margin: 0 }}>
@@ -4617,6 +5337,27 @@ function PeriogramaPage() {
                   ))}
                 </tr>
 
+                {/*sangrado al sondaje 4 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {san4d.map((innersan2d, index) => (
+                    dientes2d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan2d.map((san, index2) => (
+                          <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan4d(index, index2)}>
+                            {san}
+                          </MiniRed>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
                 {/*placa tabla 4 derecha------------------------------------------------------   */}
 
                 <tr>
@@ -4638,21 +5379,65 @@ function PeriogramaPage() {
                   ))}
                 </tr>
 
-                {/*sangrado al sondaje 4 derecha------------------------------------------------------   */}
+
+
+                {/*caries 4 derecha------------------------------------------------------   */}
 
                 <tr>
-                  <th style={{ padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
-                  {san4d.map((innersan2d, index) => (
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {car4d.map((innersan1i, index) => (
                     dientes2d[index][1] ? (
                       <th key={index} className="border-black border rounded">
                         <div></div>
                       </th>
                     ) : (
                       <th key={index} className="border-black border rounded">
-                        {innersan2d.map((san, index2) => (
-                          <MiniRed key={`${index}-${index2}`} onClick={() => cambioSan4d(index, index2)}>
+                        {innersan1i.map((san, index2) => (
+                          <MiniBlack key={`${index}-${index2}`} onClick={() => cambioCar4d(index, index2)}>
                             {san}
-                          </MiniRed>
+                          </MiniBlack>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*restauracion 4 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {res4d.map((innersan1i, index) => (
+                    dientes2d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniPurple key={`${index}-${index2}`} onClick={() => cambioRes4d(index, index2)}>
+                            {san}
+                          </MiniPurple>
+                        ))}
+                      </th>
+                    )
+                  ))}
+                </tr>
+
+                {/*supuracion 3 derecha------------------------------------------------------   */}
+
+                <tr>
+                  <th style={{ textAlign: 'right', padding: '2px', width: '12.5%', fontWeight: 'bold', fontSize: '1.2em' }}></th>
+                  {sup4d.map((innersan1i, index) => (
+                    dientes2d[index][1] ? (
+                      <th key={index} className="border-black border rounded">
+                        <div></div>
+                      </th>
+                    ) : (
+                      <th key={index} className="border-black border rounded">
+                        {innersan1i.map((san, index2) => (
+                          <MiniYellow key={`${index}-${index2}`} onClick={() => cambioSup4d(index, index2)}>
+                            {san}
+                          </MiniYellow>
                         ))}
                       </th>
                     )

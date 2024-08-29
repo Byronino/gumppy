@@ -255,6 +255,106 @@ const periodontogramaSchema = new mongoose.Schema(
       type: Array,
       default: []
     },
+    //caries
+    car1i:{
+      type: Array,
+      default:[]
+    },
+    car1d:{
+      type: Array,
+      default:[]
+    },
+    car2i:{
+      type: Array,
+      default:[]
+    },
+    car2d:{
+      type: Array,
+      default:[]
+    },
+    car3i:{
+      type: Array,
+      default:[]
+    },
+    car3d:{
+      type: Array,
+      default:[]
+    },
+    car4i:{
+      type: Array,
+      default:[]
+    },
+    car4d:{
+      type: Array,
+      default:[]
+    },
+    res1i:{
+      type: Array,
+      default:[]
+    },
+    //restauracion
+    res1d:{
+      type: Array,
+      default:[]
+    },
+    res2i:{
+      type: Array,
+      default:[]
+    },
+    res2d:{
+      type: Array,
+      default:[]
+    },
+    res3i:{
+      type: Array,
+      default:[]
+    },
+    res3d:{
+      type: Array,
+      default:[]
+    },
+    res4i:{
+      type: Array,
+      default:[]
+    },
+    res4d:{
+      type: Array,
+      default:[]
+    },
+    //supuracion
+    sup1i:{
+      type: Array,
+      default:[]
+    },
+    sup1d:{
+      type: Array,
+      default:[]
+    },
+    sup2i:{
+      type: Array,
+      default:[]
+    },
+    sup2d:{
+      type: Array,
+      default:[]
+    },
+    sup3i:{
+      type: Array,
+      default:[]
+    },
+    sup3d:{
+      type: Array,
+      default:[]
+    },
+    sup4i:{
+      type: Array,
+      default:[]
+    },
+    sup4d:{
+      type: Array,
+      default:[]
+    }
+
   },
   {
     timestamps: true,

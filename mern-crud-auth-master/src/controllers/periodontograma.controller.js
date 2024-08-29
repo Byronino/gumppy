@@ -85,6 +85,12 @@ export const createPeriodontograma = async (req, res) => {
       diff3d,
       diff4i,
       diff4d,
+
+      car1i, car1d, car2i, car2d, car3i, car3d, car4i, car4d,
+      res1i, res1d, res2i, res2d, res3i, res3d, res4i, res4d,
+      sup1i, sup1d, sup2i, sup2d, sup3i, sup3d, sup4i, sup4d,
+
+      
     } = req.body;
     const newPeriodontograma = new Periodontograma({
       patient,
@@ -156,6 +162,9 @@ export const createPeriodontograma = async (req, res) => {
       diff3d,
       diff4i,
       diff4d,
+      car1i, car1d, car2i, car2d, car3i, car3d, car4i, car4d,
+      res1i, res1d, res2i, res2d, res3i, res3d, res4i, res4d,
+      sup1i, sup1d, sup2i, sup2d, sup3i, sup3d, sup4i, sup4d,
 
 
     });

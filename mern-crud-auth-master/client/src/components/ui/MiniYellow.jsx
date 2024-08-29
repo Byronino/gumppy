@@ -1,8 +1,8 @@
-export function MiniRed({ onClick, children }) {
+export function MiniYellow({ onClick, children }) {
     if (children) {
         return (
             <button
-                className="bg-[#ec8383] px-1 py-2 rounded-md my-1 mx-0.5 hover:bg-gray-700 transition duration-200 "
+                className="bg-[#f7d371] px-1 py-2 rounded-md my-1 mx-0.5 hover:bg-gray-700 transition duration-200 "
                 onClick={onClick}
             >
                 {children}
