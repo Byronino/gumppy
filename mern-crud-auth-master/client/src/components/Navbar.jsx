@@ -24,9 +24,7 @@ export function Navbar() {
               <li className="my-4">
                 <ButtonLink to="/add-task">Add Task</ButtonLink>
               </li>
-              <li className="my-4">
-                <ButtonLink to="/periograma">periograma</ButtonLink>
-              </li>
+              
               <li className="my-4">
                 <Link to="/" onClick={() => logout()}>
                   Logout
