@@ -9,9 +9,12 @@ import { Fila } from "../components/ui/Fila";
 import { Textorosa } from "../components/ui/Textorosa";
 import { useNavigate } from 'react-router-dom';
 import { ButtonTest } from "../components/ui/ButtonTest";
+import { useEffect } from "react";
 
 export function ProbandoPacientes() {
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     const location = useLocation();
     const paciente = location.state;
     const navigate = useNavigate();
@@ -35,7 +38,7 @@ export function ProbandoPacientes() {
     return (
         <>
             <Caja>
-                <Subtitulo>FICHA DE PACIENTE</Subtitulo>
+                <Subtitulo >FICHA DE PACIENTE</Subtitulo>
 
                 <div className="grid grid-cols-2 gap-6">
                     <OfficialCard>
