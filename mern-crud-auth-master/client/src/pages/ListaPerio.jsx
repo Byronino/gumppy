@@ -7,7 +7,7 @@ import { Fila } from "../components/ui/Fila";
 import { Textorosa } from "../components/ui/Textorosa";
 import { usePeriodontograma } from "../context/periodontogramaContext";
 import { useEffect, useState } from "react";
-
+import { TarjetaPerio } from "../components/ui/TarjetaPerio";
 
 export function ListaPerio() {
     const location = useLocation();
@@ -16,9 +16,12 @@ export function ListaPerio() {
     const { periodontograma, getPeriodontogramas } = usePeriodontograma();
 
     useEffect(() => {
-        console.log("pasan cosillas")
         getPeriodontogramas(paciente._id);
     }, []);
+
+    const periodontogramasOrdenados = periodontograma.sort((a, b) => {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
 
     return (
         <>
@@ -61,18 +64,13 @@ export function ListaPerio() {
                     <div></div>
                 </div>
 
-                <div>{periodontograma.length === 0 && (
+                <div>{periodontogramasOrdenados.length === 0 && (
                     <div className="text-black">nada q ver aqui</div>
                 )}</div>
-                {periodontograma.map((perio, index) => (
-                    <OfficialCard>
-                        <Fila>
-                            <Textorosa>Numero: {index}</Textorosa>
-                        </Fila>
-                        <Fila>
-                            <Textorosa>Numero: {perio.patient}</Textorosa>
-                        </Fila>
-                    </OfficialCard>
+                {periodontogramasOrdenados.map((perio, index) => (
+                    <TarjetaPerio periodontograma= {perio} paciente={paciente} key={index}/>
+                        
+                 
                 ))}
             </Caja>
 

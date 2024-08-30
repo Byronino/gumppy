@@ -8,7 +8,7 @@ import RegisterPage from "./pages/RegisterPage";
 import { TaskFormPage } from "./pages/TaskFormPage";
 import { LoginPage } from "./pages/LoginPage";
 import { TasksPage } from "./pages/TasksPage";
-import  FreePerio from "./pages/FreePerio"
+import FreePerio from "./pages/FreePerio"
 
 import { TaskProvider } from "./context/tasksContext";
 import { PruebaPage } from "./pages/PruebaPage";
@@ -24,6 +24,7 @@ import { PacienteFormPage } from "./pages/PacienteFormPage";
 import { ProbandoPacientes } from "./pages/probandoPacientes";
 
 import { ListaPerio } from "./pages/ListaPerio";
+import { VerExamen } from "./pages/VerExamen"
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
                   <Route path="/login" element={<LoginPage />} />
                   <Route path="/register" element={<RegisterPage />} />
                   <Route path="/periograma" element={<PeriogramaPage />} />
-                  <Route path="/free-perio" element={<FreePerio/>} />
+                  <Route path="/free-perio" element={<FreePerio />} />
 
                   <Route element={<ProtectedRoute />}>
                     <Route path="/tasks" element={<TasksPage />} />
@@ -54,13 +55,15 @@ function App() {
                     <Route path="/prueba" element={<PruebaPage />} />
 
                     <Route path="/pacientes" element={<PacientesPage />} />
-                    <Route path="/add-paciente" element={<PacienteFormPage/>} />
-                    <Route path="/probando-paciente" element={<ProbandoPacientes/>} />
+                    <Route path="/add-paciente" element={<PacienteFormPage />} />
+                    <Route path="/probando-paciente" element={<ProbandoPacientes />} />
                     <Route path="/pacientes/:id" element={<PacienteFormPage />} />
 
                     <Route path="/crear_periodontograma" element={<PeriogramaPage />}></Route>
 
-                    <Route path="/lista-perio" element={<ListaPerio/>} />
+                    <Route path="/lista-perio" element={<ListaPerio />} />
+                    <Route path="/ver_periodontograma" element={<VerExamen />} />
+
 
 
                   </Route>
