@@ -25,6 +25,7 @@ import { ProbandoPacientes } from "./pages/probandoPacientes";
 
 import { ListaPerio } from "./pages/ListaPerio";
 import { VerExamen } from "./pages/VerExamen"
+import { Dashboard } from "./pages/Dashboard";
 
 function App() {
   return (
@@ -63,6 +64,8 @@ function App() {
 
                     <Route path="/lista-perio" element={<ListaPerio />} />
                     <Route path="/ver_periodontograma" element={<VerExamen />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+
 
 
 

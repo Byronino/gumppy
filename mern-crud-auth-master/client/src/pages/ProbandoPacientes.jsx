@@ -10,11 +10,12 @@ import { Textorosa } from "../components/ui/Textorosa";
 import { useNavigate } from 'react-router-dom';
 import { ButtonTest } from "../components/ui/ButtonTest";
 import { useEffect } from "react";
+import { ButtonLink2 } from "../components/ui/ButtonLink2";
 
 export function ProbandoPacientes() {
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
     const location = useLocation();
     const paciente = location.state;
     const navigate = useNavigate();
@@ -25,6 +26,10 @@ export function ProbandoPacientes() {
 
     const handleClickDo = () => {
         navigate('/crear_periodontograma', { state: paciente });
+    };
+
+    const handleClickDo2 = () => {
+        navigate('/dashboard', { state: paciente });
     };
 
 
@@ -86,13 +91,16 @@ export function ProbandoPacientes() {
 
                     </OfficialCard>
                     <OfficialCard>
-                    <div className="grid grid-cols-2 gap-6">
-                    <ButtonTest onClick={handleClick}> VER EXÁMENES</ButtonTest>
-                    <ButtonTest onClick={handleClickDo}> CREAR PERIODONTOGRAMA</ButtonTest>
-                    </div>
+                        <div className="grid grid-cols-2 gap-6">
+                            <ButtonTest onClick={handleClick}> VER EXÁMENES</ButtonTest>
+                            <ButtonTest onClick={handleClickDo}> CREAR PERIODONTOGRAMA</ButtonTest>
+                            <ButtonLink2 to={`/pacientes/${paciente._id}`}>EDITAR PACIENTE</ButtonLink2>
+                            <ButtonTest onClick={handleClickDo2}> VER DASHBOARD</ButtonTest>
 
-                        
-                        
+                        </div>
+
+
+
 
                     </OfficialCard>
                 </div>
@@ -222,8 +230,7 @@ export function ProbandoPacientes() {
 
 
 
-                <ButtonLink to={`/pacientes/${paciente._id}`}>Edit</ButtonLink>
-                <div><img src={logo} width="100" height="100" /></div>
+
 
 
 
