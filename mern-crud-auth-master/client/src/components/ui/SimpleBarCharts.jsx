@@ -1,6 +1,10 @@
 import React from 'react'
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
+const movilidad1 = [1,2,3,4,5,6,7,8]
+const movilidad2 = [3,4,5,6,7,8,9,10]
+const movilidad3 = [3,2,1,56,4,5,3,2]
+
 const data = [
     {name: "María", age: 10, weight: 60},
     {name: 'Karina', age: 25, weight: 70},

@@ -10,12 +10,20 @@ import { TarjetaPerio } from "../components/ui/TarjetaPerio";
 import { Label } from "../components/ui";
 import { SimpleBarCharts } from "../components/ui/SimpleBarCharts";
 import { WhiteWindow } from "../components/ui/WhiteWindow";
+import { MovilidadChart } from "../components/ui/MovilidadChart";
 
 export function Dashboard() {
     const location = useLocation();
     const paciente = location.state;
     const { periodontograma, getPeriodontogramas } = usePeriodontograma();
-    const nombres1 = ["Movilidad", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C.", "C.R.", "R.M.A", "Sup."]
+    const nombres1 = ["Movilidad de un diente en el tiempo", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C.", "C.R.", "R.M.A", "Sup."]
+    const selector = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28, 48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38]
+    const [indiceSeleccionado, setIndiceSeleccionado] = useState(null);
+
+    const handleClick = (indice) => {
+        setIndiceSeleccionado(indice);
+    };
+
 
     const array1 = [1, 2, 3]
     const array2 = [3, 2, 1]
@@ -25,12 +33,12 @@ export function Dashboard() {
     }, []);
 
     const perio = periodontograma.sort((a, b) => {
-        return new Date(b.createdAt) - new Date(a.createdAt);
+        return new Date(a.createdAt) - new Date(b.createdAt);
     });
 
     const [indice1, setIndice1] = useState(0)
     const [indice2, setIndice2] = useState(0)
-    const [indice3, setIndice3] = useState(0)
+    const [indice3, setIndice3] = useState("0")
 
     const handleSelectChange = (event) => {
         const valorSeleccionado = event.target.value;
@@ -47,10 +55,66 @@ export function Dashboard() {
     return (
         <>
             <Caja>
-                <Subtitulo>DASHBOARD:  {paciente.nomPac} {paciente.apellidoPac}</Subtitulo>
+                <Subtitulo>DASHBOARD:  {paciente.nomPac} {paciente.apellidoPac} </Subtitulo>
 
 
                 <OfficialCard>
+                    <p>Índice seleccionado: {indiceSeleccionado}</p>
+                    <WhiteWindow>
+                        <div className="mt-3 grid grid-cols-2 gap-6">
+                            <div className="flex flex-wrap gap-2">
+                                {selector.slice(0, 8).map((valor, indice) => (
+                                    <button
+                                        key={indice}
+                                        className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''
+                                            }`}
+                                        onClick={() => handleClick(indice)}
+                                    >
+                                        {valor}
+                                    </button>
+                                ))}
+
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {selector.slice(8, 16).map((valor, indice) => (
+                                    <button
+                                        key={indice}
+                                        className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice + 8 === indiceSeleccionado ? 'bg-cyan-500' : ''
+                                            }`}
+                                        onClick={() => handleClick(indice + 8)}
+                                    >
+                                        {valor}
+                                    </button>
+                                ))}
+
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {selector.slice(16, 24).map((valor, indice) => (
+                                    <button
+                                        key={indice}
+                                        className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice + 16 === indiceSeleccionado ? 'bg-cyan-500' : ''
+                                            }`}
+                                        onClick={() => handleClick(indice + 16)}
+                                    >
+                                        {valor}
+                                    </button>
+                                ))}
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                                {selector.slice(24, 32).map((valor, indice) => (
+                                    <button
+                                        key={indice}
+                                        className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice + 24 === indiceSeleccionado ? 'bg-cyan-500' : ''
+                                            }`}
+                                        onClick={() => handleClick(indice + 24)}
+                                    >
+                                        {valor}
+                                    </button>
+                                ))}
+
+                            </div>
+                        </div>
+                    </WhiteWindow>
 
                     <div className="mt-3 grid grid-cols-2 gap-6">
                         <div>
@@ -67,20 +131,20 @@ export function Dashboard() {
                             </select>
                         </div>
                         <div></div>
-                        {indice3 === "0" && (
-                            <WhiteWindow>
-                                <SimpleBarCharts array1={array1} array2={array2} ></SimpleBarCharts>
-                            </WhiteWindow>
+
+
+                    </div>
+                    <div className="text-center w-1/2 mx-auto">
+                        {indice3 === "0" && perio.length > 0 && (
+
+                            <MovilidadChart diente={indiceSeleccionado} parametro={perio}></MovilidadChart>
                         )}
                         {indice3 === "1" && (
                             <WhiteWindow>
                                 <Subtitulo>grafico 2</Subtitulo>
                             </WhiteWindow>
                         )}
-
                     </div>
-
-
                     <div className="mt-3 grid grid-cols-3 gap-6">
                         <div>
                             <Label >Exámen anterior</Label>
