@@ -201,7 +201,7 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                 </ResponsiveContainer>
                 <ResponsiveContainer aspect={2}>
                     Tercer sitio arriba
-                    <LineChart width={600} height={300} data={data1} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                    <LineChart width={600} height={300} data={data3} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
 
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
