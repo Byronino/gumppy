@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { ButtonTest } from "../components/ui/ButtonTest";
 import { useEffect } from "react";
 import { ButtonLink2 } from "../components/ui/ButtonLink2";
-
+import { usePeriodontograma } from "../context/periodontogramaContext";
 export function ProbandoPacientes() {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -40,6 +40,15 @@ export function ProbandoPacientes() {
     const handleMouseOut = () => {
         setHover(false);
     };
+
+    const { periodontograma, getPeriodontogramas } = usePeriodontograma();
+
+    useEffect(() => {
+        getPeriodontogramas(paciente._id);
+    }, []);
+
+
+
     return (
         <>
             <Caja>
@@ -92,10 +101,16 @@ export function ProbandoPacientes() {
                     </OfficialCard>
                     <OfficialCard>
                         <div className="grid grid-cols-2 gap-6">
-                            <ButtonTest onClick={handleClick}> VER EXÁMENES</ButtonTest>
+                            {periodontograma.length > 0 && (
+                                <>
+                                    <ButtonTest onClick={handleClick}> VER EXÁMENES</ButtonTest>
+                                    <ButtonTest onClick={handleClickDo2}> VER DASHBOARD</ButtonTest>
+                                </>
+                            )}
+
                             <ButtonTest onClick={handleClickDo}> CREAR PERIODONTOGRAMA</ButtonTest>
                             <ButtonLink2 to={`/pacientes/${paciente._id}`}>EDITAR PACIENTE</ButtonLink2>
-                            <ButtonTest onClick={handleClickDo2}> VER DASHBOARD</ButtonTest>
+
 
                         </div>
 

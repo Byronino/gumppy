@@ -30,7 +30,7 @@ export const MovilidadChart = ({ diente, parametro }) => {
         if(8<=diente && diente<16){
             return{
                 name: `Exámen ${index + 1}`,
-                uv: examen.movilidad3[diente%8], 
+                uv: examen.movilidad2[diente%8], 
             }
         }
         if(16<=diente && diente<24){
@@ -42,7 +42,7 @@ export const MovilidadChart = ({ diente, parametro }) => {
         else {
           return {
             name: `Exámen ${index + 1}`,
-            uv: examen.movilidad2[diente % 8]
+            uv: examen.movilidad4[diente % 8]
           };
         }
       });
@@ -55,7 +55,7 @@ export const MovilidadChart = ({ diente, parametro }) => {
                     <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                     <XAxis dataKey="name" />
-                    <YAxis domain={[0, 5]} ticks={[0, 1, 2, 3, 4, 5]}
+                    <YAxis domain={[0, 3]} ticks={[0, 1, 2, 3]}
                         tickFormatter={(tick) => tick.toFixed(1)} />
                     <Tooltip />
                 </LineChart>

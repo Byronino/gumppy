@@ -11,12 +11,30 @@ import { Label } from "../components/ui";
 import { SimpleBarCharts } from "../components/ui/SimpleBarCharts";
 import { WhiteWindow } from "../components/ui/WhiteWindow";
 import { MovilidadChart } from "../components/ui/MovilidadChart";
+import { ProfundidadChart } from "../components/ui/ProfundidadChart";
 
 export function Dashboard() {
     const location = useLocation();
     const paciente = location.state;
     const { periodontograma, getPeriodontogramas } = usePeriodontograma();
-    const nombres1 = ["Movilidad de un diente en el tiempo", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C.", "C.R.", "R.M.A", "Sup."]
+    const nombres1 = [
+        "Movilidad de un diente en el tiempo",
+        "Cambio de PS en un sitio en el tiempo",
+        "Cambio de número de sitios con PS mayor a 4 mm en el tiempo",
+        "Cambio de número de sitios con PS mayor a 6 mm en el tiempo",
+        "Disminución o ganancia de NIC en el tiempo",
+        "Cambios en el tiempo en BoP",
+        "Cambios en el tiempo de supuración",
+        "Cambios en el tiempo de placa",
+        "Movimiento de encía (margen gingival) durante el tiempo",
+        "Promedio de PS en el tiempo",
+        "Promedio de nic en el tiempo",
+        "Cambio de diagnostico en el tiempo",
+
+
+
+
+    ]
     const selector = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28, 48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38]
     const [indiceSeleccionado, setIndiceSeleccionado] = useState(null);
 
@@ -134,12 +152,15 @@ export function Dashboard() {
 
 
                     </div>
-                    <div className="text-center w-1/2 mx-auto">
+                    <div className="text-center mx-auto">
                         {indice3 === "0" && perio.length > 0 && (
 
                             <MovilidadChart diente={indiceSeleccionado} parametro={perio}></MovilidadChart>
                         )}
                         {indice3 === "1" && (
+                            <ProfundidadChart diente={indiceSeleccionado} parametro={perio}></ProfundidadChart>
+                        )}
+                        {indice3 === "2" && (
                             <WhiteWindow>
                                 <Subtitulo>grafico 2</Subtitulo>
                             </WhiteWindow>
