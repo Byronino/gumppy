@@ -12,6 +12,9 @@ import { SimpleBarCharts } from "../components/ui/SimpleBarCharts";
 import { WhiteWindow } from "../components/ui/WhiteWindow";
 import { MovilidadChart } from "../components/ui/MovilidadChart";
 import { ProfundidadChart } from "../components/ui/ProfundidadChart";
+import { Mayora4Chart } from "../components/ui/Mayora4Chart";
+
+
 
 export function Dashboard() {
     const location = useLocation();
@@ -20,7 +23,7 @@ export function Dashboard() {
     const nombres1 = [
         "Movilidad de un diente en el tiempo",
         "Cambio de PS en un sitio en el tiempo",
-        "Cambio de número de sitios con PS mayor a 4 mm en el tiempo",
+        "Número de sitios con PS mayor a 4 mm en el tiempo (Global)",
         "Cambio de número de sitios con PS mayor a 6 mm en el tiempo",
         "Disminución o ganancia de NIC en el tiempo",
         "Cambios en el tiempo en BoP",
@@ -161,9 +164,7 @@ export function Dashboard() {
                             <ProfundidadChart diente={indiceSeleccionado} parametro={perio}></ProfundidadChart>
                         )}
                         {indice3 === "2" && (
-                            <WhiteWindow>
-                                <Subtitulo>grafico 2</Subtitulo>
-                            </WhiteWindow>
+                            <Mayora4Chart diente={indiceSeleccionado} parametro={perio}></Mayora4Chart>
                         )}
                     </div>
                     <div className="mt-3 grid grid-cols-3 gap-6">
