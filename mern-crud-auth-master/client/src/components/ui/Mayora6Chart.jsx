@@ -2,13 +2,13 @@ import React from 'react'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { WhiteWindow } from './WhiteWindow';
 
-export const Mayora4Chart = ({ diente, parametro }) => {
+export const Mayora6Chart = ({ diente, parametro }) => {
 
     function contarCantidad(array) {
         let cantidad = 0;
         for (let i = 0; i < array.length; i++) {
             for (let j = 0; j < array[i].length; j++) {
-                if (array[i][j] >= 4) {
+                if (array[i][j] >= 6) {
                     cantidad++;
                 }
             }
@@ -45,7 +45,7 @@ export const Mayora4Chart = ({ diente, parametro }) => {
                     <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                     <XAxis  dataKey="name" label={{ value: 'Número de examen', position: 'bottom', offset: -10 }} />
-                    <YAxis domain={[0, 32]} label={{ value: 'Cantidad de dientes con PS > 4', angle: -90, position: 'left', offset: -20 }}/>
+                    <YAxis domain={[0, 32]} label={{ value: 'Cantidad de dientes con PS > 6', angle: -90, position: 'left', offset: -20 }}/>
                     <Tooltip />
                 </LineChart>
             </ResponsiveContainer>

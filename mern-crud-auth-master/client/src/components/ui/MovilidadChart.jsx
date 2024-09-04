@@ -23,25 +23,25 @@ export const MovilidadChart = ({ diente, parametro }) => {
     const data = parametro.map((examen, index) => {
         if (diente < 8) {
           return {
-            name: `Exámen ${index + 1}`,
+            name: `${index + 1}`,
             uv: examen.movilidad1[diente],
           };
         } 
         if(8<=diente && diente<16){
             return{
-                name: `Exámen ${index + 1}`,
+                name: `${index + 1}`,
                 uv: examen.movilidad2[diente%8], 
             }
         }
         if(16<=diente && diente<24){
             return{
-                name: `Exámen ${index + 1}`,
+                name: `${index + 1}`,
                 uv: examen.movilidad3[diente%8], 
             }
         }
         else {
           return {
-            name: `Exámen ${index + 1}`,
+            name: `${index + 1}`,
             uv: examen.movilidad4[diente % 8]
           };
         }
@@ -54,9 +54,10 @@ export const MovilidadChart = ({ diente, parametro }) => {
                 <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                     <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                    <XAxis dataKey="name" />
+                    <XAxis  label={{ value: 'Número de examen', position: 'bottom', offset: -10 }} dataKey="name" />
                     <YAxis domain={[0, 3]} ticks={[0, 1, 2, 3]}
-                        tickFormatter={(tick) => tick.toFixed(1)} />
+                        tickFormatter={(tick) => tick.toFixed(1)} 
+                        label={{ value: 'Movilidad a través del tiempo', angle: -90, position: 'left', offset: -20 }}/>
                     <Tooltip />
                 </LineChart>
             </ResponsiveContainer>

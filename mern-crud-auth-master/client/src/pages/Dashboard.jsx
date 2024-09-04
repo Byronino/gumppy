@@ -13,8 +13,9 @@ import { WhiteWindow } from "../components/ui/WhiteWindow";
 import { MovilidadChart } from "../components/ui/MovilidadChart";
 import { ProfundidadChart } from "../components/ui/ProfundidadChart";
 import { Mayora4Chart } from "../components/ui/Mayora4Chart";
-
-
+import { Mayora6Chart } from "../components/ui/Mayora6Chart";
+import { NicChart } from "../components/ui/NicChart";
+import { BloodChart } from "../components/ui/BloodChart";
 
 export function Dashboard() {
     const location = useLocation();
@@ -24,7 +25,7 @@ export function Dashboard() {
         "Movilidad de un diente en el tiempo",
         "Cambio de PS en un sitio en el tiempo",
         "Número de sitios con PS mayor a 4 mm en el tiempo (Global)",
-        "Cambio de número de sitios con PS mayor a 6 mm en el tiempo",
+        "Número de sitios con PS mayor a 6 mm en el tiempo (Global)",
         "Disminución o ganancia de NIC en el tiempo",
         "Cambios en el tiempo en BoP",
         "Cambios en el tiempo de supuración",
@@ -39,7 +40,7 @@ export function Dashboard() {
 
     ]
     const selector = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28, 48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38]
-    const [indiceSeleccionado, setIndiceSeleccionado] = useState(null);
+    const [indiceSeleccionado, setIndiceSeleccionado] = useState(0);
 
     const handleClick = (indice) => {
         setIndiceSeleccionado(indice);
@@ -157,14 +158,24 @@ export function Dashboard() {
                     </div>
                     <div className="text-center mx-auto">
                         {indice3 === "0" && perio.length > 0 && (
-
                             <MovilidadChart diente={indiceSeleccionado} parametro={perio}></MovilidadChart>
                         )}
-                        {indice3 === "1" && (
+                        {indice3 === "1" && perio.length > 0 && (
                             <ProfundidadChart diente={indiceSeleccionado} parametro={perio}></ProfundidadChart>
                         )}
-                        {indice3 === "2" && (
+                        {indice3 === "2" && perio.length > 0 && (
                             <Mayora4Chart diente={indiceSeleccionado} parametro={perio}></Mayora4Chart>
+                        )}
+                        {indice3 === "3" && perio.length > 0 && (
+                            <Mayora6Chart diente={indiceSeleccionado} parametro={perio}></Mayora6Chart>
+                        )}
+                        {indice3 === "4" && perio.length > 0 && (
+                            <NicChart diente={indiceSeleccionado} parametro={perio}></NicChart>
+                        )}
+                        {indice3 === "5" && perio.length > 0 && (
+                            
+                            <BloodChart diente={indiceSeleccionado} parametro={perio}></BloodChart>
+
                         )}
                     </div>
                     <div className="mt-3 grid grid-cols-3 gap-6">

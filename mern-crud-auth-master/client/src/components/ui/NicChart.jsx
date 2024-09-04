@@ -2,174 +2,83 @@ import React from 'react'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { WhiteWindow } from './WhiteWindow';
 
-export const ProfundidadChart = ({ diente, parametro }) => {
+export const NicChart = ({ diente, parametro }) => {
 
-    const data1 = parametro.map((examen, index) => {
+    const getValue = (array, index, numero) => {
+        return array && array[index] && array[index][numero] > 0 ? array[index][numero] : 0;
+      }
+
+      const data1 = parametro.map((examen, index) => {
         if (diente < 8) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof1i[diente][0],
-            };
+          return { name: `${index + 1}`, uv: getValue(examen.diff1i, diente,0) };
+        } else if (diente < 16) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff1d, diente % 8,0) };
+        } else if (diente < 24) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff3i, diente % 8,0) };
+        } else {
+          return { name: `${index + 1}`, uv: getValue(examen.diff3d, diente % 8,0) };
         }
-        if (8 <= diente && diente < 16) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof1d[diente % 8][0],
-            }
-        }
-        if (16 <= diente && diente < 24) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof3i[diente % 8][0],
-            }
-        }
-        else {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof3d[diente % 8][0]
-            };
-        }
-
-    })
-    const data2 = parametro.map((examen, index) => {
+      })
+      const data2 = parametro.map((examen, index) => {
         if (diente < 8) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof1i[diente][1],
-            };
+          return { name: `${index + 1}`, uv: getValue(examen.diff1i, diente,1) };
+        } else if (diente < 16) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff1d, diente % 8,1) };
+        } else if (diente < 24) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff3i, diente % 8,1) };
+        } else {
+          return { name: `${index + 1}`, uv: getValue(examen.diff3d, diente % 8,1) };
         }
-        if (8 <= diente && diente < 16) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof1d[diente % 8][1],
-            }
-        }
-        if (16 <= diente && diente < 24) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof3i[diente % 8][1],
-            }
-        }
-        else {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof3d[diente % 8][1]
-            };
-        }
-
-    })
-
-    const data3 = parametro.map((examen, index) => {
+      })
+      const data3 = parametro.map((examen, index) => {
         if (diente < 8) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof1i[diente][2],
-            };
+          return { name: `${index + 1}`, uv: getValue(examen.diff1i, diente,2) };
+        } else if (diente < 16) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff1d, diente % 8,2) };
+        } else if (diente < 24) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff3i, diente % 8,2) };
+        } else {
+          return { name: `${index + 1}`, uv: getValue(examen.diff3d, diente % 8,2) };
         }
-        if (8 <= diente && diente < 16) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof1d[diente % 8][2],
-            }
-        }
-        if (16 <= diente && diente < 24) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof3i[diente % 8][2],
-            }
-        }
-        else {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof3d[diente % 8][2]
-            };
-        }
+      })
 
-    })
+    
 
-    const data4 = parametro.map((examen, index) => {
+      const data4 = parametro.map((examen, index) => {
         if (diente < 8) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof2i[diente][0],
-            };
+          return { name: `${index + 1}`, uv: getValue(examen.diff2i, diente,0) };
+        } else if (diente < 16) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff2d, diente % 8,0) };
+        } else if (diente < 24) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff4i, diente % 8,0) };
+        } else {
+          return { name: `${index + 1}`, uv: getValue(examen.diff4d, diente % 8,0) };
         }
-        if (8 <= diente && diente < 16) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof2d[diente % 8][0],
-            }
-        }
-        if (16 <= diente && diente < 24) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof4i[diente % 8][0],
-            }
-        }
-        else {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof4d[diente % 8][0]
-            };
-        }
+      })
 
-    })
-
-    const data5 = parametro.map((examen, index) => {
+      const data5 = parametro.map((examen, index) => {
         if (diente < 8) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof2i[diente][1],
-            };
+          return { name: `${index + 1}`, uv: getValue(examen.diff2i, diente,1) };
+        } else if (diente < 16) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff2d, diente % 8,1) };
+        } else if (diente < 24) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff4i, diente % 8,1) };
+        } else {
+          return { name: `${index + 1}`, uv: getValue(examen.diff4d, diente % 8,1) };
         }
-        if (8 <= diente && diente < 16) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof2d[diente % 8][1],
-            }
-        }
-        if (16 <= diente && diente < 24) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof4i[diente % 8][1],
-            }
-        }
-        else {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof4d[diente % 8][1]
-            };
-        }
+      })
 
-    })
-
-    const data6 = parametro.map((examen, index) => {
+      const data6 = parametro.map((examen, index) => {
         if (diente < 8) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof2i[diente][2],
-            };
+          return { name: `${index + 1}`, uv: getValue(examen.diff2i, diente,2) };
+        } else if (diente < 16) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff2d, diente % 8,2) };
+        } else if (diente < 24) {
+          return { name: `${index + 1}`, uv: getValue(examen.diff4i, diente % 8,2) };
+        } else {
+          return { name: `${index + 1}`, uv: getValue(examen.diff4d, diente % 8,2) };
         }
-        if (8 <= diente && diente < 16) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof2d[diente % 8][2],
-            }
-        }
-        if (16 <= diente && diente < 24) {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof4i[diente % 8][2],
-            }
-        }
-        else {
-            return {
-                name: `${index + 1}`,
-                uv: examen.prof4d[diente % 8][2]
-            };
-        }
-
-    })
+      })
 
 
 
@@ -184,7 +93,7 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                         <XAxis dataKey="name" />
-                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15]}
+                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
                             tickFormatter={(tick) => tick.toFixed(1)} />
                         <Tooltip />
                     </LineChart>
@@ -196,7 +105,7 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                         <XAxis dataKey="name" />
-                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15]}
+                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
                             tickFormatter={(tick) => tick.toFixed(1)} />
                         <Tooltip />
                     </LineChart>
@@ -209,7 +118,7 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                         <XAxis dataKey="name" />
-                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15]}
+                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
                             tickFormatter={(tick) => tick.toFixed(1)} />
                         <Tooltip />
                     </LineChart>
@@ -226,7 +135,7 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                         <XAxis dataKey="name" />
-                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15]}
+                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
                             tickFormatter={(tick) => tick.toFixed(1)} />
                         <Tooltip />
                     </LineChart>
@@ -239,7 +148,7 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                         <XAxis dataKey="name" />
-                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15]}
+                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
                             tickFormatter={(tick) => tick.toFixed(1)} />
                         <Tooltip />
                     </LineChart>
@@ -254,7 +163,7 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                         <XAxis dataKey="name" />
-                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15]}
+                        <YAxis domain={[0, 15]} ticks={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
                             tickFormatter={(tick) => tick.toFixed(1)} />
                         <Tooltip />
                     </LineChart>
