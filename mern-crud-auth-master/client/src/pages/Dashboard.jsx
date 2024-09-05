@@ -16,6 +16,11 @@ import { Mayora4Chart } from "../components/ui/Mayora4Chart";
 import { Mayora6Chart } from "../components/ui/Mayora6Chart";
 import { NicChart } from "../components/ui/NicChart";
 import { BloodChart } from "../components/ui/BloodChart";
+import { TituloChart } from "../components/ui/TituloChart";
+import { PromedioPsChart } from "../components/ui/PromedioPsChart";
+
+
+
 
 export function Dashboard() {
     const location = useLocation();
@@ -24,21 +29,23 @@ export function Dashboard() {
     const nombres1 = [
         "Movilidad de un diente en el tiempo",
         "Cambio de PS en un sitio en el tiempo",
-        "Número de sitios con PS mayor a 4 mm en el tiempo (Global)",
-        "Número de sitios con PS mayor a 6 mm en el tiempo (Global)",
         "Disminución o ganancia de NIC en el tiempo",
-        "Cambios en el tiempo en BoP",
-        "Cambios en el tiempo de supuración",
-        "Cambios en el tiempo de placa",
         "Movimiento de encía (margen gingival) durante el tiempo",
-        "Promedio de PS en el tiempo",
-        "Promedio de nic en el tiempo",
-        "Cambio de diagnostico en el tiempo",
+
+
 
 
 
 
     ]
+    const nombres2 = [
+        "Número de sitios con PS mayor a 4 mm en el tiempo",
+        "Número de sitios con PS mayor a 6 mm en el tiempo",
+        "Cambios porcentuales en el tiempo (B.o.p., Placa, C.r., R.m.a., Supuracion )",
+        "Promedio de PS, MG, y NIC en el tiempo",
+    ]
+
+
     const selector = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28, 48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38]
     const [indiceSeleccionado, setIndiceSeleccionado] = useState(0);
 
@@ -61,6 +68,7 @@ export function Dashboard() {
     const [indice1, setIndice1] = useState(0)
     const [indice2, setIndice2] = useState(0)
     const [indice3, setIndice3] = useState("0")
+    const [indice4, setIndice4] = useState("0")
 
     const handleSelectChange = (event) => {
         const valorSeleccionado = event.target.value;
@@ -74,64 +82,175 @@ export function Dashboard() {
         const valorSeleccionado = event.target.value;
         setIndice3(valorSeleccionado);
     };
+    const handleSelectChange4 = (event) => {
+        const valorSeleccionado = event.target.value;
+        setIndice4(valorSeleccionado);
+    };
     return (
         <>
             <Caja>
                 <Subtitulo>DASHBOARD:  {paciente.nomPac} {paciente.apellidoPac} </Subtitulo>
+                <OfficialCard>
 
+                    <Subtitulo>Gráficos globales</Subtitulo>
+                    <div className="mt-8 grid grid-cols-2 gap-6">
+                        <div>
+
+                            <select
+                                className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
+                                value={indice4}
+                                onChange={handleSelectChange4}
+
+                            >
+                                {nombres2.map((p, index) => (
+                                    <option value={index} key={index}>{nombres2[index]} </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div></div>
+
+
+                    </div>
+                    <div className="text-center mx-auto">
+                        {indice4 === "0" && perio.length > 0 && (
+                            <Mayora4Chart diente={indiceSeleccionado} parametro={perio}></Mayora4Chart>
+                        )}
+                        {indice4 === "1" && perio.length > 0 && (
+                            <Mayora6Chart diente={indiceSeleccionado} parametro={perio}></Mayora6Chart>
+                        )}
+                        {indice4 === "2" && perio.length > 0 && (
+                            <BloodChart diente={indiceSeleccionado} parametro={perio}></BloodChart>
+                        )}
+                        {indice4 === "3" && perio.length > 0 && (
+                            <PromedioPsChart diente={indiceSeleccionado} parametro={perio}></PromedioPsChart>
+                        )}
+
+                    </div>
+
+
+                </OfficialCard>
 
                 <OfficialCard>
-                    <p>Índice seleccionado: {indiceSeleccionado}</p>
+                    <Subtitulo>Gráficos por pieza dental</Subtitulo>
+
                     <WhiteWindow>
-                        <div className="mt-3 grid grid-cols-2 gap-6">
+                        <TituloChart>Seleccione un diente</TituloChart>
+                        
+                        <div className="mt-3 grid grid-cols-2 gap-6 justify-items-center items-center">
                             <div className="flex flex-wrap gap-2">
+                               
+                                
                                 {selector.slice(0, 8).map((valor, indice) => (
-                                    <button
-                                        key={indice}
-                                        className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''
-                                            }`}
-                                        onClick={() => handleClick(indice)}
-                                    >
-                                        {valor}
-                                    </button>
+                                    <>
+                                        <div>
+            
+                                            {perio.length > 0 && perio[perio.length-1].dientes1i[indice][1] ? (
+                                                <button
+                                                    key={indice}
+                                                    className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                                  
+                                                    
+
+                                                >
+                                                    {valor}
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    key={indice}
+                                                    className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                                    onClick={() => handleClick(indice)}
+                                                >
+                                                    {valor}
+                                                </button>
+                                            )}
+                                        </div>
+                                    </>
                                 ))}
 
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {selector.slice(8, 16).map((valor, indice) => (
-                                    <button
-                                        key={indice}
-                                        className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice + 8 === indiceSeleccionado ? 'bg-cyan-500' : ''
-                                            }`}
-                                        onClick={() => handleClick(indice + 8)}
-                                    >
-                                        {valor}
-                                    </button>
+                                    <>
+                                    <div>
+        
+                                        {perio.length > 0 && perio[perio.length-1].dientes1d[indice][1] ? (
+                                            <button
+                                                key={indice}
+                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                              
+                                                
+
+                                            >
+                                                {valor}
+                                            </button>
+                                        ) : (
+                                            <button
+                                                key={indice}
+                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice+8 === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                                onClick={() => handleClick(indice+8)}
+                                            >
+                                                {valor}
+                                            </button>
+                                        )}
+                                    </div>
+                                </>
                                 ))}
 
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {selector.slice(16, 24).map((valor, indice) => (
-                                    <button
-                                        key={indice}
-                                        className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice + 16 === indiceSeleccionado ? 'bg-cyan-500' : ''
-                                            }`}
-                                        onClick={() => handleClick(indice + 16)}
-                                    >
-                                        {valor}
-                                    </button>
+                                    <>
+                                    <div>
+        
+                                        {perio.length > 0 && perio[perio.length-1].dientes2i[indice][1] ? (
+                                            <button
+                                                key={indice}
+                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                              
+                                                
+
+                                            >
+                                                {valor}
+                                            </button>
+                                        ) : (
+                                            <button
+                                                key={indice}
+                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice+16 === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                                onClick={() => handleClick(indice+16)}
+                                            >
+                                                {valor}
+                                            </button>
+                                        )}
+                                    </div>
+                                </>
                                 ))}
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {selector.slice(24, 32).map((valor, indice) => (
-                                    <button
-                                        key={indice}
-                                        className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice + 24 === indiceSeleccionado ? 'bg-cyan-500' : ''
-                                            }`}
-                                        onClick={() => handleClick(indice + 24)}
-                                    >
-                                        {valor}
-                                    </button>
+                                    <>
+                                    <div>
+        
+                                        {perio.length > 0 && perio[perio.length-1].dientes2d[indice][1] ? (
+                                            <button
+                                                key={indice}
+                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                              
+                                                
+
+                                            >
+                                                {valor}
+                                            </button>
+                                        ) : (
+                                            <button
+                                                key={indice}
+                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice+24 === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                                onClick={() => handleClick(indice+24)}
+                                            >
+                                                {valor}
+                                            </button>
+                                        )}
+                                    </div>
+                                </>
                                 ))}
 
                             </div>
@@ -164,20 +283,11 @@ export function Dashboard() {
                             <ProfundidadChart diente={indiceSeleccionado} parametro={perio}></ProfundidadChart>
                         )}
                         {indice3 === "2" && perio.length > 0 && (
-                            <Mayora4Chart diente={indiceSeleccionado} parametro={perio}></Mayora4Chart>
-                        )}
-                        {indice3 === "3" && perio.length > 0 && (
-                            <Mayora6Chart diente={indiceSeleccionado} parametro={perio}></Mayora6Chart>
-                        )}
-                        {indice3 === "4" && perio.length > 0 && (
                             <NicChart diente={indiceSeleccionado} parametro={perio}></NicChart>
                         )}
-                        {indice3 === "5" && perio.length > 0 && (
-                            
-                            <BloodChart diente={indiceSeleccionado} parametro={perio}></BloodChart>
 
-                        )}
                     </div>
+                    {/*----------------------------------------------------------   
                     <div className="mt-3 grid grid-cols-3 gap-6">
                         <div>
                             <Label >Exámen anterior</Label>
@@ -217,6 +327,7 @@ export function Dashboard() {
                             {perio.length > 0 && perio[indice2] && perio[indice2].movilidad1}
                         </div>
                     </div>
+                    */}
                 </OfficialCard>
             </Caja>
         </>

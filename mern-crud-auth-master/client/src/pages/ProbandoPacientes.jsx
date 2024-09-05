@@ -57,7 +57,7 @@ export function ProbandoPacientes() {
                 <div className="grid grid-cols-2 gap-6">
                     <OfficialCard>
 
-                        <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Información</h1>
+                        <h1 className="text-xl font-bold" style={{ paddingBottom: "12px" }}>Información</h1>
                         <Fila>
                             <Textorosa>Nombre:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.nomPac} {paciente.apellidoPac}</h1>
@@ -122,7 +122,7 @@ export function ProbandoPacientes() {
 
                 <div className="grid grid-cols-2 gap-6">
                     <OfficialCard>
-                        <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Higiene</h1>
+                        <h1 className="text-xl font-bold" style={{ paddingBottom: "12px" }}>Higiene</h1>
                         <Fila>
                             <Textorosa>Frecuencia de cepillado:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.nCepillados} veces al día</h1>
@@ -146,7 +146,7 @@ export function ProbandoPacientes() {
 
 
 
-                        <h1 className="text-xl font-bold mt-6" style={{ paddingBottom: "30px" }}>Hábitos</h1>
+                        <h1 className="text-xl font-bold mt-6" style={{ paddingBottom: "12px" }}>Hábitos</h1>
                         <Fila>
                             <Textorosa>Tábaco:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.tabaco}</h1>
@@ -161,7 +161,7 @@ export function ProbandoPacientes() {
                                 {paciente.alcohol ? ("si") : ("no")}
                             </h1>
                         </Fila>
-                        <h1 className="text-xl mt-6 font-bold" style={{ paddingBottom: "30px" }}>Otros</h1>
+                        <h1 className="text-xl mt-6 font-bold" style={{ paddingBottom: "12px" }}>Otros</h1>
                         <Fila>
                             <Textorosa>Medicamentos:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.medicamentos}</h1>
@@ -185,7 +185,7 @@ export function ProbandoPacientes() {
 
                     </OfficialCard>
                     <OfficialCard>
-                        <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Patologías</h1>
+                        <h1 className="text-xl font-bold" style={{ paddingBottom: "12px" }}>Patologías</h1>
                         <Fila>
                             <Textorosa>Cardiovascular:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.cardiovascular}</h1>

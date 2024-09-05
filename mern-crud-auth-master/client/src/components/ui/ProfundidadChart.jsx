@@ -1,7 +1,7 @@
 import React from 'react'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { WhiteWindow } from './WhiteWindow';
-
+import { TituloChart } from './TituloChart';
 export const ProfundidadChart = ({ diente, parametro }) => {
 
     const data1 = parametro.map((examen, index) => {
@@ -175,11 +175,12 @@ export const ProfundidadChart = ({ diente, parametro }) => {
 
     return (
         <WhiteWindow>
+            <TituloChart>Cambio de profundidad al sondaje en el tiempo</TituloChart>
             <div className="mt-3 grid grid-cols-3 gap-6">
                 <ResponsiveContainer aspect={2}>
 
-                    {(diente < 8 || (diente >= 16 && diente < 24)) && <div> Distovestibular</div>}
-                    {((diente >= 8 && diente < 16) || (diente >= 24)) && <div> Mesiovestibular</div>}
+                    {(diente < 8 || (diente >= 16 && diente < 24)) && <TituloChart>Distovestibular</TituloChart>}
+                    {((diente >= 8 && diente < 16) || (diente >= 24)) && <TituloChart>Mesiovestibular</TituloChart>}
                     <LineChart width={600} height={300} data={data1} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
@@ -190,7 +191,7 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                     </LineChart>
                 </ResponsiveContainer>
                 <ResponsiveContainer aspect={2}>
-                    Vestibular
+                <TituloChart>Vestibular</TituloChart>
                     <LineChart width={600} height={300} data={data2} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
 
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
@@ -202,8 +203,8 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                     </LineChart>
                 </ResponsiveContainer>
                 <ResponsiveContainer aspect={2}>
-                    {(diente < 8 || (diente >= 16 && diente < 24)) && <div>Mesiovestibular</div>}
-                    {((diente >= 8 && diente < 16) || (diente >= 24)) && <div>  Distovestibular</div>}
+                    {(diente < 8 || (diente >= 16 && diente < 24)) && <TituloChart>Mesiovestibular</TituloChart>}
+                    {((diente >= 8 && diente < 16) || (diente >= 24)) && <TituloChart>Distovestibular</TituloChart>}
                     <LineChart width={600} height={300} data={data3} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
 
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
@@ -217,10 +218,7 @@ export const ProfundidadChart = ({ diente, parametro }) => {
             </div>
             <div className="mt-3 grid grid-cols-3 gap-6">
                 <ResponsiveContainer aspect={2}>
-                    {(diente < 8) && <div>Distopalatino</div>}
-                    {(diente >= 8 && diente < 16) && <div>Mesiopalatino</div>}
-                    {(diente >= 16 && diente < 24) && <div>Distolingual</div>}
-                    {(diente >= 24) && <div>Mesiolingual</div>}
+                    
 
                     <LineChart width={600} height={300} data={data4} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
@@ -230,10 +228,13 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                             tickFormatter={(tick) => tick.toFixed(1)} />
                         <Tooltip />
                     </LineChart>
+                    {(diente < 8) && <TituloChart>Distopalatino</TituloChart>}
+                    {(diente >= 8 && diente < 16) && <TituloChart>Mesiopalatino</TituloChart>}
+                    {(diente >= 16 && diente < 24) && <TituloChart>Distolingual</TituloChart>}
+                    {(diente >= 24) && <TituloChart>Mesiolingual</TituloChart>}
                 </ResponsiveContainer>
                 <ResponsiveContainer aspect={2}>
-                    {(diente < 16) && <div>Palatino</div>}
-                    {(diente >= 16) && <div>Lingual</div>}
+                    
                     <LineChart width={600} height={400} data={data5} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
 
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
@@ -243,12 +244,11 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                             tickFormatter={(tick) => tick.toFixed(1)} />
                         <Tooltip />
                     </LineChart>
+                    {(diente < 16) && <TituloChart>Palatino</TituloChart>}
+                    {(diente >= 16) && <TituloChart>Lingual</TituloChart>}
                 </ResponsiveContainer>
                 <ResponsiveContainer aspect={2}>
-                    {(diente < 8) && <div>Mesiopalatino</div>}
-                    {(diente >= 8 && diente < 16) && <div>Distopalatino</div>}
-                    {(diente >= 16 && diente < 24) && <div>Mesiolingual</div>}
-                    {(diente >= 24) && <div>Distolingual</div>}
+                    
                     <LineChart width={600} height={300} data={data6} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
 
                         <Line type="monotone" dataKey="uv" stroke="#8884d8" />
@@ -258,6 +258,10 @@ export const ProfundidadChart = ({ diente, parametro }) => {
                             tickFormatter={(tick) => tick.toFixed(1)} />
                         <Tooltip />
                     </LineChart>
+                    {(diente < 8) && <TituloChart>Mesiopalatino</TituloChart>}
+                    {(diente >= 8 && diente < 16) && <TituloChart>Distopalatino</TituloChart>}
+                    {(diente >= 16 && diente < 24) && <TituloChart>Mesiolingual</TituloChart>}
+                    {(diente >= 24) && <TituloChart>Distolingual</TituloChart>}
                 </ResponsiveContainer>
             </div>
         </WhiteWindow>

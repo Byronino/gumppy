@@ -1,6 +1,7 @@
 import React from 'react'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { WhiteWindow } from './WhiteWindow';
+import { TituloChart } from './TituloChart';
 
 export const Mayora4Chart = ({ diente, parametro }) => {
 
@@ -39,17 +40,19 @@ export const Mayora4Chart = ({ diente, parametro }) => {
 
     return (
         <WhiteWindow>
+            <div className='w-1/2 flex justify-center items-center'style={{ margin: '0 auto' }} >
             <ResponsiveContainer aspect={2}>
+                <TituloChart>Sitios con profundidad al sondaje mayor a 4 en el tiempo</TituloChart>
 
                 <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                     <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                     <XAxis  dataKey="name" label={{ value: 'Número de examen', position: 'bottom', offset: -10 }} />
-                    <YAxis domain={[0, 32]} label={{ value: 'Cantidad de dientes con PS > 4', angle: -90, position: 'left', offset: -20 }}/>
+                    <YAxis domain={[0, 32]} label={{ value: '', angle: -90, position: 'left', offset: -20 }}/>
                     <Tooltip />
                 </LineChart>
             </ResponsiveContainer>
-
+            </div>
         </WhiteWindow>
     )
 
