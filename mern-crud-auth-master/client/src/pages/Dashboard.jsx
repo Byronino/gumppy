@@ -135,124 +135,88 @@ export function Dashboard() {
 
                     <WhiteWindow>
                         <TituloChart>Seleccione un diente</TituloChart>
-                        
+
                         <div className="mt-3 grid grid-cols-2 gap-6 justify-items-center items-center">
+
                             <div className="flex flex-wrap gap-2">
-                               
-                                
                                 {selector.slice(0, 8).map((valor, indice) => (
-                                    <>
-                                        <div>
-            
-                                            {perio.length > 0 && perio[perio.length-1].dientes1i[indice][1] ? (
-                                                <button
-                                                    key={indice}
-                                                    className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
-                                                  
-                                                    
-
-                                                >
-                                                    {valor}
-                                                </button>
-                                            ) : (
-                                                <button
-                                                    key={indice}
-                                                    className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
-                                                    onClick={() => handleClick(indice)}
-                                                >
-                                                    {valor}
-                                                </button>
-                                            )}
-                                        </div>
-                                    </>
+                                    <div key={indice}>
+                                        {perio.length > 0 && perio[perio.length - 1].dientes1i[indice][1] ? (
+                                            <button
+                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded `}
+                                            >
+                                                {valor}
+                                            </button>
+                                        ) : (
+                                            <button
+                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                                onClick={() => handleClick(indice)}
+                                            >
+                                                {valor}
+                                            </button>
+                                        )}
+                                    </div>
                                 ))}
-
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {selector.slice(8, 16).map((valor, indice) => (
-                                    <>
-                                    <div>
-        
-                                        {perio.length > 0 && perio[perio.length-1].dientes1d[indice][1] ? (
+                                    <div key={indice}>
+                                        {perio.length > 0 && perio[perio.length - 1].dientes1d[indice][1] ? (
                                             <button
-                                                key={indice}
-                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
-                                              
-                                                
-
+                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded `}
                                             >
                                                 {valor}
                                             </button>
                                         ) : (
                                             <button
-                                                key={indice}
-                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice+8 === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
-                                                onClick={() => handleClick(indice+8)}
+                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice + 8 === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                                onClick={() => handleClick(indice + 8)}
                                             >
                                                 {valor}
                                             </button>
                                         )}
                                     </div>
-                                </>
                                 ))}
-
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {selector.slice(16, 24).map((valor, indice) => (
-                                    <>
-                                    <div>
-        
-                                        {perio.length > 0 && perio[perio.length-1].dientes2i[indice][1] ? (
+                                    <div key={indice + 16}>
+                                        {perio.length > 0 && perio[perio.length - 1].dientes2i[indice][1] ? (
                                             <button
-                                                key={indice}
-                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
-                                              
-                                                
-
+                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded`}
                                             >
                                                 {valor}
                                             </button>
                                         ) : (
                                             <button
-                                                key={indice}
-                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice+16 === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
-                                                onClick={() => handleClick(indice+16)}
+                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice + 16 === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                                onClick={() => handleClick(indice + 16)}
                                             >
                                                 {valor}
                                             </button>
                                         )}
                                     </div>
-                                </>
                                 ))}
                             </div>
                             <div className="flex flex-wrap gap-2">
                                 {selector.slice(24, 32).map((valor, indice) => (
-                                    <>
-                                    <div>
-        
-                                        {perio.length > 0 && perio[perio.length-1].dientes2d[indice][1] ? (
+                                    <div key={indice + 24}>
+                                        {perio.length > 0 && perio[perio.length - 1].dientes2d[indice][1] ? (
                                             <button
-                                                key={indice}
-                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
-                                              
-                                                
-
+                                                className={`bg-[#888888]  text-white font-bold py-2 px-4 rounded`}
                                             >
                                                 {valor}
                                             </button>
                                         ) : (
                                             <button
-                                                key={indice}
-                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice+24 === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
-                                                onClick={() => handleClick(indice+24)}
+                                                className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice + 24 === indiceSeleccionado ? 'bg-cyan-500' : ''}`}
+                                                onClick={() => handleClick(indice + 24)}
                                             >
                                                 {valor}
                                             </button>
                                         )}
                                     </div>
-                                </>
                                 ))}
-
                             </div>
                         </div>
                     </WhiteWindow>
