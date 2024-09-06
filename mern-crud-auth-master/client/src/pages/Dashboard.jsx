@@ -26,11 +26,13 @@ export function Dashboard() {
     const location = useLocation();
     const paciente = location.state;
     const { periodontograma, getPeriodontogramas } = usePeriodontograma();
+    //por diente
     const nombres1 = [
         "Movilidad de un diente en el tiempo",
         "Cambio de PS en un sitio en el tiempo",
         "Disminución o ganancia de NIC en el tiempo",
         "Movimiento de encía (margen gingival) durante el tiempo",
+        
 
 
 
@@ -38,11 +40,13 @@ export function Dashboard() {
 
 
     ]
+    //globales
     const nombres2 = [
         "Número de sitios con PS mayor a 4 mm en el tiempo",
         "Número de sitios con PS mayor a 6 mm en el tiempo",
         "Cambios porcentuales en el tiempo (B.o.p., Placa, C.r., R.m.a., Supuracion )",
         "Promedio de PS, MG, y NIC en el tiempo",
+        "Cantidad de dientes e implantes",
     ]
 
 
@@ -292,6 +296,9 @@ export function Dashboard() {
                         </div>
                     </div>
                     */}
+                </OfficialCard>
+                <OfficialCard>
+                    <Subtitulo>Historial de dientes perdidos</Subtitulo>
                 </OfficialCard>
             </Caja>
         </>

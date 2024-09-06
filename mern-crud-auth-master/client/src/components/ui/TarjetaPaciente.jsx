@@ -27,7 +27,7 @@ export function TarjetaPaciente({ paciente }) {
             >
 
                 <header className="rounded-3xl p-1 mb-2 flex flex-auto justify-between" style={{ background: "#fc9099", display: "flex", }}>
-                    <h1 className="text-xl font-roboto mx-3">{paciente.nomPac}</h1>
+                    <h1 className="text-xl font-roboto mx-3">{paciente.nomPac} {paciente.apellidoPac}</h1>
                     <h1 className="text-xl font-roboto mx-3">{new Date(paciente.updatedAt).toLocaleDateString('en-GB', {
                         year: 'numeric',
                         month: '2-digit',

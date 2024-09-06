@@ -12,6 +12,7 @@ import { Subtitulo } from "../components/ui/Subtitulo";
 import ReactSwitch from 'react-switch';
 import { Newselect } from "../components/ui/Newselect";
 import { Caja } from "../components/ui/Caja";
+import { pacienteSchema } from "../schemas/paciente";
 
 dayjs.extend(utc);
 
@@ -129,11 +130,11 @@ export function PacienteFormPage() {
                                         type="text"
                                         name="nomPac"
                                         placeholder="Nombre"
-                                        {...register("nomPac")}
+                                        {...register("nomPac", { required: true })}
                                         autoFocus
                                     />
                                     {errors.nomPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese el nombre </p>
+                                        <p className="text-red-500 text-xs italic">Por favor ingrese el nombre </p>
                                     )}
 
                                     <Label htmlFor="apellidoPac" id="apellidoPac-label">Apellidos*</Label>
@@ -141,11 +142,15 @@ export function PacienteFormPage() {
                                         type="text"
                                         name="apellidoPac"
                                         placeholder="Apellidos"
-                                        {...register("apellidoPac")}
+                                        {...register("apellidoPac", {
+                                            required: true,
+                                            pattern: /^[a-zA-Z]+ [a-zA-Z]+$/,
+
+                                        })}
 
                                     />
                                     {errors.apellidoPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese el apellido</p>
+                                        <p className="text-red-500 text-xs italic">Por favor ingrese ambos apellidos separados por un espacio</p>
                                     )}
 
                                     <Label htmlFor="rutPac" id="rutPac-label">RUT* </Label>
@@ -153,11 +158,15 @@ export function PacienteFormPage() {
                                         type="text"
                                         name="rutPac"
                                         placeholder="Ej: 12.345.678-9"
-                                        {...register("rutPac")}
+                                        {...register("rutPac", {
+                                            required: true,
+                                            pattern: /^\d{1,9}-\d$/,
+                                            message: "Porfavor ingrese un RUT válido (xxxxx-x)",
+                                        })}
 
                                     />
                                     {errors.rutPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese un rut correcto</p>
+                                        <p className="text-red-500 text-xs italic">Por favor ingrese un rut con guión</p>
                                     )}
 
                                     <Label htmlFor="nacionalidadPac" id="nacionalidadPac-label">Nacionalidad* </Label>
@@ -165,11 +174,11 @@ export function PacienteFormPage() {
                                         type="text"
                                         name="nacionalidadPac"
                                         placeholder="Ej: Chilena, Argentina"
-                                        {...register("nacionalidadPac")}
+                                        {...register("nacionalidadPac", { required: true })}
 
                                     />
                                     {errors.nacionalidadPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese una nacionalidad</p>
+                                        <p className="text-red-500 text-xs italic">Por favor ingrese una nacionalidad</p>
                                     )}
 
 
@@ -179,10 +188,13 @@ export function PacienteFormPage() {
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <Label htmlFor="fecNacPac" id="fecNacPac-label">Fecha de Nacimiento*</Label>
-                                            <Input type="date" name="fecNacPac" {...register("fecNacPac")} />
+                                            <Input type="date" name="fecNacPac" {...register("fecNacPac", { required: true })} />
+                                            {errors.fecNacPac && (
+                                                <p className="text-red-500 text-xs italic">Por favor ingrese una fecha de nacimiento</p>
+                                            )}
                                         </div>
                                         <div>
-                                            <Label htmlFor="nCepillados" id="nCepillados-label">Sexo</Label>
+                                            <Label htmlFor="nCepillados" id="nCepillados-label">Género</Label>
                                             <select
                                                 className="text-xs rounded-full p-2 block my-1 mb-3 w-full font-roboto"
 
@@ -203,11 +215,11 @@ export function PacienteFormPage() {
                                                 type="text"
                                                 name="comunaPac"
                                                 placeholder="Comuna"
-                                                {...register("comunaPac")}
+                                                {...register("comunaPac",{required:true})}
 
                                             />
-                                            {errors.telPac && (
-                                                <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
+                                            {errors.comunaPac && (
+                                                <p className="text-red-500 text-xs italic">Por favor ingrese una comuna</p>
                                             )}
                                         </div>
                                         <div>
@@ -216,11 +228,11 @@ export function PacienteFormPage() {
                                                 type="text"
                                                 name="regionPac"
                                                 placeholder="Region"
-                                                {...register("regionPac")}
+                                                {...register("regionPac",{required:true})}
 
                                             />
-                                            {errors.telPac && (
-                                                <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
+                                            {errors.regionPac && (
+                                                <p className="text-red-500 text-xs italic">Por favor ingrese una región</p>
                                             )}
                                         </div>
 
@@ -231,11 +243,15 @@ export function PacienteFormPage() {
                                         type="text"
                                         name="emailPac"
                                         placeholder="email@dominio.extension"
-                                        {...register("emailPac")}
+                                        {...register("emailPac", {
+                                            required: true,
+                                            pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                                            message: "Porfavor ingrese un correo electrónico válido",
+                                          })}
 
                                     />
                                     {errors.emailPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese un email correcto</p>
+                                        <p className="text-red-500 text-xs italic">Por favor ingrese un email correcto</p>
                                     )}
 
 
@@ -244,12 +260,16 @@ export function PacienteFormPage() {
                                     <Input
                                         type="text"
                                         name="telPac"
-                                        placeholder="+569 XXXXXXXX"
-                                        {...register("telPac")}
+                                        placeholder="XXXXXXXX"
+                                        {...register("telPac", {
+                                            required: true,
+                                            pattern: /^\d+$/,
+                                            message: "Porfavor ingrese un número de teléfono válido",
+                                          })}
 
                                     />
                                     {errors.telPac && (
-                                        <p className="text-red-500 text-xs italic">Porfavor ingrese un telefono correcto</p>
+                                        <p className="text-red-500 text-xs italic">Por favor ingrese un telefono correcto</p>
                                     )}
 
 

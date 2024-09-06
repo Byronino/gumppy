@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const pacienteSchema = z.object({
-  nomPac: z.string().min(1, 'El nombre del paciente es requerido'),
+  nomPac: z.string({ required_error: "Nombre del paciente es requerido" }),
   apellidoPac: z.string().optional(),
   rutPac: z.string().optional(),
   nacionalidadPac: z.string().optional(),
