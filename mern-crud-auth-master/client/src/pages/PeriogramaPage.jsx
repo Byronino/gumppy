@@ -3015,15 +3015,22 @@ function PeriogramaPage() {
 
   }, [dientes1i, dientes1d, dientes2i, dientes2d])
 
-
+//contar dientes nic >=1
   const [cantDientesNIC, setcantDientesNIC] = useState(0)
   const [porcentajeAfectados, setporcentajeAfectados] = useState(0)
 
-  const contarDientesAfectados = (dientes, nic) => {
+  const contarDientesAfectados = (dientes, nic, nic2) => {
+    let cantidadParcial=0
     let cantidad = 0
     for (let i = 0; i < dientes1i.length; i++) {
+      cantidadParcial=0
       if (!dientes[i][1] && (nic[i][0] >= 1 || nic[i][1] >= 1 || nic[i][2] >= 1))
+        cantidadParcial++
+      if (!dientes[i][1] && (nic2[i][0] >= 1 || nic2[i][1] >= 1 || nic2[i][2] >= 1))
+        cantidadParcial++
+      if (cantidadParcial>0){
         cantidad++
+      }
     }
     return cantidad
   }
@@ -3031,10 +3038,10 @@ function PeriogramaPage() {
     let cantidad = 0
     let porcentaje = 0
     cantidad = cantidad
-      + contarDientesAfectados(dientes1i, diff1i) + contarDientesAfectados(dientes1i, diff2i)
-      + contarDientesAfectados(dientes1d, diff1d) + contarDientesAfectados(dientes1d, diff2d)
-      + contarDientesAfectados(dientes2i, diff3i) + contarDientesAfectados(dientes2i, diff4i)
-      + contarDientesAfectados(dientes2d, diff3d) + contarDientesAfectados(dientes2i, diff4d)
+      + contarDientesAfectados(dientes1i, diff1i, diff2i) 
+      + contarDientesAfectados(dientes1d, diff1d, diff2d) 
+      + contarDientesAfectados(dientes2i, diff3i, diff4i)  
+      + contarDientesAfectados(dientes2d, diff3d, diff4d) 
     setcantDientesNIC(cantidad)
     porcentaje = ((cantDientesNIC / cantDientes) * 100).toFixed(2)
     setporcentajeAfectados(porcentaje)
