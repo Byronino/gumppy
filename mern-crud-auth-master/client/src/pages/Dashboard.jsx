@@ -18,8 +18,8 @@ import { NicChart } from "../components/ui/NicChart";
 import { BloodChart } from "../components/ui/BloodChart";
 import { TituloChart } from "../components/ui/TituloChart";
 import { PromedioPsChart } from "../components/ui/PromedioPsChart";
-
-
+import { CantidadChart } from "../components/ui/CantidadChart";
+import { TablaDiente } from "../components/ui/TablaDiente";
 
 
 export function Dashboard() {
@@ -127,6 +127,9 @@ export function Dashboard() {
                         )}
                         {indice4 === "3" && perio.length > 0 && (
                             <PromedioPsChart diente={indiceSeleccionado} parametro={perio}></PromedioPsChart>
+                        )}
+                        {indice4 === "4" && perio.length > 0 && (
+                            <CantidadChart diente={indiceSeleccionado} parametro={perio}></CantidadChart>
                         )}
 
                     </div>
@@ -299,6 +302,7 @@ export function Dashboard() {
                 </OfficialCard>
                 <OfficialCard>
                     <Subtitulo>Historial de dientes perdidos</Subtitulo>
+                    <TablaDiente diente={indiceSeleccionado} parametro={perio}></TablaDiente>
                 </OfficialCard>
             </Caja>
         </>
