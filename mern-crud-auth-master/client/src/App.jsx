@@ -27,6 +27,8 @@ import { ListaPerio } from "./pages/ListaPerio";
 import { VerExamen } from "./pages/VerExamen"
 import { Dashboard } from "./pages/Dashboard";
 
+import { Tutorial } from "./pages/Tutorial";
+
 function App() {
   return (
     <AuthProvider>
@@ -47,6 +49,7 @@ function App() {
                   <Route path="/register" element={<RegisterPage />} />
                   <Route path="/periograma" element={<PeriogramaPage />} />
                   <Route path="/free-perio" element={<FreePerio />} />
+                  <Route path="/tutorial" element={<Tutorial />} />
 
                   <Route element={<ProtectedRoute />}>
                     <Route path="/tasks" element={<TasksPage />} />

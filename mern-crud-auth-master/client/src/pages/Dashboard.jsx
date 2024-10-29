@@ -23,6 +23,8 @@ import { TablaDiente } from "../components/ui/TablaDiente";
 import { BsBank } from "react-icons/bs";
 import { Patologia } from "../components/ui/Patologia";
 import { MiniSub } from "../components/ui/MiniSub";
+import { MargenChart } from "../components/ui/MargenChart";
+
 
 export function Dashboard() {
     const location = useLocation();
@@ -117,7 +119,7 @@ export function Dashboard() {
     return (
         <>
             <div
-                className="fixed bg-[#F87A85] text-white p-4 rounded-xl"
+                className="fixed bg-[#F87A85] text-white p-2 rounded-xl w-1/6"
                 style={{
                     top: '50%', 
                     right: '0px', 
@@ -291,6 +293,9 @@ export function Dashboard() {
                         )}
                         {indice3 === "2" && perio.length > 0 && (
                             <NicChart diente={indiceSeleccionado} parametro={perio}></NicChart>
+                        )}
+                        {indice3 === "3" && perio.length > 0 && (
+                            <MargenChart diente={indiceSeleccionado} parametro={perio}></MargenChart>
                         )}
 
                     </div>
