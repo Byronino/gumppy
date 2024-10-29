@@ -20,7 +20,9 @@ import { TituloChart } from "../components/ui/TituloChart";
 import { PromedioPsChart } from "../components/ui/PromedioPsChart";
 import { CantidadChart } from "../components/ui/CantidadChart";
 import { TablaDiente } from "../components/ui/TablaDiente";
-
+import { BsBank } from "react-icons/bs";
+import { Patologia } from "../components/ui/Patologia";
+import { MiniSub } from "../components/ui/MiniSub";
 
 export function Dashboard() {
     const location = useLocation();
@@ -32,7 +34,7 @@ export function Dashboard() {
         "Cambio de PS en un sitio en el tiempo",
         "Disminución o ganancia de NIC en el tiempo",
         "Movimiento de encía (margen gingival) durante el tiempo",
-        
+
 
 
 
@@ -90,8 +92,42 @@ export function Dashboard() {
         const valorSeleccionado = event.target.value;
         setIndice4(valorSeleccionado);
     };
+
+
+
+    // Estado para la posición del scroll
+    const [scrollY, setScrollY] = useState(0);
+
+    // Efecto para rastrear el desplazamiento de la página
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+
+        // Agregar el listener de scroll
+        window.addEventListener('scroll', handleScroll);
+
+        // Cleanup para eliminar el listener
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
     return (
         <>
+            <div
+                className="fixed bg-[#F87A85] text-white p-4 rounded-xl"
+                style={{
+                    top: '50%', 
+                    right: '0px', 
+                    transform: 'translateY(-50%)', 
+                    zIndex: 1000, 
+                }}
+            >
+                
+                <Patologia  paciente={paciente}></Patologia>
+            </div>
             <Caja>
                 <Subtitulo>DASHBOARD:  {paciente.nomPac} {paciente.apellidoPac} </Subtitulo>
                 <OfficialCard>
@@ -143,7 +179,7 @@ export function Dashboard() {
                     <WhiteWindow>
                         <TituloChart>Seleccione un diente</TituloChart>
 
-                        <div className="mt-3 grid grid-cols-2 gap-6 justify-items-center items-center">
+                        <div className="mt-3 grid grid-cols-2 gap-6 justify-start items-center">
 
                             <div className="flex flex-wrap gap-2">
                                 {selector.slice(0, 8).map((valor, indice) => (
