@@ -51,17 +51,17 @@ export function TutoPerio() {
                                     <li class="mb-2">
                                         <b>Bleeding on probing:  </b> Por su traducción, sangrado al sondaje. Indica la existencia o ausencia de sangrado a la hora de realizar el sondaje.</li>
                                     <li class="mb-2">
-                                        <b>Placa: </b>
+                                        <b>Placa: </b> Biofilm presente en el margen gingival.
 
                                     </li>
                                     <li class="mb-2">
-                                        <b>Caries Radicular:</b>
+                                        <b>Caries Radicular:</b> Lesión de caries presente en raíz dentaria, cerca del margen gingival
                                     </li>
                                     <li class="mb-2">
-                                        <b>Restauración mal ajustada:</b>
+                                        <b>Restauración mal ajustada:</b> Restauración de cualquier tipo que presente subcontorno o sobrecontorno cerca del margen gingival.
                                     </li>
                                     <li class="mb-2">
-                                        <b>Supuración:</b>
+                                        <b>Supuración:</b> Presencia de líquido supurativo (pus) en margen gingival
                                     </li>
                                 </ul>
                             </div>
