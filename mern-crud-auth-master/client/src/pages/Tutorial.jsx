@@ -4,6 +4,7 @@ import { Subtitulo } from "../components/ui/Subtitulo"
 import { OfficialCard } from "../components/ui/OfficialCard"
 import { useState } from "react"
 import { TutoPerio } from "../components/ui/TutoPerio"
+import { TutoPaciente } from "../components/ui/TutoPaciente"
 
 export function Tutorial() {
 
@@ -31,9 +32,7 @@ export function Tutorial() {
                     ))}
                 </div>
                 {indiceSeleccionado ===0 && (
-                    <WhiteWindow>
-                        Sdadsdsads
-                    </WhiteWindow>
+                    <TutoPaciente></TutoPaciente>
                 )}
                 {indiceSeleccionado ===1 && (
                     <TutoPerio></TutoPerio>
