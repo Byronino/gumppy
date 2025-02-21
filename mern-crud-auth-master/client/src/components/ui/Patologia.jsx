@@ -24,27 +24,33 @@ export const Patologia = ({ paciente }) => {
 
     return (
         <>
+    <div className="flex space-x-4 h-full">
+        <div className="w-1/2 h-full">
             <MiniSub>Hábitos</MiniSub>
             <WhiteWindow>
                 <ul className="list-disc list-inside space-y-2">
                     {lista1.map((valor, index) => (
-                        <li key={index} className=" text-gray-700">
+                        <li key={index} className="text-gray-700">
                             {valor}
                         </li>
                     ))}
                 </ul>
             </WhiteWindow>
+        </div>
+        <div className="w-1/2 h-full">
             <MiniSub>Patologías</MiniSub>
             <WhiteWindow>
                 <ul className="list-disc list-inside space-y-2">
                     {lista.map((valor, index) => (
-                        <li key={index} className=" text-gray-700">
+                        <li key={index} className="text-gray-700">
                             {valor}
                         </li>
                     ))}
                 </ul>
             </WhiteWindow>
+        </div>
+    </div>
+</>
 
-        </>
     )
 }

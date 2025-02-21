@@ -5,6 +5,7 @@ import { OfficialCard } from "../components/ui/OfficialCard"
 import { useState } from "react"
 import { TutoPerio } from "../components/ui/TutoPerio"
 import { TutoPaciente } from "../components/ui/TutoPaciente"
+import { TutoDashboard } from "../components/ui/TutoDashboard"
 
 export function Tutorial() {
 
@@ -24,7 +25,7 @@ export function Tutorial() {
                 <div className="grid grid-cols-3 gap-2">
                     {selector.map((valor, indice) => (
                         <div key={indice} className="flex items-center justify-center">
-                            <button className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-2 px-4 rounded ${indice === indiceSeleccionado ? 'bg-cyan-500' : ''} fixed-size-button`}
+                            <button style={{ boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)'}} className={`bg-[#f87a85] hover:bg-[#f95a6a] text-white font-bold py-4 px-8 rounded ${indice === indiceSeleccionado ? 'bg-[#7e2d70]' : ''} fixed-size-button`}
                                 onClick={() => handleClick(indice)}>
                                 {valor}
                             </button>
@@ -36,6 +37,9 @@ export function Tutorial() {
                 )}
                 {indiceSeleccionado ===1 && (
                     <TutoPerio></TutoPerio>
+                )}
+                {indiceSeleccionado ===2 && (
+                    <TutoDashboard></TutoDashboard>
                 )}
                 
             </OfficialCard>

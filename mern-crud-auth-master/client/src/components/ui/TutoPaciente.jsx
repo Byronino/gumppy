@@ -5,7 +5,7 @@ import anadir from "../../images/anadir.png"
 import formulario from "../../images/formulario.png"
 import ficha from "../../images/ficha.png"
 import opcion from "../../images/opcion.png"
-
+import logo from "../../images/logo.png"
 
 export function TutoPaciente() {
     return (
@@ -21,7 +21,7 @@ export function TutoPaciente() {
                         GUMPPY permite gestionar y almacenar los datos de los pacientes, con el objetivo de facilitar los análisis de los periodontogramas. 
 
                         </div>
-                        <img className="mx-auto my-auto rounded-xl" src={place} />
+                        <img className="mx-auto my-auto rounded-xl" src={logo} />
                     </div>
                 </OfficialCard>
                 <OfficialCard>

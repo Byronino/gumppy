@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { Subtitulo } from "../components/ui/Subtitulo";
 import { Caja } from "../components/ui/Caja";
 import { FaSearch } from "react-icons/fa";
+import { FaAddressBook } from "react-icons/fa";
 export function PacientesPage() {
 
     const { pacientes, getPacientes } = usePacientes();
@@ -38,7 +39,9 @@ export function PacientesPage() {
     return (
         <>
             <Caja>
-                <Subtitulo><div><FaSearch />LISTA DE PACIENTES</div></Subtitulo>
+                <Subtitulo><div className="flex items-center gap-4">
+                <FaAddressBook /> LISTA DE PACIENTES 
+                </div></Subtitulo>
 
 
 

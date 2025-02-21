@@ -12,6 +12,19 @@ import { ButtonTest } from "../components/ui/ButtonTest";
 import { useEffect } from "react";
 import { ButtonLink2 } from "../components/ui/ButtonLink2";
 import { usePeriodontograma } from "../context/periodontogramaContext";
+import { FaUserEdit } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
+import { FaChartBar } from "react-icons/fa";
+import { FaTeeth } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
+import { FaVirus } from "react-icons/fa";
+import { FaHandsWash } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
+
+
+
 export function ProbandoPacientes() {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -57,7 +70,11 @@ export function ProbandoPacientes() {
                 <div className="grid grid-cols-2 gap-6">
                     <OfficialCard>
 
-                        <h1 className="text-xl font-bold" style={{ paddingBottom: "12px" }}>Información</h1>
+                        <h1 className="text-xl font-bold flex items-center gap-2" style={{ paddingBottom: "12px" }}>
+                            <FaInfoCircle/>
+                            Información
+                        </h1>
+
                         <Fila>
                             <Textorosa>Nombre:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.nomPac} {paciente.apellidoPac}</h1>
@@ -103,13 +120,37 @@ export function ProbandoPacientes() {
                         <div className="grid grid-cols-2 gap-6">
                             {periodontograma.length > 0 && (
                                 <>
-                                    <ButtonTest onClick={handleClick}> VER EXÁMENES</ButtonTest>
-                                    <ButtonTest onClick={handleClickDo2}> VER DASHBOARD</ButtonTest>
+                                    <ButtonTest
+                                        onClick={handleClick}
+                                        className="flex items-center justify-center gap-2 px-4 py-2 text-lg font-medium"
+                                    >
+                                        <FaEye className="text-xl relative top-[1px]" />
+                                        VER EXÁMENES
+                                    </ButtonTest>
+                                    <ButtonTest
+                                        onClick={handleClickDo2}
+                                        className="flex items-center justify-center gap-2 px-4 py-2 text-lg font-medium"
+                                    >
+                                        <FaChartBar className="text-xl relative top-[1px]" />
+                                        VER DASHBOARD
+                                    </ButtonTest>
+
+
+
                                 </>
                             )}
 
-                            <ButtonTest onClick={handleClickDo}> CREAR PERIODONTOGRAMA</ButtonTest>
-                            <ButtonLink2 to={`/pacientes/${paciente._id}`}>EDITAR PACIENTE</ButtonLink2>
+                            <ButtonTest
+                                onClick={handleClickDo}
+                                className="flex items-center justify-center gap-2 px-4 py-2 text-lg font-medium"
+                            >
+                                <FaTeeth className="text-xl relative top-[1px]" />
+                                CREAR PERIODONTOGRAMA
+                            </ButtonTest>
+                            <ButtonLink2 to={`/pacientes/${paciente._id}`}>
+                                <FaEdit className="text-xl relative top-[1px]" />
+                                EDITAR PACIENTE
+                            </ButtonLink2>
 
 
                         </div>
@@ -122,7 +163,10 @@ export function ProbandoPacientes() {
 
                 <div className="grid grid-cols-2 gap-6">
                     <OfficialCard>
-                        <h1 className="text-xl font-bold" style={{ paddingBottom: "12px" }}>Higiene</h1>
+                    <h1 className="text-xl font-bold flex items-center gap-2" style={{ paddingBottom: "12px" }}>
+                            <FaHandsWash/>
+                            Higiene
+                        </h1>
                         <Fila>
                             <Textorosa>Frecuencia de cepillado:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.nCepillados} veces al día</h1>
@@ -144,9 +188,9 @@ export function ProbandoPacientes() {
                             <h1 className="text-xs block my-1  font-roboto">Cepillo {paciente.tipoCepillo}</h1>
                         </Fila>
 
+                        
 
-
-                        <h1 className="text-xl font-bold mt-6" style={{ paddingBottom: "12px" }}>Hábitos</h1>
+                        <h1 className="text-xl font-bold mt-6 flex items-center gap-2" style={{ paddingBottom: "12px" }}><FaCalendarAlt/>Hábitos</h1>
                         <Fila>
                             <Textorosa>Tábaco:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.tabaco}</h1>
@@ -161,7 +205,8 @@ export function ProbandoPacientes() {
                                 {paciente.alcohol ? ("si") : ("no")}
                             </h1>
                         </Fila>
-                        <h1 className="text-xl mt-6 font-bold" style={{ paddingBottom: "12px" }}>Otros</h1>
+                        <h1 className="text-xl font-bold mt-6 flex items-center gap-2" style={{ paddingBottom: "12px" }}><FaPlusCircle />
+                        Otros</h1>
                         <Fila>
                             <Textorosa>Medicamentos:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.medicamentos}</h1>
@@ -185,7 +230,10 @@ export function ProbandoPacientes() {
 
                     </OfficialCard>
                     <OfficialCard>
-                        <h1 className="text-xl font-bold" style={{ paddingBottom: "12px" }}>Patologías</h1>
+                    <h1 className="text-xl font-bold flex items-center gap-2" style={{ paddingBottom: "12px" }}>
+                            <FaVirus/>
+                            Patologías
+                        </h1>
                         <Fila>
                             <Textorosa>Cardiovascular:</Textorosa>
                             <h1 className="text-xs block my-1  font-roboto">{paciente.cardiovascular}</h1>

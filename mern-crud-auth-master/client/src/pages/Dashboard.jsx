@@ -118,6 +118,7 @@ export function Dashboard() {
 
     return (
         <>
+         {/*
             <div
                 className="fixed bg-[#F87A85] text-white p-2 rounded-xl w-1/6"
                 style={{
@@ -130,8 +131,12 @@ export function Dashboard() {
                 
                 <Patologia  paciente={paciente}></Patologia>
             </div>
+            */}
             <Caja>
                 <Subtitulo>DASHBOARD:  {paciente.nomPac} {paciente.apellidoPac} </Subtitulo>
+                <OfficialCard>
+                <Patologia  paciente={paciente}></Patologia>
+                </OfficialCard>
                 <OfficialCard>
 
                     <Subtitulo>Gráficos globales</Subtitulo>
