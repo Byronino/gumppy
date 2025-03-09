@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import { Button, Card, Input, Label } from "../components/ui";
+import {  Card, Input, Label } from "../components/ui";
 import { usePacientes } from "../context/pacienteContext";
 import { Textarea } from "../components/ui/Textarea";
 import { useForm } from "react-hook-form";
@@ -13,7 +13,7 @@ import ReactSwitch from 'react-switch';
 import { Newselect } from "../components/ui/Newselect";
 import { Caja } from "../components/ui/Caja";
 import { pacienteSchema } from "../schemas/paciente";
-
+import { Button2 } from "../components/ui/Button2";
 dayjs.extend(utc);
 
 
@@ -215,7 +215,7 @@ export function PacienteFormPage() {
                                                 type="text"
                                                 name="comunaPac"
                                                 placeholder="Comuna"
-                                                {...register("comunaPac",{required:true})}
+                                                {...register("comunaPac", { required: true })}
 
                                             />
                                             {errors.comunaPac && (
@@ -228,7 +228,7 @@ export function PacienteFormPage() {
                                                 type="text"
                                                 name="regionPac"
                                                 placeholder="Region"
-                                                {...register("regionPac",{required:true})}
+                                                {...register("regionPac", { required: true })}
 
                                             />
                                             {errors.regionPac && (
@@ -247,7 +247,7 @@ export function PacienteFormPage() {
                                             required: true,
                                             pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                                             message: "Porfavor ingrese un correo electrónico válido",
-                                          })}
+                                        })}
 
                                     />
                                     {errors.emailPac && (
@@ -265,7 +265,7 @@ export function PacienteFormPage() {
                                             required: true,
                                             pattern: /^\d+$/,
                                             message: "Porfavor ingrese un número de teléfono válido",
-                                          })}
+                                        })}
 
                                     />
                                     {errors.telPac && (
@@ -645,10 +645,11 @@ export function PacienteFormPage() {
 
 
                     </div>
-                    <div className="flex justify-center">
-                        <Button>Guardar</Button>
-
+                    <div className="flex justify-center  py-2">
+                        <Button2>Guardar</Button2>
                     </div>
+
+
                 </form>
             </Caja>
         </>

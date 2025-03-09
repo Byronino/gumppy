@@ -21,10 +21,10 @@ export function TarjetaPaciente({ paciente }) {
     >
       {/* Encabezado */}
       <header className="bg-[#fc9099] rounded-2xl p-3 flex justify-between items-center shadow-md">
-      <h1 className="text-lg font-semibold flex items-center gap-2">
-  <FaUserAlt />
-  {paciente.nomPac} {paciente.apellidoPac}
-</h1>
+        <h1 className="text-lg font-semibold flex items-center gap-2">
+          <FaUserAlt />
+          {paciente.nomPac} {paciente.apellidoPac}
+        </h1>
 
         <h1 className="text-sm font-medium text-gray-100">
           {new Date(paciente.updatedAt).toLocaleDateString("en-GB", {

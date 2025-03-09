@@ -26,6 +26,7 @@ import { Textorosa } from "../components/ui/Textorosa";
 import { MiniBlack } from "../components/ui/MiniBlack";
 import { MiniYellow } from "../components/ui/MiniYellow";
 import { MiniPurple } from "../components/ui/MiniPurple";
+import { Button2 } from "../components/ui/Button2";
 
 function PeriogramaPage() {
   const location = useLocation();
@@ -5480,7 +5481,7 @@ function PeriogramaPage() {
         </div>
 
         <div className="flex flex-row mb-16" style={{ justifyContent: 'center', color: "white" }}>
-          <Button onClick={() => onSubmit(patientData)}>Guardar Periodontograma</Button>
+          <Button2 onClick={() => onSubmit(patientData)}>Guardar Periodontograma</Button2>
         </div>
 
 

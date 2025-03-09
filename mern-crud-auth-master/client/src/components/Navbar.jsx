@@ -41,7 +41,7 @@ export function Navbar() {
                 <ButtonLink to="/free-perio">Periodontograma</ButtonLink>
               </li>
                 <li className="my-2">
-                  <ButtonLink to="/login">Iniciar Sesión</ButtonLink>
+                  <ButtonLink to="/">Iniciar Sesión</ButtonLink>
                 </li>
                 <li className="my-2">
                   <ButtonLink to="/register">Registrarse</ButtonLink>
