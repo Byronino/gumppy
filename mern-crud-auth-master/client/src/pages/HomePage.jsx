@@ -32,56 +32,57 @@ function HomePage() {
   return (
     <>
       <Caja>
-  <OfficialCard2>
-    <div className="grid grid-cols-3 gap-6 items-center">
-      
-      <Card>
-        {loginErrors.map((error, i) => (
-          <Message message={error} key={i} />
-        ))}
-        <div className="flex-shrink-0">
-          <img src={logoGumppy} width="200" alt="Gumppy Logo" className="py-5" />
-        </div>
+        <OfficialCard2>
+          <div className="grid grid-cols-3 gap-6 items-center">
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Label htmlFor="email">Email:</Label>
-          <Input
-            label="Write your email"
-            type="email"
-            name="email"
-            placeholder="email@dominio.tld"
-            {...register("email", { required: true })}
-          />
-          <p>{errors.email?.message}</p>
+            <Card>
+              {loginErrors.map((error, i) => (
+                <Message message={error} key={i} />
+              ))}
+              <div className="flex-shrink-0">
+                <img src={logoGumppy} width="200" alt="Gumppy Logo" className="py-5" />
+              </div>
 
-          <Label htmlFor="password">Contraseña:</Label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Escribe tu contraseña"
-            {...register("password", { required: true, minLength: 6 })}
-          />
-          <p>{errors.password?.message}</p>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <Label htmlFor="email">Email:</Label>
+                <Input
+                  label="Write your email"
+                  type="email"
+                  name="email"
+                  placeholder="email@dominio.tld"
+                  {...register("email", { required: true })}
+                />
+                <p>{errors.email?.message}</p>
 
-          <Button>Iniciar Sesión</Button>
-        </form>
+                <Label htmlFor="password">Contraseña:</Label>
+                <Input
+                  type="password"
+                  name="password"
+                  placeholder="Escribe tu contraseña"
+                  {...register("password", { required: true, minLength: 6 })}
+                />
+                <p>{errors.password?.message}</p>
 
-        <p className="flex gap-x-2 justify-between">
-          Aún no tienes cuenta? <Link to="/register" className="text-[#ffffff]">Crear cuenta</Link>
-        </p>
-      </Card>
+                <Button>Iniciar Sesión</Button>
+              </form>
 
-      {/* Línea blanca vertical */}
-      <div className="h-4/5 w-px bg-white mx-auto"></div>
+              <p className="flex gap-x-2 justify-between">
+                Aún no tienes cuenta? <Link to="/register" className="text-[#ffffff]">Crear cuenta</Link>
+              </p>
+            </Card>
 
-      <div className="flex items-center justify-center">
-        <img src={fase} alt="fase" className="w-full h-auto max-w-xs object-contain" />
-        
-      </div>
+            {/* Línea blanca vertical */}
+            <div className="h-4/5 w-px bg-white mx-auto"></div>
 
-    </div>
-  </OfficialCard2>
-</Caja>
+       
+              <img src={fase} alt="fase" className="max-w-xs h-auto -mx-12 object-contain" />
+            
+
+
+
+          </div>
+        </OfficialCard2>
+      </Caja>
 
 
     </>
