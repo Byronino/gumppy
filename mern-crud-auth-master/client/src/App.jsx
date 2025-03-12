@@ -28,6 +28,8 @@ import { VerExamen } from "./pages/VerExamen"
 import { Dashboard } from "./pages/Dashboard";
 
 import { Tutorial } from "./pages/Tutorial";
+import { Oleary } from "./pages/Oleary";
+
 
 function App() {
   return (
@@ -49,6 +51,7 @@ function App() {
                   <Route path="/register" element={<RegisterPage />} />
                   <Route path="/periograma" element={<PeriogramaPage />} />
                   <Route path="/free-perio" element={<FreePerio />} />
+                  <Route path="/oleary" element={<Oleary />} />
                   <Route path="/tutorial" element={<Tutorial />} />
 
                   <Route element={<ProtectedRoute />}>

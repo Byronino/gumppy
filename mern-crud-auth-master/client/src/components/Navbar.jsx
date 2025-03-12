@@ -23,6 +23,7 @@ export function Navbar() {
               </li>
               
               
+              
               <li className="my-4 mx-5">
                 <Link to="/" onClick={() => logout()}>
                   Cerrar sesión
@@ -39,6 +40,9 @@ export function Navbar() {
             <ul className="flex gap-x-2 py-2">
               <li className="my-2">
                 <ButtonLink to="/free-perio">Periodontograma</ButtonLink>
+              </li>
+              <li className="my-2">
+                <ButtonLink to="/oleary">Indice de o'leary</ButtonLink>
               </li>
                 <li className="my-2">
                   <ButtonLink to="/">Iniciar Sesión</ButtonLink>
