@@ -26,110 +26,111 @@ import { Textorosa } from "../components/ui/Textorosa";
 import { MiniBlack } from "../components/ui/MiniBlack";
 import { MiniYellow } from "../components/ui/MiniYellow";
 import { MiniPurple } from "../components/ui/MiniPurple";
+import { Textonegro } from "../components/ui/Textonegro";
 
-export function VerExamen(){
-    const location = useLocation();
-    const {periodontograma,paciente} = location.state;
-    const patient = ""
+export function VerExamen() {
+  const location = useLocation();
+  const { periodontograma, paciente } = location.state;
+  const patient = ""
 
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
   const nombres1 = ["Movilidad", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C.", "C.R.", "R.M.A", "Sup."]
 
   const dientes1i = periodontograma.dientes1i;
-const dientes1d = periodontograma.dientes1d;
-const dientes2i = periodontograma.dientes2i;
-const dientes2d = periodontograma.dientes2d;
+  const dientes1d = periodontograma.dientes1d;
+  const dientes2i = periodontograma.dientes2i;
+  const dientes2d = periodontograma.dientes2d;
 
-const movilidad1 = periodontograma.movilidad1;
-const movilidad2 = periodontograma.movilidad2;
-const movilidad3 = periodontograma.movilidad3;
-const movilidad4 = periodontograma.movilidad4;
+  const movilidad1 = periodontograma.movilidad1;
+  const movilidad2 = periodontograma.movilidad2;
+  const movilidad3 = periodontograma.movilidad3;
+  const movilidad4 = periodontograma.movilidad4;
 
-const implante1 = periodontograma.implante1;
-const implante2 = periodontograma.implante2;
-const implante3 = periodontograma.implante3;
-const implante4 = periodontograma.implante4;
+  const implante1 = periodontograma.implante1;
+  const implante2 = periodontograma.implante2;
+  const implante3 = periodontograma.implante3;
+  const implante4 = periodontograma.implante4;
 
-const furca1i = periodontograma.furca1i;
-const furca1d = periodontograma.furca1d;
-const furca2i = periodontograma.furca2i;
-const furca2d = periodontograma.furca2d;
-const furca3i = periodontograma.furca3i;
-const furca3d = periodontograma.furca3d;
-const furca4i = periodontograma.furca4i;
-const furca4d = periodontograma.furca4d;
+  const furca1i = periodontograma.furca1i;
+  const furca1d = periodontograma.furca1d;
+  const furca2i = periodontograma.furca2i;
+  const furca2d = periodontograma.furca2d;
+  const furca3i = periodontograma.furca3i;
+  const furca3d = periodontograma.furca3d;
+  const furca4i = periodontograma.furca4i;
+  const furca4d = periodontograma.furca4d;
 
-const san1i = periodontograma.san1i;
-const san1d = periodontograma.san1d;
-const san2i = periodontograma.san2i;
-const san2d = periodontograma.san2d;
-const san3i = periodontograma.san3i;
-const san3d = periodontograma.san3d;
-const san4i = periodontograma.san4i;
-const san4d = periodontograma.san4d;
+  const san1i = periodontograma.san1i;
+  const san1d = periodontograma.san1d;
+  const san2i = periodontograma.san2i;
+  const san2d = periodontograma.san2d;
+  const san3i = periodontograma.san3i;
+  const san3d = periodontograma.san3d;
+  const san4i = periodontograma.san4i;
+  const san4d = periodontograma.san4d;
 
-const placa1i = periodontograma.placa1i;
-const placa1d = periodontograma.placa1d;
-const placa2i = periodontograma.placa2i;
-const placa2d = periodontograma.placa2d;
-const placa3i = periodontograma.placa3i;
-const placa3d = periodontograma.placa3d;
-const placa4i = periodontograma.placa4i;
-const placa4d = periodontograma.placa4d;
+  const placa1i = periodontograma.placa1i;
+  const placa1d = periodontograma.placa1d;
+  const placa2i = periodontograma.placa2i;
+  const placa2d = periodontograma.placa2d;
+  const placa3i = periodontograma.placa3i;
+  const placa3d = periodontograma.placa3d;
+  const placa4i = periodontograma.placa4i;
+  const placa4d = periodontograma.placa4d;
 
-const mar1i = periodontograma.mar1i;
-const mar1d = periodontograma.mar1d;
-const mar2i = periodontograma.mar2i;
-const mar2d = periodontograma.mar2d;
-const mar3i = periodontograma.mar3i;
-const mar3d = periodontograma.mar3d;
-const mar4i = periodontograma.mar4i;
-const mar4d = periodontograma.mar4d;
+  const mar1i = periodontograma.mar1i;
+  const mar1d = periodontograma.mar1d;
+  const mar2i = periodontograma.mar2i;
+  const mar2d = periodontograma.mar2d;
+  const mar3i = periodontograma.mar3i;
+  const mar3d = periodontograma.mar3d;
+  const mar4i = periodontograma.mar4i;
+  const mar4d = periodontograma.mar4d;
 
-const prof1i = periodontograma.prof1i;
-const prof1d = periodontograma.prof1d;
-const prof2i = periodontograma.prof2i;
-const prof2d = periodontograma.prof2d;
-const prof3i = periodontograma.prof3i;
-const prof3d = periodontograma.prof3d;
-const prof4i = periodontograma.prof4i;
-const prof4d = periodontograma.prof4d;
+  const prof1i = periodontograma.prof1i;
+  const prof1d = periodontograma.prof1d;
+  const prof2i = periodontograma.prof2i;
+  const prof2d = periodontograma.prof2d;
+  const prof3i = periodontograma.prof3i;
+  const prof3d = periodontograma.prof3d;
+  const prof4i = periodontograma.prof4i;
+  const prof4d = periodontograma.prof4d;
 
-const diff1i = periodontograma.diff1i;
-const diff1d = periodontograma.diff1d;
-const diff2i = periodontograma.diff2i;
-const diff2d = periodontograma.diff2d;
-const diff3i = periodontograma.diff3i;
-const diff3d = periodontograma.diff3d;
-const diff4i = periodontograma.diff4i;
-const diff4d = periodontograma.diff4d;
+  const diff1i = periodontograma.diff1i;
+  const diff1d = periodontograma.diff1d;
+  const diff2i = periodontograma.diff2i;
+  const diff2d = periodontograma.diff2d;
+  const diff3i = periodontograma.diff3i;
+  const diff3d = periodontograma.diff3d;
+  const diff4i = periodontograma.diff4i;
+  const diff4d = periodontograma.diff4d;
 
-const car1i = periodontograma.car1i;
-const car1d = periodontograma.car1d;
-const car2i = periodontograma.car2i;
-const car2d = periodontograma.car2d;
-const car3i = periodontograma.car3i;
-const car3d = periodontograma.car3d;
-const car4i = periodontograma.car4i;
-const car4d = periodontograma.car4d;
+  const car1i = periodontograma.car1i;
+  const car1d = periodontograma.car1d;
+  const car2i = periodontograma.car2i;
+  const car2d = periodontograma.car2d;
+  const car3i = periodontograma.car3i;
+  const car3d = periodontograma.car3d;
+  const car4i = periodontograma.car4i;
+  const car4d = periodontograma.car4d;
 
-const res1i = periodontograma.res1i;
-const res1d = periodontograma.res1d;
-const res2i = periodontograma.res2i;
-const res2d = periodontograma.res2d;
-const res3i = periodontograma.res3i;
-const res3d = periodontograma.res3d;
-const res4i = periodontograma.res4i;
-const res4d = periodontograma.res4d;
+  const res1i = periodontograma.res1i;
+  const res1d = periodontograma.res1d;
+  const res2i = periodontograma.res2i;
+  const res2d = periodontograma.res2d;
+  const res3i = periodontograma.res3i;
+  const res3d = periodontograma.res3d;
+  const res4i = periodontograma.res4i;
+  const res4d = periodontograma.res4d;
 
-const sup1i = periodontograma.sup1i;
-const sup1d = periodontograma.sup1d;
-const sup2i = periodontograma.sup2i;
-const sup2d = periodontograma.sup2d;
-const sup3i = periodontograma.sup3i;
-const sup3d = periodontograma.sup3d;
-const sup4i = periodontograma.sup4i;
-const sup4d = periodontograma.sup4d;
+  const sup1i = periodontograma.sup1i;
+  const sup1d = periodontograma.sup1d;
+  const sup2i = periodontograma.sup2i;
+  const sup2d = periodontograma.sup2d;
+  const sup3i = periodontograma.sup3i;
+  const sup3d = periodontograma.sup3d;
+  const sup4i = periodontograma.sup4i;
+  const sup4d = periodontograma.sup4d;
 
 
   //Imagenes--------------------------------------------------------------------------------------------
@@ -3087,28 +3088,63 @@ const sup4d = periodontograma.sup4d;
         </div>
 
         {/*datos calculados----------------------------------------------------------   */}
-        <div className="bg-slate-100 text-black max-w-md w-full p-10 rounded-md mt-3 mb-1" style={{ minWidth: "80%", boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
-          <h1>Mayor PS superior: {psMax}mm</h1>
-          <h1>Mayor PS inferior: {psMax2}mm</h1>
-          <h1>Rango de NIC:({nicMin}-{nicMax}) mm</h1>
+        <OfficialCard>
+          <div className="grid grid-cols-3 gap-6">
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-2">
+                <Textorosa>Mayor PS superior:</Textorosa>
+                <Textonegro>{psMax} mm</Textonegro>
+              </div>
+              <div className="flex gap-2">
+                <Textorosa>Mayor PS inferior:</Textorosa>
+                <Textonegro>{psMax2} mm</Textonegro>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-2">
+                {cantDientes == 1 ? (
+                  <>
+                    <Textorosa>Cantidad de dientes:</Textorosa>
+                    <Textonegro>{cantDientes} unidad</Textonegro>
+                  </>
+                ) : (
+                  <>
+                    <Textorosa>Cantidad de dientes:</Textorosa>
+                    <Textonegro>{cantDientes} unidades</Textonegro>
+                  </>
 
-          {cantDientes == 1 ? (<h1>Cantidad de dientes: {cantDientes} unidad</h1>
-          ) : (<h1>Cantidad de dientes: {cantDientes} unidades</h1>
-          )}
+                )}
 
-          {cantDientesNIC == 1 ? (
-            <h1>Cantidad de dientes con NIC  &ge; 1: {cantDientesNIC} unidad</h1>
-          ) : (
-            <h1>Cantidad de dientes con NIC  &ge; 1: {cantDientesNIC} unidades</h1>
-          )}
+              </div>
+              <div className="flex gap-2">
+                {cantDientesNIC == 1 ? (
+                  <>
+                    <Textorosa>Cantidad de dientes con NIC  &ge; 1:</Textorosa>
+                    <Textonegro>{cantDientesNIC} unidad</Textonegro>
+                  </>
 
+                ) : (
+                  <>
+                    <Textorosa>N° dientes con NIC  &ge; 1:</Textorosa>
+                    <Textonegro> {cantDientesNIC} unidades</Textonegro>
+                  </>
 
+                )}
 
-          <h1>Porcentaje de dientes afectados: {porcentajeAfectados}%</h1>
-          <h1>Porcentaje de sangrado: {porcentajeSangre}%</h1>
-
-
-        </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-2">
+                <Textorosa>Porcentaje de dientes afectados: </Textorosa>
+                <Textonegro>{cantDientesNIC} unidades</Textonegro>
+              </div>
+              <div className="flex gap-2">
+                <Textorosa>Porcentaje de sangrado:</Textorosa>
+                <Textonegro>{porcentajeSangre}%</Textonegro>
+              </div>
+            </div>
+          </div>
+        </OfficialCard>
 
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
           {/*TERCERA TABLA IZQUIERDA-----------------------------------------------------------   */}
@@ -4117,7 +4153,7 @@ const sup4d = periodontograma.sup4d;
           </div >
         </div>
 
-       
+
 
 
 

@@ -26,14 +26,10 @@ import { Textorosa } from "../components/ui/Textorosa";
 import { MiniBlack } from "../components/ui/MiniBlack";
 import { MiniYellow } from "../components/ui/MiniYellow";
 import { MiniPurple } from "../components/ui/MiniPurple";
-import { Button2 } from "../components/ui/Button2";
-import { Textonegro } from "../components/ui/Textonegro";
 
-function PeriogramaPage() {
-  const location = useLocation();
-  const paciente = location.state;
-
-  const patient = paciente._id
+function FreePerio() {
+  
+  const patient = ""
 
   //DATOS PRIMERAS 2 TABLAS --------------------------------------------------------------------------
   const nombres1 = ["Movilidad", "Implante", "Furca", "B.O.P.", "Placa", "M.G.", "P.S.", "N.I.C.", "C.R.", "R.M.A", "Sup."]
@@ -3017,22 +3013,15 @@ function PeriogramaPage() {
 
   }, [dientes1i, dientes1d, dientes2i, dientes2d])
 
-  //contar dientes nic >=1
+
   const [cantDientesNIC, setcantDientesNIC] = useState(0)
   const [porcentajeAfectados, setporcentajeAfectados] = useState(0)
 
-  const contarDientesAfectados = (dientes, nic, nic2) => {
-    let cantidadParcial = 0
+  const contarDientesAfectados = (dientes, nic) => {
     let cantidad = 0
     for (let i = 0; i < dientes1i.length; i++) {
-      cantidadParcial = 0
       if (!dientes[i][1] && (nic[i][0] >= 1 || nic[i][1] >= 1 || nic[i][2] >= 1))
-        cantidadParcial++
-      if (!dientes[i][1] && (nic2[i][0] >= 1 || nic2[i][1] >= 1 || nic2[i][2] >= 1))
-        cantidadParcial++
-      if (cantidadParcial > 0) {
         cantidad++
-      }
     }
     return cantidad
   }
@@ -3040,10 +3029,10 @@ function PeriogramaPage() {
     let cantidad = 0
     let porcentaje = 0
     cantidad = cantidad
-      + contarDientesAfectados(dientes1i, diff1i, diff2i)
-      + contarDientesAfectados(dientes1d, diff1d, diff2d)
-      + contarDientesAfectados(dientes2i, diff3i, diff4i)
-      + contarDientesAfectados(dientes2d, diff3d, diff4d)
+      + contarDientesAfectados(dientes1i, diff1i) + contarDientesAfectados(dientes1i, diff2i)
+      + contarDientesAfectados(dientes1d, diff1d) + contarDientesAfectados(dientes1d, diff2d)
+      + contarDientesAfectados(dientes2i, diff3i) + contarDientesAfectados(dientes2i, diff4i)
+      + contarDientesAfectados(dientes2d, diff3d) + contarDientesAfectados(dientes2i, diff4d)
     setcantDientesNIC(cantidad)
     porcentaje = ((cantDientesNIC / cantDientes) * 100).toFixed(2)
     setporcentajeAfectados(porcentaje)
@@ -3398,41 +3387,7 @@ function PeriogramaPage() {
 
       <div className="mb-3 " style={{ color: 'black ', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', }}>
 
-        <div className="w-4/5" style={{ width: "80%" }}>
-          <Subtitulo>PERIODONTOGRAMA</Subtitulo>
-          <OfficialCard>
-
-            <h1 className="text-xl font-bold" style={{ paddingBottom: "30px" }}>Información</h1>
-            <Fila>
-              <Textorosa>Nombre:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto">{paciente.nomPac} {paciente.apellidoPac}</h1>
-            </Fila>
-
-            <Fila>
-              <Textorosa>RUT:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto">{paciente.rutPac}</h1>
-            </Fila>
-            <Fila>
-              <Textorosa>Nacionalidad:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto">{paciente.nacionalidadPac}</h1>
-            </Fila>
-            <Fila>
-              <Textorosa>Fecha de nacimiento:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto"> {new Date(paciente.fecNacPac).toLocaleDateString('es-ES', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-              })}</h1>
-            </Fila>
-            <Fila>
-              <Textorosa>Género:</Textorosa>
-              <h1 className="text-xs block my-1  font-roboto">{paciente.sexo}</h1>
-            </Fila>
-
-
-
-          </OfficialCard>
-        </div>
+       
 
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
 
@@ -4450,7 +4405,7 @@ function PeriogramaPage() {
           </div >
         </div>
 
-        {/*datos calculados----------------------------------------------------------   
+        {/*datos calculados----------------------------------------------------------   */}
         <div className="bg-slate-100 text-black max-w-md w-full p-10 rounded-md mt-3 mb-1" style={{ minWidth: "80%", boxShadow: '5px 5px 10px rgba(0, 0 , 0, 0.5)' }}>
           <h1>Mayor PS superior: {psMax}mm</h1>
           <h1>Mayor PS inferior: {psMax2}mm</h1>
@@ -4472,65 +4427,7 @@ function PeriogramaPage() {
           <h1>Porcentaje de sangrado: {porcentajeSangre}%</h1>
 
 
-        </div>*/}
-        <OfficialCard>
-          <div className="grid grid-cols-3 gap-6">
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2">
-                <Textorosa>Mayor PS superior:</Textorosa>
-                <Textonegro>{psMax} mm</Textonegro>
-              </div>
-              <div className="flex gap-2">
-                <Textorosa>Mayor PS inferior:</Textorosa>
-                <Textonegro>{psMax2} mm</Textonegro>
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2">
-                {cantDientes == 1 ? (
-                  <>
-                    <Textorosa>Cantidad de dientes:</Textorosa>
-                    <Textonegro>{cantDientes} unidad</Textonegro>
-                  </>
-                ) : (
-                  <>
-                    <Textorosa>Cantidad de dientes:</Textorosa>
-                    <Textonegro>{cantDientes} unidades</Textonegro>
-                  </>
-
-                )}
-
-              </div>
-              <div className="flex gap-2">
-                {cantDientesNIC == 1 ? (
-                  <>
-                  <Textorosa>Cantidad de dientes con NIC  &ge; 1:</Textorosa>
-                  <Textonegro>{cantDientesNIC} unidad</Textonegro>
-                  </>
-            
-                ) : (
-                  <>
-                  <Textorosa>N° dientes con NIC  &ge; 1:</Textorosa>
-                  <Textonegro> {cantDientesNIC} unidades</Textonegro>
-                  </>
-                 
-                )}
-                
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2">
-                <Textorosa>Porcentaje de dientes afectados: </Textorosa>
-                <Textonegro>{cantDientesNIC} unidades</Textonegro>
-              </div>
-              <div  className="flex gap-2">
-                <Textorosa>Porcentaje de sangrado:</Textorosa>
-                <Textonegro>{porcentajeSangre}%</Textonegro>
-              </div>
-            </div>
-          </div>
-        </OfficialCard>
-
+        </div>
 
         <div className="flex flex-row" style={{ justifyContent: 'center' }}>
           {/*TERCERA TABLA IZQUIERDA-----------------------------------------------------------   */}
@@ -5539,9 +5436,7 @@ function PeriogramaPage() {
           </div >
         </div>
 
-        <div className="flex flex-row mb-16" style={{ justifyContent: 'center', color: "white" }}>
-          <Button2 onClick={() => onSubmit(patientData)}>Guardar Periodontograma</Button2>
-        </div>
+        
 
 
 
@@ -5555,4 +5450,4 @@ function PeriogramaPage() {
   )
 }
 
-export default PeriogramaPage
+export default FreePerio
