@@ -3022,17 +3022,10 @@ function FreePerio() {
   const [porcentajeAfectados, setporcentajeAfectados] = useState(0)
 
   const contarDientesAfectados = (dientes, nic, nic2) => {
-    let cantidadParcial = 0
     let cantidad = 0
     for (let i = 0; i < dientes1i.length; i++) {
-      cantidadParcial = 0
-      if (!dientes[i][1] && (nic[i][0] >= 1 || nic[i][1] >= 1 || nic[i][2] >= 1))
-        cantidadParcial++
-      if (!dientes[i][1] && (nic2[i][0] >= 1 || nic2[i][1] >= 1 || nic2[i][2] >= 1))
-        cantidadParcial++
-      if (cantidadParcial > 0) {
+      if (!dientes[i][1] && (nic[i][0] >= 1 || nic[i][1] >= 1 || nic[i][2] >= 1 || nic2[i][0] >= 1 || nic2[i][1] >= 1 || nic2[i][2] >= 1 ))
         cantidad++
-      }
     }
     return cantidad
   }
@@ -3040,10 +3033,10 @@ function FreePerio() {
     let cantidad = 0
     let porcentaje = 0
     cantidad = cantidad
-      + contarDientesAfectados(dientes1i, diff1i, diff2i)
-      + contarDientesAfectados(dientes1d, diff1d, diff2d)
-      + contarDientesAfectados(dientes2i, diff3i, diff4i)
-      + contarDientesAfectados(dientes2d, diff3d, diff4d)
+      + contarDientesAfectados(dientes1i, diff1i,diff2i) 
+      + contarDientesAfectados(dientes1d, diff1d,diff2d) 
+      + contarDientesAfectados(dientes2i, diff3i,diff4i) 
+      + contarDientesAfectados(dientes2d, diff3d,diff4d) 
     setcantDientesNIC(cantidad)
     porcentaje = ((cantDientesNIC / cantDientes) * 100).toFixed(2)
     setporcentajeAfectados(porcentaje)
@@ -4490,7 +4483,7 @@ function FreePerio() {
             <div className="flex flex-col gap-2">
               <div className="flex gap-2">
                 <Textorosa>Porcentaje de dientes afectados: </Textorosa>
-                <Textonegro>{cantDientesNIC} unidades</Textonegro>
+                <Textonegro> {porcentajeAfectados}% </Textonegro>
               </div>
               <div  className="flex gap-2">
                 <Textorosa>Porcentaje de sangrado:</Textorosa>
